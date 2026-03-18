@@ -172,6 +172,7 @@ GNU GENERAL PUBLIC LICENSE 3
 ### Features
 - Add wine price tracking  
 - Add an option to share X wines
+- Translate to english and add translation module
 
 ### Visual
 - Add a graph for price tracking  
