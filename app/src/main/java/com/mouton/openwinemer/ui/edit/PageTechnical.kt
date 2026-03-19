@@ -6,6 +6,8 @@ import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.mouton.openwinemer.data.model.WineEntity
+import androidx.compose.ui.res.stringResource
+import com.mouton.openwinemer.R
 
 @Composable
 fun PageTechnical(
