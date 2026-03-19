@@ -11,6 +11,9 @@ import androidx.compose.ui.unit.dp
 import com.mouton.openwinemer.data.model.WineEntity
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.ui.res.stringResource
+import com.mouton.openwinemer.R
+
 
 @Composable
 fun AddEditWineFlow(
