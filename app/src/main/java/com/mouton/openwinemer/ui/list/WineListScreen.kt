@@ -80,18 +80,18 @@ fun WineListScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(8.dp),
-                    placeholder = { Text("Rechercher…") }
+                    placeholder = { Text(stringResource(R.string.search_bar)) }
                 )
 
 
                 // Boutons tri + filtre
                 Row(Modifier.padding(8.dp)) {
                     Button(onClick = { showSortDialog = true }) {
-                        Text("Trier")
+                        Text(stringResource(R.string.sort_dialog))
                     }
                     Spacer(Modifier.width(8.dp))
                     Button(onClick = { showFilterDialog = true }) {
-                        Text("Filtrer")
+                        Text(stringResource(R.string.filter_dialog))
                     }
                 }
             }
@@ -167,9 +167,9 @@ fun WineListItemRow(
             .padding(16.dp)
     ) {
         Column {
-            Text(wine.name ?: "Nom inconnu", style = MaterialTheme.typography.titleMedium)
-            Text(wine.producer ?: "Producteur inconnu")
-            Text("${wine.region ?: "?"} • ${wine.color ?: "?"}")
+            Text(wine.name ?: stringResource(R.string.unknown_wine_name), style = MaterialTheme.typography.titleMedium)
+            Text(wine.producer ?: stringResource(R.string.unknown_wine_producer))
+            Text(stringResource(wine.region ?: R.string.unknown_wine_region, " • ", wine.color ?: R.string.unknown_wine_color))}
         }
     }
 }
@@ -182,7 +182,7 @@ fun SortDialog(
 ) {
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text("Trier par") },
+        title = { Text(stringResource(R.string.sort_by_button) },
         text = {
             Column {
                 SortMode.values().forEach { mode ->
@@ -207,18 +207,18 @@ fun FilterDialog(
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text("Filtres") },
+        title = { Text(stringResource(R.string.filter_list)) },
         text = {
             Column {
                 OutlinedTextField(
                     value = region,
                     onValueChange = { region = it },
-                    label = { Text("Région") }
+                    label = { Text(stringResource(R.string.region_label)) }
                 )
                 OutlinedTextField(
                     value = color,
                     onValueChange = { color = it },
-                    label = { Text("Couleur") }
+                    label = { Text(stringResource(R.string.color_label)) }
                 )
             }
         },
@@ -226,7 +226,7 @@ fun FilterDialog(
             TextButton(onClick = {
                 onApply(region.ifBlank { null }, color.ifBlank { null })
             }) {
-                Text("Appliquer")
+                Text(stringResource(R.string.apply))
             }
         }
     )
