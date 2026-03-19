@@ -66,4 +66,3 @@ if __name__ == "__main__":
             f.write(svg)
 
         logging.info(f"SVG généré : {filename}")
-``
