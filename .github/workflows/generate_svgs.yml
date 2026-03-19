@@ -23,7 +23,7 @@ jobs:
         run: pip install requests
 
       - name: Generate SVGs
-        run: python .github/generated_svgs/generate_svgs.py
+        run: python .github/generated_svgs/generate_issue_cards.py
 
       - name: Commit & push
         run: |
