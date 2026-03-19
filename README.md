@@ -56,6 +56,7 @@ L’objectif est de fournir une application élégante, rapide, intuitive et tot
 
 ### 🏷️ Informations générales
 <details>
+    
 - Nom du vin  
 - Producteur / Domaine  
 - Cuvée  
@@ -66,7 +67,7 @@ L’objectif est de fournir une application élégante, rapide, intuitive et tot
 
 ### 🌍 Origine
 <details>
-
+    
 - Pays  
 - Région viticole  
 - Sous-région  
@@ -76,6 +77,7 @@ L’objectif est de fournir une application élégante, rapide, intuitive et tot
 
 ### 🍇 Cépages
 <details>
+    
 - Cépage principal  
 - Assemblage  
 - Pourcentage de chaque cépage
@@ -83,6 +85,7 @@ L’objectif est de fournir une application élégante, rapide, intuitive et tot
 
 ### ⚗️ Caractéristiques techniques
 <details>
+    
 - Teneur en alcool (%)  
 - Sucre résiduel  
 - Acidité  
@@ -94,6 +97,7 @@ L’objectif est de fournir une application élégante, rapide, intuitive et tot
 
 ### 🛢️ Vinification & élevage
 <details>
+    
 - Méthode de vinification  
 - Type de fermentation  
 - Durée d’élevage  
@@ -103,6 +107,7 @@ L’objectif est de fournir une application élégante, rapide, intuitive et tot
 
 ### 👁️ Dégustation
 <details>
+    
 - Aspect visuel  
 - Arômes  
 - Saveurs  
@@ -113,6 +118,7 @@ L’objectif est de fournir une application élégante, rapide, intuitive et tot
 
 ### 🍽️ Accords & contexte
 <details>
+    
 - Plats recommandés  
 - Type de cuisine  
 - Occasions  
@@ -125,6 +131,7 @@ L’objectif est de fournir une application élégante, rapide, intuitive et tot
 
 ### 💶 Informations commerciales
 <details>
+    
 - Prix  
 - Disponibilité  
 - Distributeur / caviste  
@@ -138,6 +145,7 @@ L’objectif est de fournir une application élégante, rapide, intuitive et tot
 
 ### 📝 Divers
 <details>
+    
 - Description générale
 </details>
 
