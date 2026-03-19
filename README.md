@@ -19,12 +19,11 @@
     - [💶 Informations commerciales](#-informations-commerciales)
     - [📝 Divers](#-divers)
   - [🧱 Architecture technique](#-architecture-technique)
-  - [🚀 Fonctionnalités futures](#-fonctionnalités-futures)
   - [🧪 Tests](#-tests)
   - [📦 Export \& sauvegarde](#-export--sauvegarde)
   - [🧰 Installation](#-installation)
   - [📄 Licence](#-licence)
-  - [⏰ A faire plus tard](#-a-faire-plus-tard)
+  - [🚧 A faire plus tard](#-a-faire-plus-tard)
     - [Fonctions](#fonctions)
     - [Visuel](#visuel)
   - [Usage de l'IA](#usage-de-lia)
@@ -131,14 +130,6 @@ L’objectif est de fournir une application élégante, rapide, intuitive et tot
 - Navigation Compose multi-écrans
 - Export CSV/Excel via librairies dédiées
 - Architecture **MVVM**
-
----
-
-## 🚀 Fonctionnalités futures
-- Recherche avancée  
-- Statistiques (répartition par pays, couleurs, millésimes…)  
-- Mode tablette optimisé  
-- Sauvegarde locale chiffrée  
 
 ---
 
