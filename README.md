@@ -168,16 +168,18 @@ GNU GENERAL PUBLIC LICENSE 3
 
 ---
 
-## ⏰ A faire plus tard
-### Fonctions
-- Incorporer un suivi des prix des vins ;
-- Ajouter une option pour partager X vins ;
-- Traduction anglaise et implémentation des changements de langue ;
-- Finir l'export csv.
+## 🚧 A faire plus tard
+- ✨ Avec un coup de baguette wati magique les infos suivantes sont mises à jour via les [Issues](https://github.com/foll0wer/openwinemer/issues?q=is%3Aissue%20sort%3Aupdated-desc) du projet.
+- 💡 Cliquer sur une des celules pour voir l'avancement.
+- 🤝 Bon pour l'instant je sais pas quand je travaillerai dessus, et je sais que je n'ai que 0 follower, mais si il y a des demandes je pourrais m'y pencher.
 
-### Visuel
-- Ajouter un graph pour le suivi des prix ;
-- Ajouter bulle de dialogue "tuto" qui explique comment marche l'appli au premier démarrage.
+<div align="center">
+  <a href="https://github.com/foll0wer/openwinemer/issues?q=state%3Aopen"><img src=""/></a>
+  <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Atodo"><img src=""/></a>
+  <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Adoing"><img src=""/></a>
+  <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Areview"><img src=""/></a>
+  <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Adone"><img src=""/></a>
+</div>
 
 ---
 
