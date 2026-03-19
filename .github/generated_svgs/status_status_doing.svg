@@ -1,5 +1,5 @@
 
-<svg width="600" height="120" xmlns="http://www.w3.org/2000/svg">
+<svg width="130" height="110" xmlns="http://www.w3.org/2000/svg">
 
 <style>
     :root {
@@ -145,18 +145,14 @@
 </style>
 
 
-<rect class="card" x="0" y="0" width="600" height="120" />
+<rect class="card" x="0" y="0" width="130" height="110" />
 
-<text class="title" x="20" y="40" font-size="18">Add "share" option to wines <tspan fill="#999">#2</tspan></text>
+<g transform="translate(65.0, 20)">
+    <rect x="-51.0" y="0" width="102" height="24"
+          rx="12" fill="#eddb76" stroke="#eddb76" stroke-width="0.5"/>
+    <text class="label" x="0" y="17" text-anchor="middle" fill="white">status:doing</text>
+</g>
 
-<text x="20" y="70" fill="#666">Créé par foll0wer · 0 commentaires</text>
-
-
-        <rect x="510" y="10" width="70" height="20" rx="10" fill="#a2eeef" />
-        <text x="545" y="25" text-anchor="middle" font-size="12" fill="white">enhancement</text>
-        
-        <rect x="420" y="10" width="70" height="20" rx="10" fill="#4e0c64" />
-        <text x="455" y="25" text-anchor="middle" font-size="12" fill="white">status:todo</text>
-        
+<text class="counter" x="65.0" y="90" text-anchor="middle">1</text>
 
 </svg>
