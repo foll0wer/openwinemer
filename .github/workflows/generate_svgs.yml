@@ -20,7 +20,9 @@ jobs:
           python-version: "3.10"
 
       - name: Install deps
-        run: pip install requests
+        run: |
+          pip install requests
+          pip install common
 
       - name: Generate SVGs
         run: python .github/generated_svgs/generate_issue_cards.py
