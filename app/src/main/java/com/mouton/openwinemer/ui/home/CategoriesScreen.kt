@@ -20,7 +20,7 @@ fun CategoriesScreen(
             onClick = onShowByRegion,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Vins par région")
+            Text(stringResource(R.string.wines_by_region))
         }
 
         Spacer(Modifier.height(16.dp))
@@ -29,7 +29,7 @@ fun CategoriesScreen(
             onClick = onShowByColor,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Vins par couleur")
+            Text(stringResource(R.string.wines_by_color))
         }
     }
 }
