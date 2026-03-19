@@ -17,6 +17,8 @@ import com.mouton.openwinemer.data.model.WineEntity
 import kotlinx.coroutines.launch
 import androidx.compose.runtime.collectAsState
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.ui.res.stringResource
+import com.mouton.openwinemer.R
 
 /**
  * Écran listant les vins avec :
@@ -50,21 +52,21 @@ fun WineListScreen(
             Column {
                 TopAppBar(
                     title = {
-                        if (selectedIds.isEmpty()) Text("Vins")
-                        else Text("${selectedIds.size} sélectionné(s)")
+                        if (selectedIds.isEmpty()) Text(stringResource(R.string.wines))
+                        else Text(stringResource(selectedIds.size, R.string.selected_amount))
                     },
                     actions = {
                         if (selectedIds.isNotEmpty()) {
                             TextButton(onClick = {
                                 selectedIds = wines.map { it.id }.toSet()
-                            }) { Text("Tout sélectionner") }
+                            }) { Text(stringResource(R.string.select_all)) }
 
                             TextButton(onClick = {
                                 scope.launch {
                                     viewModel.deleteWines(selectedIds)
                                     selectedIds = emptySet()
                                 }
-                            }) { Text("Supprimer") }
+                            }) { Text(stringResource(R.string.delete_all)) }
                         }
                     }
                 )

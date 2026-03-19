@@ -15,6 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import com.mouton.openwinemer.ui.navigation.OpenWinemerNavGraph
 import com.mouton.openwinemer.ui.theme.OpenWinemerTheme
 import androidx.compose.foundation.layout.padding
+import androidx.compose.ui.res.stringResource
 
 
 @AndroidEntryPoint
@@ -33,19 +34,19 @@ class MainActivity : ComponentActivity() {
                                 selected = false,
                                 onClick = { navController.navigate("home") },
                                 icon = { Icon(Icons.Default.Home, contentDescription = null) },
-                                label = { Text("Home") }
+                                label = { Text(stringResource(R.string.home_button)) }
                             )
                             NavigationBarItem(
                                 selected = false,
                                 onClick = { navController.navigate("categories") },
                                 icon = { Icon(Icons.Default.List, contentDescription = null) },
-                                label = { Text("Catégories") }
+                                label = { Text(stringResource(R.string.navbar_categories)) }
                             )
                             NavigationBarItem(
                                 selected = false,
                                 onClick = { navController.navigate("settings") },
                                 icon = { Icon(Icons.Default.Settings, contentDescription = null) },
-                                label = { Text("Paramètres") }
+                                label = { Text(stringResource(R.string.navbar_settings)) }
                             )
                         }
                     }

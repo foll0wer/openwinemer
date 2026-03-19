@@ -173,6 +173,7 @@ GNU GENERAL PUBLIC LICENSE 3
 - Add wine price tracking  
 - Add an option to share X wines
 - Translate to english and add translation module
+- Finish complete csv export file
 
 ### Visual
 - Add a graph for price tracking  
@@ -183,3 +184,6 @@ GNU GENERAL PUBLIC LICENSE 3
 ## Use of AI
 AI was used in this project, mainly for error resolution (first Kotlin project for me, I know nothing about it) and for docstrings.  
 Estimated carbon footprint: 200g.
+
+### Icon
+[Wine icon created by Smashicons - Flaticon.](https://www.flaticon.com/free-icons/wine).

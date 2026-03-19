@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">openwinemer</string>
+    <string name="home_button">Accueil</string>
+    <string name="navbar_categories">Catégories</string>
+    <string name="navbar_settings">Paramètres</string>
+    <string name="settings_screen">Paramètres</string>
+    <string name="cave_backup_page">Backup de la cave</string>
+    <string name="password_prompt">Mot de passe (optionnel)</string>
+    <string name="json_export_button">Exporter backup JSON</string>
+    <string name="json_import_button">Importer backup JSON</string>
+    <string name="csv_export_button">Exporter CSV</string>
+    <string name="excel_export_button">Exporter Excel</string>
+    <string name="sort_by_button">Trier par %1$s</string>
+    <string name="region_label">Région</string>
+    <string name="color_label">Couleur</string>
+    <string name="year_label">Millésime</string>
+    <string name="wines">Vins</string>
+    <string name="selected_amount">sélectionné(s)</string>
+    <string name="select_all">Tout sélectionner</string>
+    <string name="delete_all">Tout supprimer</string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
 </resources>

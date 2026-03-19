@@ -10,6 +10,8 @@ import com.mouton.openwinemer.util.FilterOptions
 import com.mouton.openwinemer.util.SortField
 import com.mouton.openwinemer.util.SortOption
 import com.mouton.openwinemer.util.SortOrder
+import androidx.compose.ui.res.stringResource
+import com.mouton.openwinemer.R
 
 @Composable
 fun FilterSortBar(
@@ -37,7 +39,7 @@ fun FilterSortBar(
             var expanded by remember { mutableStateOf(false) }
             Box {
                 OutlinedButton(onClick = { expanded = true }) {
-                    Text("Trier par: ${currentSort.field.name}")
+                    Text(stringResource(R.string.sort_by_button, currentSort.field.name))
                 }
                 DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
                     SortField.values().forEach { field ->
@@ -73,7 +75,7 @@ fun FilterSortBar(
                     currentFilters.copy(region = it.ifBlank { null })
                 )
             },
-            label = { Text("Région") },
+            label = { Text(stringResource(R.string.region_label)) },
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -87,7 +89,7 @@ fun FilterSortBar(
                     currentFilters.copy(color = it.ifBlank { null })
                 )
             },
-            label = { Text("Couleur") },
+            label = { Text(stringResource(R.string.color_label)) },
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -102,7 +104,7 @@ fun FilterSortBar(
                     currentFilters.copy(vintage = vintage)
                 )
             },
-            label = { Text("Millésime") },
+            label = { Text(stringResource(R.string.year_label)) },
             modifier = Modifier.fillMaxWidth()
         )
     }

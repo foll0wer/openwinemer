@@ -172,7 +172,8 @@ GNU GENERAL PUBLIC LICENSE 3
 ### Fonctions
 - Incorporer un suivi des prix des vins ;
 - Ajouter une option pour partager X vins ;
-- Traduction anglaise et implémentation des changements de langue.
+- Traduction anglaise et implémentation des changements de langue ;
+- Finir l'export csv.
 
 ### Visuel
 - Ajouter un graph pour le suivi des prix ;
@@ -183,3 +184,6 @@ GNU GENERAL PUBLIC LICENSE 3
 ## Usage de l'IA
 L'IA a été utilisé pour ce projet, notamment pour la résolution des erreurs (premier projet en kotlin pour moi, j'y connais rien) et les docstrings.
 Estimation d'empreinte carbone : 200g.
+
+### Icon
+[Wine icon created by Smashicons - Flaticon.](https://www.flaticon.com/free-icons/wine).

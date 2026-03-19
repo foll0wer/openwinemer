@@ -10,9 +10,11 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import kotlinx.coroutines.launch
+import com.mouton.openwinemer.R
 
 /**
  * Écran des paramètres :
@@ -84,7 +86,7 @@ fun SettingsScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Paramètres") },
+                title = { Text(stringResource(R.string.settings_screen)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) { Text("<") }
                 }
@@ -98,14 +100,14 @@ fun SettingsScreen(
                 .padding(16.dp)
                 .fillMaxSize()
         ) {
-            Text("Backup de la cave", style = MaterialTheme.typography.titleMedium)
+            Text(stringResource(R.string.cave_backup_page), style = MaterialTheme.typography.titleMedium)
             Spacer(Modifier.height(8.dp))
 
             // Champ pour saisir un mot de passe optionnel.
             OutlinedTextField(
                 value = password,
                 onValueChange = { password = it },
-                label = { Text("Mot de passe (optionnel)") },
+                label = { Text(stringResource(R.string.password_prompt)) },
                 modifier = Modifier.fillMaxWidth()
             )
 
@@ -116,7 +118,7 @@ fun SettingsScreen(
                 onClick = { exportJsonLauncher.launch(null) },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Exporter backup JSON")
+                Text(stringResource(R.string.json_export_button))
             }
 
             Spacer(Modifier.height(8.dp))
@@ -126,7 +128,7 @@ fun SettingsScreen(
                 onClick = { importJsonLauncher.launch("*/*") },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Importer backup JSON")
+                Text(stringResource(com.mouton.openwinemer.R.string.json_import_button))
             }
 
             Spacer(Modifier.height(24.dp))
@@ -136,7 +138,7 @@ fun SettingsScreen(
                 onClick = { exportCsvLauncher.launch(null) },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Exporter CSV")
+                Text(stringResource(com.mouton.openwinemer.R.string.csv_export_button))
             }
 
             Spacer(Modifier.height(8.dp))
@@ -146,7 +148,7 @@ fun SettingsScreen(
                 onClick = { exportExcelLauncher.launch(null) },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Exporter Excel (CSV)")
+                Text(stringResource(com.mouton.openwinemer.R.string.excel_export_button))
             }
         }
     }
