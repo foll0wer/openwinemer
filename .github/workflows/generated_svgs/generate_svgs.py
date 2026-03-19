@@ -19,5 +19,5 @@ def make_svg(issue):
 issues = requests.get(API_URL).json()
 
 for i, issue in enumerate(issues):
-    with open(f".github/workflows/generated_svgs/issue_{i}.svg", "w", encoding="utf-8") as f:
+    with open(f".github/generated_svgs/issue_{i}.svg", "w", encoding="utf-8") as f:
         f.write(make_svg(issue))
