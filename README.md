@@ -207,3 +207,10 @@ Estimation d'empreinte carbone : 200g.
 
 ### Icon
 [Wine icon created by Smashicons - Flaticon.](https://www.flaticon.com/free-icons/wine).
+
+Test
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/foll0wer/openwinemer/generated-svgs/issue_0.svg"/>
+</div>
+
