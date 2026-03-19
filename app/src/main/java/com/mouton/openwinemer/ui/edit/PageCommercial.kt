@@ -24,7 +24,7 @@ fun PageCommercial(
         OutlinedTextField(
             value = wine.ageingPotential ?: "",
             onValueChange = { onWineChange(wine.copy(ageingPotential = it.ifBlank { null })) },
-            label = { Text("Potentiel de garde") },
+            label = { Text(stringResource(R.string.wine_aging_potential)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -32,7 +32,7 @@ fun PageCommercial(
         OutlinedTextField(
             value = wine.optimalDrinkDate ?: "",
             onValueChange = { onWineChange(wine.copy(optimalDrinkDate = it.ifBlank { null })) },
-            label = { Text("Date optimale de consommation") },
+            label = { Text(stringResource(R.string.wine_optimal_date)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -40,7 +40,7 @@ fun PageCommercial(
         OutlinedTextField(
             value = wine.labelCondition ?: "",
             onValueChange = { onWineChange(wine.copy(labelCondition = it.ifBlank { null })) },
-            label = { Text("État de l’étiquette") },
+            label = { Text(stringResource(R.string.wine_label_state)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -48,7 +48,7 @@ fun PageCommercial(
         OutlinedTextField(
             value = wine.awards ?: "",
             onValueChange = { onWineChange(wine.copy(awards = it.ifBlank { null })) },
-            label = { Text("Récompenses") },
+            label = { Text(stringResource(R.string.wine_awards)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -56,7 +56,7 @@ fun PageCommercial(
         OutlinedTextField(
             value = wine.reviews ?: "",
             onValueChange = { onWineChange(wine.copy(reviews = it.ifBlank { null })) },
-            label = { Text("Critiques") },
+            label = { Text(stringResource(R.string.wine_critics)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -64,7 +64,7 @@ fun PageCommercial(
         OutlinedTextField(
             value = wine.price?.toString() ?: "",
             onValueChange = { onWineChange(wine.copy(price = it.toDoubleOrNull())) },
-            label = { Text("Prix (€)") },
+            label = { Text(stringResource(R.string.wine_price)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -72,7 +72,7 @@ fun PageCommercial(
         OutlinedTextField(
             value = wine.availability ?: "",
             onValueChange = { onWineChange(wine.copy(availability = it.ifBlank { null })) },
-            label = { Text("Disponibilité") },
+            label = { Text(stringResource(R.string.wine_availability)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -80,7 +80,7 @@ fun PageCommercial(
         OutlinedTextField(
             value = wine.distributor ?: "",
             onValueChange = { onWineChange(wine.copy(distributor = it.ifBlank { null })) },
-            label = { Text("Distributeur") },
+            label = { Text(stringResource(R.string.wine_distributor)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -88,7 +88,7 @@ fun PageCommercial(
         OutlinedTextField(
             value = wine.sku ?: "",
             onValueChange = { onWineChange(wine.copy(sku = it.ifBlank { null })) },
-            label = { Text("SKU") },
+            label = { Text(stringResource(R.string.wine_sku)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -96,7 +96,7 @@ fun PageCommercial(
         OutlinedTextField(
             value = wine.barcode ?: "",
             onValueChange = { onWineChange(wine.copy(barcode = it.ifBlank { null })) },
-            label = { Text("Code-barres") },
+            label = { Text(stringResource(R.string.wine_barcode)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -104,7 +104,7 @@ fun PageCommercial(
         OutlinedTextField(
             value = wine.stockQuantity?.toString() ?: "",
             onValueChange = { onWineChange(wine.copy(stockQuantity = it.toIntOrNull())) },
-            label = { Text("Quantité en stock") },
+            label = { Text(stringResource(R.string.wine_stock)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -112,7 +112,7 @@ fun PageCommercial(
         OutlinedTextField(
             value = wine.location ?: "",
             onValueChange = { onWineChange(wine.copy(location = it.ifBlank { null })) },
-            label = { Text("Emplacement") },
+            label = { Text(stringResource(R.string.wine_storage_location)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -120,7 +120,7 @@ fun PageCommercial(
         OutlinedTextField(
             value = wine.purchaseDate ?: "",
             onValueChange = { onWineChange(wine.copy(purchaseDate = it.ifBlank { null })) },
-            label = { Text("Date d’achat") },
+            label = { Text(stringResource(R.string.wine_buy_date)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -128,7 +128,7 @@ fun PageCommercial(
         OutlinedTextField(
             value = wine.purchasePrice?.toString() ?: "",
             onValueChange = { onWineChange(wine.copy(purchasePrice = it.toDoubleOrNull())) },
-            label = { Text("Prix d’achat (€)") },
+            label = { Text(stringResource(R.string.wine_buy_price)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -136,7 +136,7 @@ fun PageCommercial(
         OutlinedTextField(
             value = wine.generalDescription ?: "",
             onValueChange = { onWineChange(wine.copy(generalDescription = it.ifBlank { null })) },
-            label = { Text("Description générale") },
+            label = { Text(stringResource(R.string.wine_general_desc)) },
             modifier = Modifier.fillMaxWidth()
         )
     }
