@@ -13,6 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import kotlinx.coroutines.launch
+import androidx.compose.ui.res.stringResource
+import com.mouton.openwinemer.R
+
 
 /**
  * Écran affichant les détails d'un vin.
@@ -42,16 +45,16 @@ fun WineDetailScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(wine?.name ?: "Détail du vin") },
+                title = { Text(stringResource(wine?.name ?: R.string.wine_details)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) { Text("<") }
                 },
                 actions = {
                     IconButton(onClick = { onEdit(wineId) }) {
-                        Icon(Icons.Filled.Edit, contentDescription = "Modifier")
+                        Icon(Icons.Filled.Edit, contentDescription = stringResource(R.string.edit_button))
                     }
                     IconButton(onClick = { showDeleteDialog = true }) {
-                        Icon(Icons.Filled.Delete, contentDescription = "Supprimer")
+                        Icon(Icons.Filled.Delete, contentDescription = stringResource(R.string.delete_button))
                     }
                 }
             )
@@ -64,15 +67,15 @@ fun WineDetailScreen(
                     .padding(16.dp)
                     .fillMaxSize()
             ) {
-                Text("Nom : ${current.name ?: "-"}")
-                Text("Producteur : ${current.producer ?: "-"}")
-                Text("Région : ${current.region ?: "-"}")
-                Text("Couleur : ${current.color ?: "-"}")
-                Text("Millésime : ${current.vintage ?: "-"}")
+                Text(stringResource(R.string.name, " : ", current.name ?: "-"))
+                Text(stringResource(R.string.wine_producer, " : ", current.producer ?: "-"))
+                Text(stringResource(R.string.region_label, " : ", current.region ?: "-"))
+                Text(stringResource(R.string.color_label, " : ", current.color ?: "-"))
+                Text(stringResource(R.string.year_label, " : ", current.vintage ?: "-"))
 
                 Spacer(Modifier.height(16.dp))
 
-                Text("Stock actuel : ${current.stockQuantity ?: 0}")
+                Text(stringResource(R.string.wine_stock, " : ", current.stockQuantity ?: 0))
                 Row {
                     Button(onClick = { viewModel.updateStock(-1) }) {
                         Text("-")
@@ -85,7 +88,7 @@ fun WineDetailScreen(
 
                 Spacer(Modifier.height(24.dp))
 
-                Text("Description : ${current.generalDescription ?: "-"}")
+                Text(stringResource(R.string.wine_general_desc, " : ", current.generalDescription ?: "-"))
             }
         } ?: Box(
             modifier = Modifier
@@ -100,8 +103,8 @@ fun WineDetailScreen(
     if (showDeleteDialog) {
         AlertDialog(
             onDismissRequest = { showDeleteDialog = false },
-            title = { Text("Supprimer ce vin ?") },
-            text = { Text("Cette action est irréversible.") },
+            title = { Text(stringResource(R.string.delete_prompt)) },
+            text = { Text(stringResource(R.string.cannot_undo)) },
             confirmButton = {
                 TextButton(onClick = {
                     showDeleteDialog = false
@@ -111,12 +114,12 @@ fun WineDetailScreen(
                         }
                     }
                 }) {
-                    Text("Supprimer")
+                    Text(stringResource(R.string.delete_button))
                 }
             },
             dismissButton = {
                 TextButton(onClick = { showDeleteDialog = false }) {
-                    Text("Annuler")
+                    Text(stringResource(R.string.cancel_button))
                 }
             }
         )
