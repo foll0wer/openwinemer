@@ -6,6 +6,12 @@
 import logging
 from github_data import fetch_top_issues
 from common import STYLE
+import os
+
+OUTPUT_DIR = os.path.join(".github", "generated_svgs")
+
+# Crée le dossier si inexistant
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 logging.basicConfig(level=logging.INFO, format='[%(levelname)s] %(message)s')
 
@@ -55,7 +61,8 @@ if __name__ == "__main__":
         svg = generate_issue_svg(issue)
 
         filename = f"issue_{i}.svg"
-        with open(filename, "w") as f:
+        filepath = os.path.join(OUTPUT_DIR, filename)
+        with open(filepath, "w") as f:
             f.write(svg)
 
         logging.info(f"SVG généré : {filename}")
