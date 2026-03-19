@@ -211,6 +211,6 @@ Estimation d'empreinte carbone : 200g.
 Test
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/foll0wer/openwinemer/.github/generated_svgs/issue_0.svg"/>
+  <img src="https://github.com/foll0wer/openwinemer/blob/main/.github/generated_svgs/issue_0.svg"/>
 </div>
 
