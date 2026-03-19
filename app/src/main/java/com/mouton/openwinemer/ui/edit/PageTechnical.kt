@@ -21,7 +21,7 @@ fun PageTechnical(
         OutlinedTextField(
             value = wine.alcohol?.toString() ?: "",
             onValueChange = { onWineChange(wine.copy(alcohol = it.toDoubleOrNull())) },
-            label = { Text("Teneur en alcool (%)") },
+            label = { Text(stringResource(R.string.wine_alcohol)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -29,7 +29,7 @@ fun PageTechnical(
         OutlinedTextField(
             value = wine.residualSugar?.toString() ?: "",
             onValueChange = { onWineChange(wine.copy(residualSugar = it.toDoubleOrNull())) },
-            label = { Text("Sucre résiduel") },
+            label = { Text(stringResource(R.string.wine_sugar)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -37,7 +37,7 @@ fun PageTechnical(
         OutlinedTextField(
             value = wine.acidity?.toString() ?: "",
             onValueChange = { onWineChange(wine.copy(acidity = it.toDoubleOrNull())) },
-            label = { Text("Acidité") },
+            label = { Text(stringResource(R.string.wine_acidity)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -45,7 +45,7 @@ fun PageTechnical(
         OutlinedTextField(
             value = wine.ph?.toString() ?: "",
             onValueChange = { onWineChange(wine.copy(ph = it.toDoubleOrNull())) },
-            label = { Text("pH") },
+            label = { Text(stringResource(R.string.wine_ph)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -53,7 +53,7 @@ fun PageTechnical(
         OutlinedTextField(
             value = wine.volumeMl?.toString() ?: "",
             onValueChange = { onWineChange(wine.copy(volumeMl = it.toIntOrNull())) },
-            label = { Text("Volume (ml)") },
+            label = { Text(stringResource(R.string.wine_vol)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -61,7 +61,7 @@ fun PageTechnical(
         OutlinedTextField(
             value = wine.closureType ?: "",
             onValueChange = { onWineChange(wine.copy(closureType = it.ifBlank { null })) },
-            label = { Text("Type de bouchon") },
+            label = { Text(stringResource(R.string.wine_cork)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -69,7 +69,7 @@ fun PageTechnical(
         OutlinedTextField(
             value = wine.servingTemp ?: "",
             onValueChange = { onWineChange(wine.copy(servingTemp = it.ifBlank { null })) },
-            label = { Text("Température de service") },
+            label = { Text(stringResource(R.string.wine_service_temp)) },
             modifier = Modifier.fillMaxWidth()
         )
     }
