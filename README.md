@@ -55,26 +55,33 @@ L’objectif est de fournir une application élégante, rapide, intuitive et tot
 ## 🗂️ Champs disponibles pour chaque vin
 
 ### 🏷️ Informations générales
+<details>
 - Nom du vin  
 - Producteur / Domaine  
 - Cuvée  
 - Millésime  
 - Type de vin (effervescent, liquoreux, sec, demi-sec, doux, liqueur, autre)  
 - Couleur (rouge, blanc, rosé, autre)
+</details>
 
 ### 🌍 Origine
+<details>
 - Pays  
 - Région viticole  
 - Sous-région  
 - Appellation  
 - Classement (Grand Cru, Premier Cru…)
+</details>
 
 ### 🍇 Cépages
+<details>
 - Cépage principal  
 - Assemblage  
 - Pourcentage de chaque cépage
+</details>
 
 ### ⚗️ Caractéristiques techniques
+<details>
 - Teneur en alcool (%)  
 - Sucre résiduel  
 - Acidité  
@@ -82,23 +89,29 @@ L’objectif est de fournir une application élégante, rapide, intuitive et tot
 - Volume de la bouteille  
 - Type de bouchon  
 - Température de service
+</details>
 
 ### 🛢️ Vinification & élevage
+<details>
 - Méthode de vinification  
 - Type de fermentation  
 - Durée d’élevage  
 - Type de fût  
 - Temps en barrique
+</details>
 
 ### 👁️ Dégustation
+<details>
 - Aspect visuel  
 - Arômes  
 - Saveurs  
 - Structure (tanins, acidité, corps)  
 - Finale  
 - Note globale
+</details>
 
 ### 🍽️ Accords & contexte
+<details>
 - Plats recommandés  
 - Type de cuisine  
 - Occasions  
@@ -107,8 +120,10 @@ L’objectif est de fournir une application élégante, rapide, intuitive et tot
 - État de l’étiquette  
 - Récompenses / médailles  
 - Critiques reconnues
+</details>
 
 ### 💶 Informations commerciales
+<details>
 - Prix  
 - Disponibilité  
 - Distributeur / caviste  
@@ -118,9 +133,12 @@ L’objectif est de fournir une application élégante, rapide, intuitive et tot
 - Emplacement dans la cave  
 - Date d’achat  
 - Prix d’achat
+</details>
 
 ### 📝 Divers
+<details>
 - Description générale
+</details>
 
 ---
 
