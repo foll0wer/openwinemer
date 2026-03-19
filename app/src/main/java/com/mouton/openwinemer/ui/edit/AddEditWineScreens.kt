@@ -30,9 +30,9 @@ fun AddEditWineFlow(
                 title = {
                     Text(
                         if (wineId == null || wineId <= 0)
-                            "Ajouter un vin"
+                            stringResource(R.string.add_wine)
                         else
-                            "Modifier un vin"
+                            stringResource(R.string.edit_wine)
                     )
                 },
                 navigationIcon = {
@@ -51,16 +51,16 @@ fun AddEditWineFlow(
             ) {
                 if (state.currentPage > 0) {
                     OutlinedButton(onClick = { viewModel.previousPage() }) {
-                        Text("Précédent")
+                        Text(stringResource(R.string.previous))
                     }
                 }
                 if (state.currentPage < 5) {
                     Button(onClick = { viewModel.nextPage() }) {
-                        Text("Suivant")
+                        Text(stringResource(R.string.next))
                     }
                 } else {
                     Button(onClick = { viewModel.save(onFinished) }) {
-                        Text("Enregistrer")
+                        Text(stringResource(R.string.save))
                     }
                 }
             }
@@ -128,21 +128,21 @@ fun PageIdentification(
         OutlinedTextField(
             value = wine.name ?: "",
             onValueChange = { onWineChange(wine.copy(name = it.ifBlank { null })) },
-            label = { Text("Nom du vin") },
+            label = { Text(stringResource(R.string.wine_name)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
         OutlinedTextField(
             value = wine.producer ?: "",
             onValueChange = { onWineChange(wine.copy(producer = it.ifBlank { null })) },
-            label = { Text("Producteur") },
+            label = { Text(stringResource(R.string.wine_producer)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
         OutlinedTextField(
             value = wine.cuvee ?: "",
             onValueChange = { onWineChange(wine.copy(cuvee = it.ifBlank { null })) },
-            label = { Text("Cuvée") },
+            label = { Text(stringResource(R.string.wine_batch)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -152,21 +152,21 @@ fun PageIdentification(
                 val v = it.toIntOrNull()
                 onWineChange(wine.copy(vintage = v))
             },
-            label = { Text("Millésime") },
+            label = { Text(stringResource(R.string.year_label)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
         OutlinedTextField(
             value = wine.wineType ?: "",
             onValueChange = { onWineChange(wine.copy(wineType = it.ifBlank { null })) },
-            label = { Text("Type de vin") },
+            label = { Text(stringResource(R.string.wine_type)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
         OutlinedTextField(
             value = wine.color ?: "",
             onValueChange = { onWineChange(wine.copy(color = it.ifBlank { null })) },
-            label = { Text("Couleur") },
+            label = { Text(stringResource(R.string.color_label)) },
             modifier = Modifier.fillMaxWidth()
         )
     }
