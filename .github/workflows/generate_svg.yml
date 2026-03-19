@@ -1,0 +1,55 @@
+name: Generate SVG Cards
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # Toutes les heures
+  workflow_dispatch:       # Permet un lancement manuel
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1) Récupération du repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2) Installation Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # 3) Installation des dépendances (si besoin)
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      # 4) Exécuter les scripts de génération
+      - name: Generate status SVGs
+        run: |
+          python .github/scripts/gen_status_cards.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate issue SVGs
+        run: |
+          python .github/scripts/gen_issue_cards.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 5) Ajouter et commit les SVG générés
+      - name: Commit generated SVGs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add .github/generated_svgs/*
+
+          # Vérifie s’il y a des changements avant de commit
+          if git diff --cached --quiet; then
+            echo "Aucun SVG modifié → pas de commit"
+          else
+            git commit -m "Auto-update SVG cards"
+            git push
+          fi
