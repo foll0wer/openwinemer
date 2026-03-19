@@ -69,10 +69,13 @@ def generate_issue_svg(issue):
     for lbl in issue.labels:
         label_w = 14 * len(lbl.name) + 20
         labels_svg += f"""
-        <g transform="translate({lx - label_w}, {padding})">
-            <rect class="labelBg-muted" x="0" y="0" width="{label_w}" height="24" rx="12" />
-            <text class="label-muted" x="{label_w/2}" y="16" text-anchor="middle">{lbl.name}</text>
-        </g>
+            <g transform="translate({lx - label_w}, {padding})">
+                <rect class="labelBg" x="0" y="0" width="{label_w}" height="24" rx="12"
+                      fill="{lbl.color}" stroke="{lbl.color}"/>
+                <text class="label" x="{label_w/2}" y="16" text-anchor="middle" fill="white">
+                    {lbl.name}
+                </text>
+            </g>
         """
         lx -= label_w + 10
 
