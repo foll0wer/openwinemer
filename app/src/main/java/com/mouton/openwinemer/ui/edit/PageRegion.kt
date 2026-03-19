@@ -21,7 +21,7 @@ fun PageRegion(
         OutlinedTextField(
             value = wine.country ?: "",
             onValueChange = { onWineChange(wine.copy(country = it.ifBlank { null })) },
-            label = { Text("Pays") },
+            label = { Text(stringResource(R.string.wine_country)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -29,7 +29,7 @@ fun PageRegion(
         OutlinedTextField(
             value = wine.region ?: "",
             onValueChange = { onWineChange(wine.copy(region = it.ifBlank { null })) },
-            label = { Text("Région viticole") },
+            label = { Text(stringResource(R.string.wine_region)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -37,7 +37,7 @@ fun PageRegion(
         OutlinedTextField(
             value = wine.subRegion ?: "",
             onValueChange = { onWineChange(wine.copy(subRegion = it.ifBlank { null })) },
-            label = { Text("Sous-région") },
+            label = { Text(stringResource(R.string.wine_sub_region)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -45,7 +45,7 @@ fun PageRegion(
         OutlinedTextField(
             value = wine.appellation ?: "",
             onValueChange = { onWineChange(wine.copy(appellation = it.ifBlank { null })) },
-            label = { Text("Appellation") },
+            label = { Text(stringResource(R.string.wine_designation)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -53,7 +53,7 @@ fun PageRegion(
         OutlinedTextField(
             value = wine.classification ?: "",
             onValueChange = { onWineChange(wine.copy(classification = it.ifBlank { null })) },
-            label = { Text("Classement (Grand Cru, Premier Cru…)") },
+            label = { Text(stringResource(R.string.wine_rankings)) },
             modifier = Modifier.fillMaxWidth()
         )
     }
