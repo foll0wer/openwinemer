@@ -189,7 +189,7 @@ GNU GENERAL PUBLIC LICENSE 3
 ## 🚧 A faire plus tard
 - ✨ Avec un coup de baguette wati magique les infos suivantes sont mises à jour via les [Issues](https://github.com/foll0wer/openwinemer/issues?q=is%3Aissue%20sort%3Aupdated-desc) du projet.
 - 💡 Cliquer sur une des celules pour voir l'avancement.
-- 🤝 Bon pour l'instant je sais pas quand je travaillerai dessus, et je sais que je n'ai que 0 follower, mais si il y a des demandes je pourrais m'y pencher.
+- 🤝 Bon pour l'instant je sais pas quand je travaillerai dessus, et je sais que je n'ai que la quantité folle de 0 follower, mais si il y a des demandes je pourrais m'y pencher.
 
 <div align="center">
   <a href="https://github.com/foll0wer/openwinemer/issues?q=state%3Aopen"><img src="https://img.shields.io/badge/issues-open-blue"/></a>
@@ -198,17 +198,6 @@ GNU GENERAL PUBLIC LICENSE 3
   <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Areview"><img src="https://github.com/foll0wer/openwinemer/blob/main/.github/generated_svgs/status_status_review.svg"/></a>
   <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Adone"><img src="https://github.com/foll0wer/openwinemer/blob/main/.github/generated_svgs/status_status_done.svg"/></a>
 </div>
-
----
-
-## Usage de l'IA
-L'IA a été utilisé pour ce projet, notamment pour la résolution des erreurs (premier projet en kotlin pour moi, j'y connais rien) et les docstrings.
-Estimation d'empreinte carbone : 200g.
-
-### Icon
-[Wine icon created by Smashicons - Flaticon.](https://www.flaticon.com/free-icons/wine).
-
-Test
 
 <div align="center">
   <a href="https://raw.githubusercontent.com/foll0wer/openwinemer/refs/heads/main/issue_0.svg">
@@ -252,3 +241,11 @@ Test
   </a>
 </div>
 
+---
+
+## Usage de l'IA
+L'IA a été utilisé pour ce projet, notamment pour la résolution des erreurs (premier projet en kotlin pour moi, j'y connais rien) et les docstrings.
+Estimation d'empreinte carbone : 200g.
+
+### Icon
+[Wine icon created by Smashicons - Flaticon.](https://www.flaticon.com/free-icons/wine).
