@@ -165,11 +165,11 @@ GNU GENERAL PUBLIC LICENSE 3
 - 🤝 Bon pour l'instant je sais pas quand je travaillerai dessus, et je sais que je n'ai que 0 follower, mais si il y a des demandes je pourrais m'y pencher.
 
 <div align="center">
-  <a href="https://github.com/foll0wer/openwinemer/issues?q=state%3Aopen"><img src="https://img.shields.io/github/issues/foll0wer/openwinemer?state%3Aopen"/></a>
-  <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Atodo"><img src="https://img.shields.io/github/issues/foll0wer/openwinemer?label%3Atodo"/></a>
-  <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Adoing"><img src="https://img.shields.io/github/issues/foll0wer/openwinemer?label%3Adoing"/></a>
-  <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Areview"><img src="https://img.shields.io/github/issues/foll0wer/openwinemer?label%3Areview"/></a>
-  <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Adone"><img src="https://img.shields.io/github/issues/foll0wer/openwinemer?label%3Adone"/></a>
+  <a href="https://github.com/foll0wer/openwinemer/issues?q=state%3Aopen"><img src="https://img.shields.io/badge/issues-open-blue"/></a>
+  <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Atodo"><img src="https://img.shields.io/badge/issues-todo-orange"/></a>
+  <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Adoing"><img src="https://img.shields.io/badge/issues-doing-red"/></a>
+  <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Areview"><img src="https://img.shields.io/badge/issues-review-yellow"/></a>
+  <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Adone"><img src="https://img.shields.io/badge/issues-done-purple"/></a>
 </div>
 
 ---
