@@ -211,38 +211,38 @@ Estimation d'empreinte carbone : 200g.
 Test
 
 <div align="center">
-  <a href="https://raw.githubusercontent.com/foll0wer/openwinemer/refs/heads/generated-svgs/issue_0.svg">
-    <img src="https://github.com/foll0wer/openwinemer/blob/generated-svgs/.github/generated_svgs/issue_0.svg"/>
+  <a href="https://raw.githubusercontent.com/foll0wer/openwinemer/refs/heads/main/issue_0.svg">
+    <img src="https://github.com/foll0wer/openwinemer/blob/main/.github/generated_svgs/issue_0.svg"/>
   </a>
 </div>
 
 <div align="center">
-  <a href="https://raw.githubusercontent.com/foll0wer/openwinemer/refs/heads/generated-svgs/issue_1.svg">
-    <img src="https://github.com/foll0wer/openwinemer/blob/generated-svgs/.github/generated_svgs/issue_1.svg"/>
+  <a href="https://raw.githubusercontent.com/foll0wer/openwinemer/refs/heads/main/issue_1.svg">
+    <img src="https://github.com/foll0wer/openwinemer/blob/main/.github/generated_svgs/issue_1.svg"/>
   </a>
 </div>
 
 <div align="center">
-  <a href="https://raw.githubusercontent.com/foll0wer/openwinemer/refs/heads/generated-svgs/issue_2.svg">
-    <img src="https://github.com/foll0wer/openwinemer/blob/generated-svgs/.github/generated_svgs/issue_2.svg"/>
+  <a href="https://raw.githubusercontent.com/foll0wer/openwinemer/refs/heads/main/issue_2.svg">
+    <img src="https://github.com/foll0wer/openwinemer/blob/main/.github/generated_svgs/issue_2.svg"/>
   </a>
 </div>
 
 <div align="center">
-  <a href="https://raw.githubusercontent.com/foll0wer/openwinemer/refs/heads/generated-svgs/issue_3.svg">
-    <img src="https://github.com/foll0wer/openwinemer/blob/generated-svgs/.github/generated_svgs/issue_3.svg"/>
+  <a href="https://raw.githubusercontent.com/foll0wer/openwinemer/refs/heads/main/issue_3.svg">
+    <img src="https://github.com/foll0wer/openwinemer/blob/main/.github/generated_svgs/issue_3.svg"/>
   </a>
 </div>
 
 <div align="center">
-  <a href="https://raw.githubusercontent.com/foll0wer/openwinemer/refs/heads/generated-svgs/issue_4.svg">
-    <img src="https://github.com/foll0wer/openwinemer/blob/generated-svgs/.github/generated_svgs/issue_4.svg"/>
+  <a href="https://raw.githubusercontent.com/foll0wer/openwinemer/refs/heads/main/issue_4.svg">
+    <img src="https://github.com/foll0wer/openwinemer/blob/main/.github/generated_svgs/issue_4.svg"/>
   </a>
 </div>
 
 <div align="center">
-  <a href="https://raw.githubusercontent.com/foll0wer/openwinemer/refs/heads/generated-svgs/issue_5.svg">
-    <img src="https://github.com/foll0wer/openwinemer/blob/generated-svgs/.github/generated_svgs/issue_5.svg"/>
+  <a href="https://raw.githubusercontent.com/foll0wer/openwinemer/refs/heads/main/issue_5.svg">
+    <img src="https://github.com/foll0wer/openwinemer/blob/main/.github/generated_svgs/issue_5.svg"/>
   </a>
 </div>
 
