@@ -7,6 +7,12 @@
 import logging
 from github_data import fetch_status_labels
 from common import STYLE, estimate_text_size
+import os
+
+OUTPUT_DIR = os.path.join(".github", "generated_svgs")
+
+# Crée le dossier si inexistant
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 logging.basicConfig(level=logging.INFO, format='[%(levelname)s] %(message)s')
 
@@ -50,7 +56,8 @@ if __name__ == "__main__":
 
         # Nom de fichier basé sur label
         filename = f"status_{label.name.replace(':','_')}.svg"
-        with open(filename, "w") as f:
+        filepath = os.path.join(OUTPUT_DIR, filename)
+        with open(filepath, "w") as f:
             f.write(svg)
 
         logging.info(f"SVG généré : {filename}")
