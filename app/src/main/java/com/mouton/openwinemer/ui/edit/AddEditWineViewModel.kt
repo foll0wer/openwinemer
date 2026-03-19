@@ -8,6 +8,9 @@ import com.mouton.openwinemer.data.repository.WineRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import androidx.compose.ui.res.stringResource
+import com.mouton.openwinemer.R
+
 
 /**
  * ViewModel qui gère l’ajout et l’édition d’un vin.
