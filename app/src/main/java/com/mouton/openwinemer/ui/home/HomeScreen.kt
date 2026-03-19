@@ -22,7 +22,7 @@ fun HomeScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("openwinemer") }
+                title = { Text(stringResource(R.string.app_name)) }
             )
         }
     ) { padding ->
@@ -40,28 +40,28 @@ fun HomeScreen(
                 onClick = onShowAll,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Afficher la liste complète des vins")
+                Text(stringResource(R.string.show_wine_list))
             }
             Spacer(Modifier.height(12.dp))
             Button(
                 onClick = onShowByRegion,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Afficher la liste par région")
+                Text(stringResource(R.string.show_list_by_reg))
             }
             Spacer(Modifier.height(12.dp))
             Button(
                 onClick = onShowByColor,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Afficher la liste par couleurs")
+                Text(stringResource(R.string.show_list_by_col))
             }
             Spacer(Modifier.height(12.dp))
             OutlinedButton(
                 onClick = onSettings,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Options / Paramètres")
+                Text(stringResource(R.string.navbar_settings))
             }
         }
     }
