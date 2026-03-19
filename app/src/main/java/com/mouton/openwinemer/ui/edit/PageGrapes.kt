@@ -21,7 +21,7 @@ fun PageGrapes(
         OutlinedTextField(
             value = wine.mainGrape ?: "",
             onValueChange = { onWineChange(wine.copy(mainGrape = it.ifBlank { null })) },
-            label = { Text("Cépage principal") },
+            label = { Text(stringResource(R.string.wine_major_grape)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -29,7 +29,7 @@ fun PageGrapes(
         OutlinedTextField(
             value = wine.blend ?: "",
             onValueChange = { onWineChange(wine.copy(blend = it.ifBlank { null })) },
-            label = { Text("Assemblage") },
+            label = { Text(stringResource(R.string.wine_grape_assembly)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -37,7 +37,7 @@ fun PageGrapes(
         OutlinedTextField(
             value = wine.grapePercentages ?: "",
             onValueChange = { onWineChange(wine.copy(grapePercentages = it.ifBlank { null })) },
-            label = { Text("Pourcentage de chaque cépage") },
+            label = { Text(stringResource(R.string.wine_grape_percentage)) },
             modifier = Modifier.fillMaxWidth()
         )
     }
