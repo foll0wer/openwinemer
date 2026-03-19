@@ -1,103 +1,43 @@
 
-<svg width="670" height="100" xmlns="http://www.w3.org/2000/svg">
+<svg width="600" height="120" xmlns="http://www.w3.org/2000/svg">
 
 <style>
-
-:root {
-    --fgColor-default: #e6edf3;
-    --fgColor-muted: #7d8590;
-    --fgColor-accent: #4493f8;
-    --fgColor-danger: #f85149;
-    --fgColor-success: #3fb950;
-
-    --bgColor-card: #0d1117;
-    --border-color: #30363d;
-
-    --text-weight-normal: 400;
-    --text-weight-semibold: 600;
-}
-
-/* Carte */
 .card {
-    fill: var(--bgColor-card);
-    stroke: var(--border-color);
+    fill: #0d1117;
+    stroke: #30363d;
     stroke-width: 1;
-    rx: 8;
+    rx: 10;
 }
-
-/* Typo */
+.label {
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+}
 .title {
-    fill: var(--fgColor-default);
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    font-weight: var(--text-weight-semibold);
+    font-family: Arial;
+    font-size: 18px;
+    font-weight: bold;
 }
-
-.small {
-    fill: var(--fgColor-muted);
-    font-size: 13px;
-    font-family: Arial, sans-serif;
+.counter {
+    font-family: Arial;
+    font-size: 28px;
+    text-anchor: middle;
 }
-
-.muted {
-    fill: var(--fgColor-muted);
-}
-
-/* Icônes */
-.icon-open { fill: var(--fgColor-success); }
-.icon-closed { fill: var(--fgColor-danger); }
-.icon-completed { fill: var(--fgColor-accent); }
-.icon-muted { fill: var(--fgColor-muted); }
-
-/* Labels */
-.labelBg-muted { fill: #21262d; }
-.label-muted {
-    fill: var(--fgColor-muted);
-    font-size: 12px;
-    font-family: Arial, sans-serif;
-    dominant-baseline: middle;
-}
-
-/* Progress bar */
-.progress-bg {
-    fill: #21262d;
-}
-.progress-fill {
-    fill: var(--fgColor-success);
-}
-
 </style>
 
 
-    <!-- Fond -->
-    <rect class="card" x="0" y="0" width="670" height="100" />
+<rect class="card" x="0" y="0" width="600" height="120" />
 
-    <!-- Icône -->
-    <path class="icon-open"
-          transform="translate(8, 8)"
-          d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z" />
+<text class="title" x="20" y="40" font-size="18">Finish CSV export <tspan fill="#999">#5</tspan></text>
 
-    <!-- Titre -->
-    <text class="title"
-          x="28"
-          y="18.0"
-          dominant-baseline="middle">
-        Add tutorial for first time
-        <tspan class="small">  #4</tspan>
-    </text>
+<text x="20" y="70" fill="#666">Créé par foll0wer · 0 commentaires</text>
 
-    <!-- Sous‑titre -->
-    <text class="small"
-          x="8"
-          y="90">
-        opened on Mar 19
-    </text>
 
-    <!-- État -->
-    <text class="title icon-open"
-          x="602"
-          y="20">
-        OPEN
-    </text>
+        <rect x="510" y="10" width="70" height="20" rx="10" fill="#d73a4a" />
+        <text x="545" y="25" text-anchor="middle" font-size="12" fill="white">bug</text>
+        
+        <rect x="420" y="10" width="70" height="20" rx="10" fill="#eddb76" />
+        <text x="455" y="25" text-anchor="middle" font-size="12" fill="white">doing</text>
+        
 
 </svg>
