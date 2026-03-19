@@ -1,5 +1,5 @@
 
-<svg width="600" height="120" xmlns="http://www.w3.org/2000/svg">
+<svg width="650" height="120" xmlns="http://www.w3.org/2000/svg">
 
 <style>
     :root {
@@ -145,18 +145,46 @@
 </style>
 
 
-<rect class="card" x="0" y="0" width="600" height="120" />
+<!-- Carte globale -->
+<rect class="card" x="0" y="0" width="650" height="120"/>
 
-<text class="title" x="20" y="40" font-size="18">Add "share" option to wines <tspan fill="#999">#2</tspan></text>
+<!-- Titre de l'issue -->
+<text class="title" x="12" y="40">
+    Add "share" option to wines <tspan class="muted">#2</tspan>
+</text>
 
-<text x="20" y="70" fill="#666">Créé par foll0wer · 0 commentaires</text>
+<!-- Description: auteur + commentaires -->
+<text class="muted" x="12" y="70">
+    Ouverte par foll0wer · 0 commentaires
+</text>
 
+<!-- Labels à gauche -->
 
-        <rect x="510" y="10" width="70" height="20" rx="10" fill="#a2eeef" />
-        <text x="545" y="25" text-anchor="middle" font-size="12" fill="white">enhancement</text>
+        <g transform="translate(404, 12)">
+            <rect class="labelBg-muted" x="0" y="0" width="174" height="24" rx="12" />
+            <text class="label-muted" x="87.0" y="16" text-anchor="middle">enhancement</text>
+        </g>
         
-        <rect x="420" y="10" width="70" height="20" rx="10" fill="#4e0c64" />
-        <text x="455" y="25" text-anchor="middle" font-size="12" fill="white">status:todo</text>
+        <g transform="translate(220, 12)">
+            <rect class="labelBg-muted" x="0" y="0" width="174" height="24" rx="12" />
+            <text class="label-muted" x="87.0" y="16" text-anchor="middle">status:todo</text>
+        </g>
         
+
+<!-- Avatar en cercle (clipPath) -->
+<defs>
+    <clipPath id="avatar-clip">
+        <circle cx="0" cy="0" r="20.0" />
+    </clipPath>
+</defs>
+
+<g transform="translate(618.0, 60.0)">
+    <image href="data:image/png;base64,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"
+           x="-20.0" y="-20.0"
+           width="40" height="40"
+           clip-path="url(#avatar-clip)" />
+    <circle cx="0" cy="0" r="20.0" 
+            fill="none" stroke="var(--border-color)" stroke-width="1.2"/>
+</g>
 
 </svg>
