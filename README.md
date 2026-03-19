@@ -24,9 +24,8 @@
   - [🧰 Installation](#-installation)
   - [📄 Licence](#-licence)
   - [🚧 A faire plus tard](#-a-faire-plus-tard)
-    - [Fonctions](#fonctions)
-    - [Visuel](#visuel)
   - [Usage de l'IA](#usage-de-lia)
+    - [Icon](#icon)
 </details>
 
 ## 📱 Présentation du projet
