@@ -160,15 +160,21 @@
 
 <!-- Labels à gauche -->
 
-        <g transform="translate(404, 12)">
-            <rect class="labelBg-muted" x="0" y="0" width="174" height="24" rx="12" />
-            <text class="label-muted" x="87.0" y="16" text-anchor="middle">enhancement</text>
-        </g>
+            <g transform="translate(404, 12)">
+                <rect class="labelBg" x="0" y="0" width="174" height="24" rx="12"
+                      fill="#a2eeef" stroke="#a2eeef"/>
+                <text class="label" x="87.0" y="16" text-anchor="middle" fill="white">
+                    enhancement
+                </text>
+            </g>
         
-        <g transform="translate(220, 12)">
-            <rect class="labelBg-muted" x="0" y="0" width="174" height="24" rx="12" />
-            <text class="label-muted" x="87.0" y="16" text-anchor="middle">status:todo</text>
-        </g>
+            <g transform="translate(220, 12)">
+                <rect class="labelBg" x="0" y="0" width="174" height="24" rx="12"
+                      fill="#4e0c64" stroke="#4e0c64"/>
+                <text class="label" x="87.0" y="16" text-anchor="middle" fill="white">
+                    status:todo
+                </text>
+            </g>
         
 
 <!-- Avatar en cercle (clipPath) -->
