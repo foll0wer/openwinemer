@@ -43,7 +43,7 @@
     <string name="wine_type">Type de vin</string>
     <string name="wine_aging_potential">Potentiel de garde</string>
     <string name="wine_optimal_date">Date optimale de consommation</string>
-    <string name="wine_label_state">Etat de l'étiquette</string>
+    <string name="wine_label_state">Etat de l\'étiquette</string>
     <string name="wine_awards">Récompenses</string>
     <string name="wine_critics">Critiques</string>
     <string name="wine_price">Prix (devise)</string>
@@ -53,8 +53,8 @@
     <string name="wine_barcode">Code barre</string>
     <string name="wine_stock">Quantité en stock</string>
     <string name="wine_storage_location">Emplacement de stockage</string>
-    <string name="wine_buy_date">Date d'achat</string>
-    <string name="wine_buy_price">Prix d'achat (devise)</string>
+    <string name="wine_buy_date">Date d\'achat</string>
+    <string name="wine_buy_price">Prix d\'achat (devise)</string>
     <string name="wine_general_desc">Description générale</string>
     <string name="wine_major_grape">Cépage principal</string>
     <string name="wine_grape_assembly">Assemblage</string>

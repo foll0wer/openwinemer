@@ -45,7 +45,7 @@ fun WineDetailScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(stringResource(wine?.name ?: R.string.wine_details)) },
+                title = { Text("${wine?.name ?: stringResource(R.string.wine_details)}") },
                 navigationIcon = {
                     IconButton(onClick = onBack) { Text("<") }
                 },

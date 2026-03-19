@@ -169,7 +169,11 @@ fun WineListItemRow(
         Column {
             Text(wine.name ?: stringResource(R.string.unknown_wine_name), style = MaterialTheme.typography.titleMedium)
             Text(wine.producer ?: stringResource(R.string.unknown_wine_producer))
-            Text(stringResource(wine.region ?: R.string.unknown_wine_region, " • ", wine.color ?: R.string.unknown_wine_color))}
+            val unk_region = wine.region ?: stringResource(R.string.unknown_wine_region)
+            val unk_color = wine.color ?: stringResource(R.string.unknown_wine_color)
+
+            Text("$unk_region • $unk_color")
+            //Text(stringResource(wine.region ?: R.string.unknown_wine_region, " • ", wine.color ?: R.string.unknown_wine_color))}
         }
     }
 }
@@ -182,7 +186,7 @@ fun SortDialog(
 ) {
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text(stringResource(R.string.sort_by_button) },
+        title = { Text(stringResource(R.string.sort_by_button)) },
         text = {
             Column {
                 SortMode.values().forEach { mode ->
