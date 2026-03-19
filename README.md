@@ -193,10 +193,10 @@ GNU GENERAL PUBLIC LICENSE 3
 
 <div align="center">
   <a href="https://github.com/foll0wer/openwinemer/issues?q=state%3Aopen"><img src="https://img.shields.io/badge/issues-open-blue"/></a>
-  <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Atodo"><img src="https://img.shields.io/badge/issues-todo-orange"/></a>
-  <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Adoing"><img src="https://img.shields.io/badge/issues-doing-red"/></a>
-  <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Areview"><img src="https://img.shields.io/badge/issues-review-yellow"/></a>
-  <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Adone"><img src="https://img.shields.io/badge/issues-done-purple"/></a>
+  <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Atodo"><img src="https://github.com/foll0wer/openwinemer/blob/main/.github/generated_svgs/status_status_todo.svg"/></a>
+  <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Adoing"><img src="https://github.com/foll0wer/openwinemer/blob/main/.github/generated_svgs/status_status_doing.svg"/></a>
+  <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Areview"><img src="https://github.com/foll0wer/openwinemer/blob/main/.github/generated_svgs/status_status_review.svg"/></a>
+  <a href="https://github.com/foll0wer/openwinemer/issues?q=%20label%3Adone"><img src="https://github.com/foll0wer/openwinemer/blob/main/.github/generated_svgs/status_status_done.svg"/></a>
 </div>
 
 ---
@@ -211,6 +211,44 @@ Estimation d'empreinte carbone : 200g.
 Test
 
 <div align="center">
-  <img src="https://github.com/foll0wer/openwinemer/blob/main/.github/generated_svgs/issue_0.svg"/>
+  <a href="https://raw.githubusercontent.com/foll0wer/openwinemer/refs/heads/generated-svgs/issue_0.svg">
+    <img src="https://github.com/foll0wer/openwinemer/blob/generated-svgs/.github/generated_svgs/issue_0.svg"/>
+  </a>
+</div>
+
+<div align="center">
+  <a href="https://raw.githubusercontent.com/foll0wer/openwinemer/refs/heads/generated-svgs/issue_1.svg">
+    <img src="https://github.com/foll0wer/openwinemer/blob/generated-svgs/.github/generated_svgs/issue_1.svg"/>
+  </a>
+</div>
+
+<div align="center">
+  <a href="https://raw.githubusercontent.com/foll0wer/openwinemer/refs/heads/generated-svgs/issue_2.svg">
+    <img src="https://github.com/foll0wer/openwinemer/blob/generated-svgs/.github/generated_svgs/issue_2.svg"/>
+  </a>
+</div>
+
+<div align="center">
+  <a href="https://raw.githubusercontent.com/foll0wer/openwinemer/refs/heads/generated-svgs/issue_3.svg">
+    <img src="https://github.com/foll0wer/openwinemer/blob/generated-svgs/.github/generated_svgs/issue_3.svg"/>
+  </a>
+</div>
+
+<div align="center">
+  <a href="https://raw.githubusercontent.com/foll0wer/openwinemer/refs/heads/generated-svgs/issue_4.svg">
+    <img src="https://github.com/foll0wer/openwinemer/blob/generated-svgs/.github/generated_svgs/issue_4.svg"/>
+  </a>
+</div>
+
+<div align="center">
+  <a href="https://raw.githubusercontent.com/foll0wer/openwinemer/refs/heads/generated-svgs/issue_5.svg">
+    <img src="https://github.com/foll0wer/openwinemer/blob/generated-svgs/.github/generated_svgs/issue_5.svg"/>
+  </a>
+</div>
+
+<div align="center">
+  <a href="https://github.com/foll0wer/openwinemer/issues?q=is%3Aissue+sort%3Aupdated-desc">
+    <img src="https://github.com/user-attachments/assets/e3deab96-be62-42b4-886b-a8509ffe761a"/>
+  </a>
 </div>
 
