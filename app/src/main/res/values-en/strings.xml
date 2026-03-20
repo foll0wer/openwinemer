@@ -40,7 +40,9 @@
     <string name="wine_name">Wine name</string>
     <string name="wine_producer">Producer</string>
     <string name="wine_batch">Cuvée</string>
+    <string name="wine_cuvee">Cuvée</string>
     <string name="wine_type">Wine type</string>
+    <string name="wine_wine_type">Wine type</string>
     <string name="wine_aging_potential">Aging potential</string>
     <string name="wine_optimal_date">Optimal drink date</string>
     <string name="wine_label_state">Label state</string>
@@ -64,14 +66,17 @@
     <string name="wine_sub_region">Sub region</string>
     <string name="wine_designation">Designation</string>
     <string name="wine_rankings">Ranking (Grand Cru, Premier Cru…)</string>
+    <string name="wine_classifications">Ranking (Grand Cru, Premier Cru…)</string>
     <string name="wine_visual_aspect">Visual aspect</string>
     <string name="wine_aroma">Aroma(s)</string>
     <string name="wine_flavor">Flavor(s)</string>
     <string name="wine_structure">Body</string>
     <string name="wine_final">Final note</string>
     <string name="wine_grade">Global grade</string>
+    <string name="wine_global_rating">Global grade</string>
     <string name="wine_alcohol">Alcohol percent (%%)</string>
-    <string name="wine_sugar">Residual sugars (g)</string>
+    <string name="wine_sugar">Residual sugar (g)</string>
+    <string name="wine_residual_sugar">Residual sugar (g)</string>
     <string name="wine_acidity">Acidity</string>
     <string name="wine_ph">pH level</string>
     <string name="wine_vol">Volume (mL)</string>
@@ -90,4 +95,14 @@
     <string name="wrong_pwd_or_file">Incorrect password or invalid encrypted file</string>
     <string name="cant_read_file">Unable to read the selected file.</string>
     <string name="cant_create_here">Unable to create the file in this folder.</string>
+    <string name="additional_information">Additional information:</string>
+    <string name="wine_vinification_method">Vinification method</string>
+    <string name="wine_fermentation_type">Fermentation type</string>
+    <string name="wine_ageing_duration">Ageing duration</string>
+    <string name="wine_barrel_type">Barrel type</string>
+    <string name="wine_barrel_time">Barrel time</string>
+    <string name="wine_recommended_dishes">Recommended dishes</string>
+    <string name="wine_cuisine_type">Cuisine type</string>
+    <string name="wine_occasions">Occasions</string>
+    <string name="wine_volume_ml">Volume (mL)</string>
 </resources>

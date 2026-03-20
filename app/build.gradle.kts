@@ -84,4 +84,7 @@ dependencies {
 
     implementation("androidx.documentfile:documentfile:1.0.1")
 
+    // pour le tri des champs de wineentity lors de l'export
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.9.22")
+
 }

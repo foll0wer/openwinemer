@@ -40,7 +40,9 @@
     <string name="wine_name">Nom du vin</string>
     <string name="wine_producer">Producteur</string>
     <string name="wine_batch">Cuvée</string>
+    <string name="wine_cuvee">Cuvée</string>
     <string name="wine_type">Type de vin</string>
+    <string name="wine_wine_type">Type de vin</string>
     <string name="wine_aging_potential">Potentiel de garde</string>
     <string name="wine_optimal_date">Date optimale de consommation</string>
     <string name="wine_label_state">Etat de l\'étiquette</string>
@@ -64,14 +66,17 @@
     <string name="wine_sub_region">Sous-région</string>
     <string name="wine_designation">Appelation</string>
     <string name="wine_rankings">Classement (Grand Cru, Premier Cru…)</string>
+    <string name="wine_classifications">Classement (Grand Cru, Premier Cru…)</string>
     <string name="wine_visual_aspect">Aspect visual</string>
     <string name="wine_aroma">Arôme(s)</string>
     <string name="wine_flavor">Saveur(s)</string>
     <string name="wine_structure">Structure</string>
     <string name="wine_final">Finale</string>
     <string name="wine_grade">Note globale</string>
+    <string name="wine_global_rating">Note globale</string>
     <string name="wine_alcohol">Teneur en alcool (%%)</string>
     <string name="wine_sugar">Sucre résiduel (g)</string>
+    <string name="wine_residual_sugar">Sucre résiduel (g)</string>
     <string name="wine_acidity">Acidité</string>
     <string name="wine_ph">pH</string>
     <string name="wine_vol">Volume (mL)</string>
@@ -86,8 +91,18 @@
     <string name="cancel_button">Annuler</string>
     <string name="invalid_save_file">Fichier de sauvegarde invalide ou mot de passe incorrect</string>
     <string name="cant_make_csv">Impossible de créer le fichier CSV.</string>
-    <string name="cant_access_folder">Impossible d'accéder au dossier sélectionné.</string>
+    <string name="cant_access_folder">Impossible d\'accéder au dossier sélectionné.</string>
     <string name="wrong_pwd_or_file">Mot de passe incorrect ou fichier chiffré invalide</string>
     <string name="cant_read_file">Impossible de lire le fichier sélectionné.</string>
     <string name="cant_create_here">Impossible de créer le fichier dans ce dossier.</string>
+    <string name="additional_information">Informations additionnelles</string>
+    <string name="wine_vinification_method">Méthode de vinification</string>
+    <string name="wine_fermentation_type">Type de fermentation</string>
+    <string name="wine_ageing_duration">Durée d\'élevage</string>
+    <string name="wine_barrel_type">Type de fût</string>
+    <string name="wine_barrel_time">Temps en barrique</string>
+    <string name="wine_recommended_dishes">Plats recommandés</string>
+    <string name="wine_cuisine_type">Type de cuisine</string>
+    <string name="wine_occasions">Occasions</string>
+    <string name="wine_volume_ml">Volume (mL)</string>
 </resources>

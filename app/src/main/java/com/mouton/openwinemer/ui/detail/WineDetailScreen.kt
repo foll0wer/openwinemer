@@ -21,7 +21,9 @@ import com.mouton.openwinemer.R
 // import pour le scroll
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-
+// import pour le remplissage auto des champs
+import kotlin.reflect.full.memberProperties
+import androidx.compose.ui.platform.LocalContext
 
 
 /**
@@ -31,6 +33,45 @@ import androidx.compose.foundation.verticalScroll
  * - Permet d'éditer le vin
  * - Permet de supprimer le vin (avec confirmation)
  */
+
+/**
+ * Génère automatiquement les champs supplémentaires d'un vin,
+ * en utilisant les traductions si disponibles.
+ */
+@Composable
+private fun autoTranslatedFields(wine: WineEntity): List<Pair<String, String>> {
+    val context = LocalContext.current
+
+    // Champs déjà affichés manuellement
+    val excluded = setOf(
+        "name", "producer", "region", "color", "vintage",
+        "stockQuantity", "generalDescription"
+    )
+
+    return WineEntity::class.memberProperties
+        .filter { it.name !in excluded }
+        .mapNotNull { prop ->
+            val value = prop.get(wine) ?: return@mapNotNull null
+            val textValue = value.toString().takeIf { it.isNotBlank() } ?: return@mapNotNull null
+
+            // Nom de la clé dans strings.xml
+            val key = "wine_${prop.name.replace(Regex("([A-Z])"), "_$1").lowercase()}"
+
+            // Essayer de trouver la ressource string correspondante
+            val resId = context.resources.getIdentifier(key, "string", context.packageName)
+
+            val label =
+                if (resId != 0)
+                    stringResource(resId) // traduction trouvée
+                else
+                // fallback : transformer "mainGrape" → "Main grape"
+                    prop.name.replace(Regex("([a-z])([A-Z])"), "$1 $2")
+                        .replaceFirstChar { it.uppercase() }
+
+            label to textValue
+        }
+}
+
 
 // fonction utile pour ajouter les champs supplémentaires
 private fun buildDynamicFields(wine: WineEntity): List<Pair<String, String>> {
@@ -89,6 +130,33 @@ private fun buildDynamicFields(wine: WineEntity): List<Pair<String, String>> {
     return fields
 }
 
+/**
+ * Génère automatiquement une liste (label, valeur) pour tous les champs non nuls
+ * de WineEntity, sauf ceux déjà affichés manuellement.
+ */
+private fun autoFields(wine: WineEntity): List<Pair<String, String>> {
+
+    // Champs que tu affiches déjà dans l'écran
+    val excluded = setOf(
+        "name", "producer", "region", "color", "vintage",
+        "stockQuantity", "generalDescription"
+    )
+
+    return WineEntity::class.memberProperties
+        .filter { it.name !in excluded }              // ignorer les champs déjà affichés
+        .mapNotNull { prop ->
+            val value = prop.get(wine) ?: return@mapNotNull null
+            val text = value.toString().takeIf { it.isNotBlank() } ?: return@mapNotNull null
+
+            // Convertir "mainGrape" → "Main grape"
+            val label = prop.name
+                .replace(Regex("([a-z])([A-Z])"), "$1 $2")
+                .replaceFirstChar { it.uppercase() }
+
+            label to text
+        }
+}
+
 
 @Composable
 fun WineDetailScreen(
@@ -134,17 +202,17 @@ fun WineDetailScreen(
                     .padding(16.dp)
                     .fillMaxSize()
             ) {
-                // --- CHAMPS PRINCIPAUX (ceux que tu avais déjà) ---
-                DetailRow("Nom", current.name)
-                DetailRow("Producteur", current.producer)
-                DetailRow("Région", current.region)
-                DetailRow("Couleur", current.color)
-                DetailRow("Année", current.vintage?.toString())
+                // --- CHAMPS PRINCIPAUX (ceux à toujours afficher) ---
+                //"${wine?.name ?: stringResource(R.string.wine_details)}"
+                Text(stringResource(R.string.name) + " : " + (current.name ?: "-"))
+                Text(stringResource(R.string.wine_producer, " : ", current.producer ?: "-"))
+                Text(stringResource(R.string.region_label, " : ", current.region ?: "-"))
+                Text(stringResource(R.string.color_label, " : ", current.color ?: "-"))
+                Text(stringResource(R.string.year_label, " : ", current.vintage ?: "-"))
 
                 Spacer(Modifier.height(16.dp))
 
-                // --- STOCK ---
-                DetailRow("Stock", (current.stockQuantity ?: 0).toString())
+                Text(stringResource(R.string.wine_stock, " : ", current.stockQuantity ?: 0))
 
                 Row {
                     Button(onClick = { viewModel.updateStock(-1) }) { Text("-") }
@@ -155,16 +223,33 @@ fun WineDetailScreen(
                 Spacer(Modifier.height(24.dp))
 
                 // --- DESCRIPTION GÉNÉRALE ---
-                DetailRow("Description", current.generalDescription)
+                Text(stringResource(R.string.wine_general_desc, " : ", current.generalDescription ?: "-"))
 
                 Spacer(Modifier.height(24.dp))
 
+                // --- CHAMPS AUTOMATIQUES MULTILINGUES ---
+                val extraFields = autoTranslatedFields(current)
+
+                if (extraFields.isNotEmpty()) {
+                    Spacer(Modifier.height(24.dp))
+                    Text(
+                        stringResource(R.string.additional_information),
+                        style = MaterialTheme.typography.titleMedium
+                    )
+                    Spacer(Modifier.height(8.dp))
+
+                    extraFields.forEach { (label, value) ->
+                        DetailRow(label, value)
+                    }
+                }
+
+                /*
                 // --- CHAMPS DYNAMIQUES (tous les autres renseignés) ---
                 val dynamicFields = buildDynamicFields(current)
 
                 if (dynamicFields.isNotEmpty()) {
                     Text(
-                        "Informations supplémentaires",
+                        stringResource(R.string.additional_information),
                         style = MaterialTheme.typography.titleMedium
                     )
                     Spacer(Modifier.height(8.dp))
@@ -173,6 +258,7 @@ fun WineDetailScreen(
                         DetailRow(label, value)
                     }
                 }
+                */
             }
         } ?: Box(
             modifier = Modifier
@@ -211,7 +297,24 @@ fun WineDetailScreen(
 }
 
 @Composable
-private fun DetailRow(label: String, value: String?) {
+private fun DetailRow(label: String, value: String) {
+    Column(Modifier.padding(vertical = 6.dp)) {
+        Text(
+            text = label,
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.primary
+        )
+        Text(
+            text = value,
+            style = MaterialTheme.typography.bodyLarge
+        )
+        Divider(Modifier.padding(top = 6.dp))
+    }
+}
+
+
+@Composable
+private fun old_DetailRow(label: String, value: String?) {
     if (value.isNullOrBlank()) return
 
     Column(Modifier.padding(vertical = 6.dp)) {
