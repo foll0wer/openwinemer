@@ -150,7 +150,7 @@
 
 <!-- Titre -->
 <text class="title" x="14" y="42">
-    Add English translation <tspan class="muted">#3</tspan>
+    Add "share" option to wines <tspan class="muted">#2</tspan>
 </text>
 
 <!-- Sous-ligne : auteur + commentaires -->
@@ -171,15 +171,15 @@
                   fill="white">enhancement</text>
         </g>
         
-        <g transform="translate(383, 14)">
+        <g transform="translate(393, 14)">
             <rect class="labelBg"
                   x="0" y="0"
-                  width="106" height="26" rx="13"
-                  fill="#a4f5b3" stroke="#a4f5b3" />
+                  width="96" height="26" rx="13"
+                  fill="#eddb76" stroke="#eddb76" />
             <text class="label"
-                  x="53.0" y="17"
+                  x="48.0" y="17"
                   text-anchor="middle"
-                  fill="white">status:review</text>
+                  fill="white">status:doing</text>
         </g>
         
 

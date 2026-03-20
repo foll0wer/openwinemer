@@ -150,7 +150,7 @@
 
 <!-- Titre -->
 <text class="title" x="14" y="42">
-    Add tutorial for first time <tspan class="muted">#4</tspan>
+    Add English translation <tspan class="muted">#3</tspan>
 </text>
 
 <!-- Sous-ligne : auteur + commentaires -->
@@ -171,15 +171,15 @@
                   fill="white">enhancement</text>
         </g>
         
-        <g transform="translate(399, 14)">
+        <g transform="translate(383, 14)">
             <rect class="labelBg"
                   x="0" y="0"
-                  width="90" height="26" rx="13"
-                  fill="#4e0c64" stroke="#4e0c64" />
+                  width="106" height="26" rx="13"
+                  fill="#a4f5b3" stroke="#a4f5b3" />
             <text class="label"
-                  x="45.0" y="17"
+                  x="53.0" y="17"
                   text-anchor="middle"
-                  fill="white">status:todo</text>
+                  fill="white">status:review</text>
         </g>
         
 
