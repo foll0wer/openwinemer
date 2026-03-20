@@ -131,6 +131,7 @@ The goal is to provide an elegant, fast, intuitive, and fully customizable appli
 - Multi‑screen Compose Navigation
 - CSV/Excel export via dedicated libraries
 - **MVVM** architecture
+- Kotlin JVM Target 11 | Compile SDK Version 36 | Minimin SDK 26
 
 ---
 

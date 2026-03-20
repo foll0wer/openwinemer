@@ -156,6 +156,7 @@ L’objectif est de fournir une application élégante, rapide, intuitive et tot
 - Navigation Compose multi-écrans
 - Export CSV/Excel via librairies dédiées
 - Architecture **MVVM**
+- Kotlin JVM Target 11 | Compile SDK Version 36 | Minimin SDK 26
 
 ---
 
