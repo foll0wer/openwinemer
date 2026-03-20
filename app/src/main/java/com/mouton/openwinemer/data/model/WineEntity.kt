@@ -3,8 +3,11 @@ package com.mouton.openwinemer.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+// pour le partage
+import kotlinx.serialization.Serializable
 
 // @Entity indique à Room que cette classe représente une table dans la base de données.
+@Serializable
 @Entity(tableName = "wines")
 data class WineEntity(
     // @PrimaryKey définit l'identifiant unique de chaque vin.

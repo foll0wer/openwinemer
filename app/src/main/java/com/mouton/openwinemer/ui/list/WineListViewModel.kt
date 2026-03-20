@@ -8,6 +8,8 @@ import com.mouton.openwinemer.data.repository.WineRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
+// pour le partage multiple
+import kotlinx.coroutines.launch
 
 /**
  * ViewModel qui gère :
@@ -113,6 +115,18 @@ class WineListViewModel @Inject constructor(
     suspend fun deleteWines(ids: Set<Long>) {
         repository.deleteWinesByIds(ids)
     }
+
+    fun exportSelectedWinesAsJson(
+        selectedIds: Set<Long>,
+        onResult: (String) -> Unit
+    ) {
+        viewModelScope.launch {
+            val wines = repository.getWinesByIds(selectedIds)
+            val json = repository.exportWinesAsJson(wines)
+            onResult(json)
+        }
+    }
+
 }
 
 /** État complet des filtres */

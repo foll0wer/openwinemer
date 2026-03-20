@@ -15,7 +15,7 @@
     <string name="color_label">Color</string>
     <string name="year_label">Year</string>
     <string name="wines">Wines</string>
-    <string name="selected_amount">selected</string>
+    <string name="selected_amount">%1$d selected</string>
     <string name="select_all">Select all</string>
     <string name="delete_all">Delete all</string>
     <string name="search_bar">Search...</string>
@@ -105,4 +105,7 @@
     <string name="wine_cuisine_type">Cuisine type</string>
     <string name="wine_occasions">Occasions</string>
     <string name="wine_volume_ml">Volume (mL)</string>
+    <string name="share_button">Share</string>
+    <string name="share_wine_title">Share wine</string>
+    <string name="share_wines_title">Share selected wines</string>
 </resources>

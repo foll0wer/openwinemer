@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     kotlin("kapt")
     alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlin.serialization)
 
 }
 
@@ -87,4 +88,6 @@ dependencies {
     // pour le tri des champs de wineentity lors de l'export
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.9.22")
 
+    // pour le partage
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
 }

@@ -17,8 +17,18 @@ import com.mouton.openwinemer.data.model.WineEntity
 import kotlinx.coroutines.launch
 import androidx.compose.runtime.collectAsState
 import androidx.compose.foundation.ExperimentalFoundationApi
+// pour le texte multilingues
 import androidx.compose.ui.res.stringResource
 import com.mouton.openwinemer.R
+// pour le partage multiple
+import android.content.Intent
+import androidx.compose.material.icons.filled.Share
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.material.icons.Icons
+// pour la topbar de la sélection multiple
+import androidx.core.content.FileProvider
+import androidx.compose.material.icons.filled.Delete
+import java.io.File
 
 /**
  * Écran listant les vins avec :
@@ -37,10 +47,12 @@ fun WineListScreen(
     val wines by viewModel.wines.collectAsState()
     var selectedIds by remember { mutableStateOf(setOf<Long>()) }
     val scope = rememberCoroutineScope()
+    val context = LocalContext.current
 
     // États pour afficher les boîtes de dialogue
     var showSortDialog by remember { mutableStateOf(false) }
     var showFilterDialog by remember { mutableStateOf(false) }
+    var showDeleteDialog by remember { mutableStateOf(false) }
 
     // Appliquer le mode (ALL / REGION / COLOR)
     LaunchedEffect(mode) {
@@ -53,22 +65,56 @@ fun WineListScreen(
                 TopAppBar(
                     title = {
                         if (selectedIds.isEmpty()) Text(stringResource(R.string.wines))
-                        else Text(stringResource(selectedIds.size, R.string.selected_amount))
+                        else Text(stringResource(R.string.selected_amount, selectedIds.size))
                     },
                     actions = {
                         if (selectedIds.isNotEmpty()) {
+
+                            // Bouton : Tout sélectionner
                             TextButton(onClick = {
                                 selectedIds = wines.map { it.id }.toSet()
-                            }) { Text(stringResource(R.string.select_all)) }
+                            }) {
+                                Text(stringResource(R.string.select_all))
+                            }
 
-                            TextButton(onClick = {
-                                scope.launch {
-                                    viewModel.deleteWines(selectedIds)
-                                    selectedIds = emptySet()
+                            // Bouton : Partager
+                            IconButton(onClick = {
+                                viewModel.exportSelectedWinesAsJson(selectedIds) { json ->
+                                    val file = File(context.cacheDir, "wine_export.json")
+                                    file.writeText(json)
+
+                                    val uri = FileProvider.getUriForFile(
+                                        context,
+                                        "${context.packageName}.provider",
+                                        file
+                                    )
+
+                                    val sendIntent = Intent(Intent.ACTION_SEND).apply {
+                                        type = "application/json"
+                                        putExtra(Intent.EXTRA_STREAM, uri)
+                                        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                                    }
+
+                                    val shareIntent = Intent.createChooser(
+                                        sendIntent,
+                                        context.getString(R.string.share_wines_title)
+                                    )
+
+                                    context.startActivity(shareIntent)
                                 }
-                            }) { Text(stringResource(R.string.delete_all)) }
+                            }) {
+                                Icon(Icons.Filled.Share, contentDescription = stringResource(R.string.share_button))
+                            }
+
+                            // Bouton : Supprimer (ouvre un dialogue)
+                            IconButton(onClick = {
+                                showDeleteDialog = true
+                            }) {
+                                Icon(Icons.Filled.Delete, contentDescription = stringResource(R.string.delete_all))
+                            }
                         }
                     }
+
                 )
 
                 // Barre de recherche
@@ -150,6 +196,32 @@ fun WineListScreen(
             }
         )
     }
+
+    // boite de dialogue pour la suppression
+    if (showDeleteDialog) {
+        AlertDialog(
+            onDismissRequest = { showDeleteDialog = false },
+            title = { Text(stringResource(R.string.delete_prompt)) },
+            text = { Text(stringResource(R.string.cannot_undo)) },
+            confirmButton = {
+                TextButton(onClick = {
+                    showDeleteDialog = false
+                    scope.launch {
+                        viewModel.deleteWines(selectedIds)
+                        selectedIds = emptySet()
+                    }
+                }) {
+                    Text(stringResource(R.string.delete_all))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDeleteDialog = false }) {
+                    Text(stringResource(R.string.cancel_button))
+                }
+            }
+        )
+    }
+
 }
 
 @Composable

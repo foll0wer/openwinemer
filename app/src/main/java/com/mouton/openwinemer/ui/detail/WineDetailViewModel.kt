@@ -60,4 +60,9 @@ class WineDetailViewModel @Inject constructor(
             onDeleted()
         }
     }
+    // export du vin
+    fun exportCurrentWineAsJson(): String? {
+        val wine = _wine.value ?: return null
+        return repository.exportWineAsJson(wine)
+    }
 }

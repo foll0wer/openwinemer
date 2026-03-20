@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import kotlinx.coroutines.launch
+import androidx.compose.material3.HorizontalDivider
 // import pour la fonction qui gère les champs optionnels
 import com.mouton.openwinemer.data.model.WineEntity
 // imports pour l'affichage du texte
@@ -23,8 +24,12 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 // import pour le remplissage auto des champs
 import kotlin.reflect.full.memberProperties
-import androidx.compose.ui.platform.LocalContext
-
+import androidx.compose.ui.platform.LocalContext // aussi pour le partage
+// import pour le partage
+import android.content.Intent
+import androidx.compose.material.icons.filled.Share
+import androidx.core.content.FileProvider
+import java.io.File
 
 /**
  * Écran affichant les détails d'un vin.
@@ -168,6 +173,7 @@ fun WineDetailScreen(
 ) {
     val wine by viewModel.wine.collectAsState()
     val scope = rememberCoroutineScope()
+    val context = LocalContext.current
 
     var showDeleteDialog by remember { mutableStateOf(false) }
 
@@ -190,6 +196,37 @@ fun WineDetailScreen(
                     IconButton(onClick = { showDeleteDialog = true }) {
                         Icon(Icons.Filled.Delete, contentDescription = stringResource(R.string.delete_button))
                     }
+                    IconButton(onClick = {
+                        val json = viewModel.exportCurrentWineAsJson() ?: return@IconButton
+
+                        // 1) Créer un fichier temporaire
+                        val file = File(context.cacheDir, "wine_export.json")
+                        file.writeText(json)
+
+                        // 2) Obtenir un URI sécurisé
+                        val uri = FileProvider.getUriForFile(
+                            context,
+                            "${context.packageName}.provider",
+                            file
+                        )
+
+                        // 3) Intent de partage
+                        val sendIntent = Intent(Intent.ACTION_SEND).apply {
+                            type = "application/json"
+                            putExtra(Intent.EXTRA_STREAM, uri)
+                            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                        }
+
+                        val shareIntent = Intent.createChooser(
+                            sendIntent,
+                            context.getString(R.string.share_wine_title)
+                        )
+
+                        context.startActivity(shareIntent)
+                    }) {
+                        Icon(Icons.Filled.Share, contentDescription = stringResource(R.string.share_button))
+                    }
+
                 }
             )
         }
@@ -308,7 +345,7 @@ private fun DetailRow(label: String, value: String) {
             text = value,
             style = MaterialTheme.typography.bodyLarge
         )
-        Divider(Modifier.padding(top = 6.dp))
+        HorizontalDivider(Modifier.padding(top = 6.dp))
     }
 }
 
@@ -327,7 +364,7 @@ private fun old_DetailRow(label: String, value: String?) {
             text = value,
             style = MaterialTheme.typography.bodyLarge
         )
-        Divider(Modifier.padding(top = 6.dp))
+        HorizontalDivider(Modifier.padding(top = 6.dp))
     }
 }
 

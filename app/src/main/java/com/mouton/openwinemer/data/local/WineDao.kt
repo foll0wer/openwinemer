@@ -44,4 +44,8 @@ interface WineDao {
     /** Supprime plusieurs vins d’un coup. */
     @Query("DELETE FROM wines WHERE id IN (:ids)")
     suspend fun deleteWinesByIds(ids: List<Long>)
+
+    @Query("SELECT * FROM wines WHERE id IN (:ids)")
+    suspend fun getWinesByIds(ids: List<Long>): List<WineEntity>
+
 }
