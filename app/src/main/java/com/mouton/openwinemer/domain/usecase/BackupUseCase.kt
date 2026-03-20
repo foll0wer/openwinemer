@@ -16,6 +16,8 @@ import java.io.OutputStreamWriter
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import androidx.compose.ui.res.stringResource
+import com.mouton.openwinemer.R
 
 /**
  * Cette classe gère :
@@ -54,12 +56,12 @@ class BackupUseCase(
 
         // On accède au dossier choisi par l'utilisateur.
         val root = DocumentFile.fromTreeUri(context, treeUri)
-            ?: throw IllegalStateException("Impossible d'accéder au dossier sélectionné.")
+            ?: throw IllegalStateException(context.getString(R.string.cant_access_folder))
 
         // On crée un fichier avec la date et l'heure dans le nom.
         val fileName = "openwinemer_backup_${currentTimestamp()}.json"
         val file = root.createFile("application/json", fileName)
-            ?: throw IllegalStateException("Impossible de créer le fichier dans ce dossier.")
+            ?: throw IllegalStateException(context.getString(R.string.cant_create_here))
 
         // On écrit le contenu dans le fichier.
         context.contentResolver.openOutputStream(file.uri)?.use { out ->
@@ -72,7 +74,7 @@ class BackupUseCase(
     // ------------------------------------------------------------
     suspend fun importBackupFromUri(uri: Uri, password: String?) {
         val inputStream = context.contentResolver.openInputStream(uri)
-            ?: throw IllegalStateException("Impossible de lire le fichier sélectionné.")
+            ?: throw IllegalStateException(context.getString(R.string.cant_read_file))
 
         val content = inputStream.readBytes().decodeToString()
 
@@ -85,7 +87,7 @@ class BackupUseCase(
             try {
                 BackupCrypto.decrypt(content, password)
             } catch (e: Exception) {
-                throw IllegalStateException("Mot de passe incorrect ou fichier chiffré invalide")
+                throw IllegalStateException(context.getString(R.string.wrong_pwd_or_file))
             }
         }
 
@@ -97,7 +99,7 @@ class BackupUseCase(
             // Ici on tombe par exemple si :
             // - le fichier est chiffré mais password est vide
             // - le contenu n’est pas un JSON valide
-            throw IllegalStateException("Fichier de sauvegarde invalide ou mot de passe incorrect")
+            throw IllegalStateException(context.getString(R.string.invalid_save_file))
         }
 
         // 3) Insérer en base
@@ -112,12 +114,12 @@ class BackupUseCase(
         val wines = wineDao.getAllWines().first()
 
         val root = DocumentFile.fromTreeUri(context, treeUri)
-            ?: throw IllegalStateException("Impossible d'accéder au dossier sélectionné.")
+            ?: throw IllegalStateException(context.getString(R.string.cant_access_folder))
 
         // Nom de fichier avec date et heure.
         val fileName = "openwinemer_export_${currentTimestamp()}.csv"
         val file = root.createFile("text/csv", fileName)
-            ?: throw IllegalStateException("Impossible de créer le fichier CSV.")
+            ?: throw IllegalStateException(context.getString(R.string.cant_make_csv))
 
         context.contentResolver.openOutputStream(file.uri)?.use { out ->
             val writer = OutputStreamWriter(out)

@@ -84,4 +84,10 @@
     <string name="delete_prompt">Supprimer ce vin ?</string>
     <string name="cannot_undo">Cette action est irréversible !</string>
     <string name="cancel_button">Annuler</string>
+    <string name="invalid_save_file">Fichier de sauvegarde invalide ou mot de passe incorrect</string>
+    <string name="cant_make_csv">Impossible de créer le fichier CSV.</string>
+    <string name="cant_access_folder">Impossible d'accéder au dossier sélectionné.</string>
+    <string name="wrong_pwd_or_file">Mot de passe incorrect ou fichier chiffré invalide</string>
+    <string name="cant_read_file">Impossible de lire le fichier sélectionné.</string>
+    <string name="cant_create_here">Impossible de créer le fichier dans ce dossier.</string>
 </resources>

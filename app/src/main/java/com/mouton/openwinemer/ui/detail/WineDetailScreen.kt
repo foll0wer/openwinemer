@@ -45,7 +45,7 @@ fun WineDetailScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("${wine?.name ?: stringResource(R.string.wine_details)}") },
+                title = { Text((wine?.name ?: stringResource(R.string.wine_details))) },
                 navigationIcon = {
                     IconButton(onClick = onBack) { Text("<") }
                 },
@@ -67,15 +67,18 @@ fun WineDetailScreen(
                     .padding(16.dp)
                     .fillMaxSize()
             ) {
-                Text(stringResource(R.string.name, " : ", current.name ?: "-"))
-                Text(stringResource(R.string.wine_producer, " : ", current.producer ?: "-"))
-                Text(stringResource(R.string.region_label, " : ", current.region ?: "-"))
-                Text(stringResource(R.string.color_label, " : ", current.color ?: "-"))
-                Text(stringResource(R.string.year_label, " : ", current.vintage ?: "-"))
+                //"${wine?.name ?: stringResource(R.string.wine_details)}"
+                Text(stringResource(R.string.name) + " : " + (current.name ?: "-"))
+                Text(stringResource(R.string.wine_producer) + " : " + (current.producer ?: "-"))
+                Text(stringResource(R.string.region_label) + " : " + (current.region ?: "-"))
+                Text(stringResource(R.string.color_label) + " : " + (current.color ?: "-"))
+                Text(stringResource(R.string.year_label) + " : " + (current.vintage ?: "-"))
+                //(current.truc ?: "-") → si truc est null, on affiche -
 
                 Spacer(Modifier.height(16.dp))
 
-                Text(stringResource(R.string.wine_stock, " : ", current.stockQuantity ?: 0))
+                Text(stringResource(R.string.wine_stock) + " : " + (current.stockQuantity ?: 0))
+                // (current.stockQuantity ?: 0) → si stockQuantity est null, on affiche 0
                 Row {
                     Button(onClick = { viewModel.updateStock(-1) }) {
                         Text("-")
@@ -88,7 +91,7 @@ fun WineDetailScreen(
 
                 Spacer(Modifier.height(24.dp))
 
-                Text(stringResource(R.string.wine_general_desc, " : ", current.generalDescription ?: "-"))
+                Text(stringResource(R.string.wine_general_desc) + " : " + (current.generalDescription ?: "-"))
             }
         } ?: Box(
             modifier = Modifier

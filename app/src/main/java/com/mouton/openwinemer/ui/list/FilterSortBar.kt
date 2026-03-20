@@ -39,7 +39,7 @@ fun FilterSortBar(
             var expanded by remember { mutableStateOf(false) }
             Box {
                 OutlinedButton(onClick = { expanded = true }) {
-                    Text(stringResource(R.string.sort_by_button, currentSort.field.name))
+                    Text(stringResource(R.string.sort_by_button) + (currentSort.field.name))
                 }
                 DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
                     SortField.values().forEach { field ->

@@ -84,4 +84,10 @@
     <string name="delete_prompt">Delete this wine?</string>
     <string name="cannot_undo">This action cannot be undone!</string>
     <string name="cancel_button">Cancel</string>
+    <string name="invalid_save_file">Invalid save file or incorrect password</string>
+    <string name="cant_make_csv">Unable to create the CSV file.</string>
+    <string name="cant_access_folder">Unable to access the selected folder.</string>
+    <string name="wrong_pwd_or_file">Incorrect password or invalid encrypted file</string>
+    <string name="cant_read_file">Unable to read the selected file.</string>
+    <string name="cant_create_here">Unable to create the file in this folder.</string>
 </resources>
