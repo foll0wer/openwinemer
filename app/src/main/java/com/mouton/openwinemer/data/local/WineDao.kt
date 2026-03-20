@@ -51,10 +51,13 @@ interface WineDao {
     @Query("DELETE FROM wines")
     suspend fun clearAll()
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertAll(wines: List<WineEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertOrUpdate(wines: List<WineEntity>)
+
+    @Query("SELECT MAX(id) FROM wines")
+    suspend fun getLastId(): Long?
 
 }

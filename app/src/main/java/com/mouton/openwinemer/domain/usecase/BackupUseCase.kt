@@ -101,10 +101,19 @@ class BackupUseCase(
 
         // 4) Remplacer ou fusionner
         if (replace) {
+            // 🔥 MODE REMPLACER : on efface tout et on laisse Room recréer les IDs
             wineDao.clearAll()
-            wineDao.insertAll(wines)
+            val winesWithoutId = wines.map { it.copy(id = 0) }
+            wineDao.insertAll(winesWithoutId)
         } else {
-            wineDao.insertOrUpdate(wines)
+            // 🔥 MODE FUSIONNER : on récupère le dernier ID existant
+            val lastId = wineDao.getLastId() ?: 0L
+            // On renumérote les vins importés pour éviter les collisions
+            var nextId = lastId + 1
+            val winesWithNewIds = wines.map { wine ->
+                wine.copy(id = nextId++)
+            }
+            wineDao.insertOrUpdate(winesWithNewIds)
         }
     }
 
