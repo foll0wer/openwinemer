@@ -171,15 +171,15 @@
                   fill="white">bug</text>
         </g>
         
-        <g transform="translate(449, 14)">
+        <g transform="translate(439, 14)">
             <rect class="labelBg"
                   x="0" y="0"
-                  width="96" height="26" rx="13"
-                  fill="#eddb76" stroke="#eddb76" />
+                  width="106" height="26" rx="13"
+                  fill="#a4f5b3" stroke="#a4f5b3" />
             <text class="label"
-                  x="48.0" y="17"
+                  x="53.0" y="17"
                   text-anchor="middle"
-                  fill="white">status:doing</text>
+                  fill="white">status:review</text>
         </g>
         
 
