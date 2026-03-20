@@ -73,18 +73,17 @@ class BackupUseCase(
     // ------------------------------------------------------------
     // 2) IMPORT JSON (CHIFFRÉ OU NON) DEPUIS UN URI
     // ------------------------------------------------------------
-    suspend fun importBackupFromUri(uri: Uri, password: String?) {
-        val inputStream = context.contentResolver.openInputStream(uri)
+    suspend fun importBackupFromUri(uri: Uri, password: String?, replace: Boolean) {
+        // 1) Lire le fichier
+        val content = context.contentResolver.openInputStream(uri)
+            ?.readBytes()
+            ?.decodeToString()
             ?: throw IllegalStateException(context.getString(R.string.cant_read_file))
 
-        val content = inputStream.readBytes().decodeToString()
-
-        // 1) Obtenir une chaîne JSON valide (ou échouer proprement)
+        // 2) Déchiffrement éventuel
         val jsonString = if (password.isNullOrBlank()) {
-            // On suppose d’abord que le fichier n’est PAS chiffré
             content
         } else {
-            // Fichier chiffré → on tente le déchiffrement
             try {
                 BackupCrypto.decrypt(content, password)
             } catch (e: Exception) {
@@ -92,20 +91,23 @@ class BackupUseCase(
             }
         }
 
-        // 2) Parser le JSON en liste de vins
+        // 3) Parser JSON
         val type = TypeToken.getParameterized(List::class.java, WineEntity::class.java).type
         val wines: List<WineEntity> = try {
             gson.fromJson(jsonString, type)
         } catch (e: Exception) {
-            // Ici on tombe par exemple si :
-            // - le fichier est chiffré mais password est vide
-            // - le contenu n’est pas un JSON valide
             throw IllegalStateException(context.getString(R.string.invalid_save_file))
         }
 
-        // 3) Insérer en base
-        wines.forEach { wineDao.insertWine(it) }
+        // 4) Remplacer ou fusionner
+        if (replace) {
+            wineDao.clearAll()
+            wineDao.insertAll(wines)
+        } else {
+            wineDao.insertOrUpdate(wines)
+        }
     }
+
 
 
     // ------------------------------------------------------------

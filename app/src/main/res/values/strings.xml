@@ -108,4 +108,12 @@
     <string name="share_button">Partager</string>
     <string name="share_wine_title">Partager le vin</string>
     <string name="share_wines_title">Partager les vins sélectionnés</string>
+    <string name="import_choice">Que souhaitez-vous faire avec les données importées ?</string>
+    <string name="replace_all">Remplacer la base</string>
+    <string name="merge_all">Fusionner avec la base existante</string>
+    <string name="import_replace_success">Import terminé (base remplacée).</string>
+    <string name="import_merge_success">Import terminé (fusion).</string>
+    <string name="import_error">Erreur : %1$s</string>
+    <string name="export_success">Backup JSON exporté avec succès.</string>
+    <string name="export_error">Erreur export : %1$s</string>
 </resources>

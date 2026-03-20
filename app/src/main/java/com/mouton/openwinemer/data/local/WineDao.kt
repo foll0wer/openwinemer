@@ -48,4 +48,13 @@ interface WineDao {
     @Query("SELECT * FROM wines WHERE id IN (:ids)")
     suspend fun getWinesByIds(ids: List<Long>): List<WineEntity>
 
+    @Query("DELETE FROM wines")
+    suspend fun clearAll()
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(wines: List<WineEntity>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertOrUpdate(wines: List<WineEntity>)
+
 }

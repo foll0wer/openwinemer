@@ -108,4 +108,12 @@
     <string name="share_button">Share</string>
     <string name="share_wine_title">Share wine</string>
     <string name="share_wines_title">Share selected wines</string>
+    <string name="import_choice">What do you want to do with the imported data?</string>
+    <string name="replace_all">Replace database</string>
+    <string name="merge_all">Merge with existing</string>
+    <string name="import_replace_success">Import completed (database replaced).</string>
+    <string name="import_merge_success">Import completed (merged).</string>
+    <string name="import_error">Error: %1$s</string>
+    <string name="export_success">JSON backup exported successfully.</string>
+    <string name="export_error">Export error: %1$s</string>
 </resources>

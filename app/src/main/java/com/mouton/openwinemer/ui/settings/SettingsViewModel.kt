@@ -10,6 +10,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.State
+import android.content.Context
+import com.mouton.openwinemer.R
+import com.mouton.openwinemer.data.repository.WineRepository
+import com.mouton.openwinemer.util.BackupCrypto
+import kotlin.io.readBytes
+
 
 /**
  * ViewModel de l'écran des paramètres.
@@ -18,19 +24,28 @@ import androidx.compose.runtime.State
 @HiltViewModel
 class SettingsViewModel @Inject constructor(
     private val backupUseCase: BackupUseCase
+    // private val repository: WineRepository
 ) : ViewModel() {
 
     private val _uiMessage = mutableStateOf<String?>(null)
     val uiMessage: State<String?> get() = _uiMessage
 
+    private val _password = mutableStateOf("")
+    val password: State<String> = _password
+    fun setPassword(value: String) {
+        _password.value = value
+    }
+
     /** Export JSON chiffré */
+    /* old json export function
     fun exportBackup(uri: Uri, password: String?) {
         viewModelScope.launch {
             backupUseCase.exportBackupToFolder(uri, password)
         }
     }
+    */
 
-    /** Import JSON chiffré ou non */
+    /** Ancien import JSON chiffré ou non
     fun importBackup(uri: Uri, password: String?) {
         viewModelScope.launch {
             try {
@@ -43,6 +58,7 @@ class SettingsViewModel @Inject constructor(
             }
         }
     }
+    */
 
     /** Export CSV */
     fun exportCsv(uri: Uri) {
@@ -61,5 +77,58 @@ class SettingsViewModel @Inject constructor(
     fun clearMessage() {
         _uiMessage.value = null
     }
+
+    fun importJsonReplace(uri: Uri, context: Context, onDone: () -> Unit) {
+        viewModelScope.launch {
+            try {
+                backupUseCase.importBackupFromUri(
+                    uri = uri,
+                    password = password.value.ifBlank { null },
+                    replace = true
+                )
+                _uiMessage.value = context.getString(R.string.import_replace_success)
+
+            } catch (e: Exception) {
+                _uiMessage.value = context.getString(R.string.import_error, e.message ?: "Inconnue")
+            }
+
+            onDone()
+        }
+    }
+
+    fun importJsonMerge(uri: Uri, context: Context, onDone: () -> Unit) {
+        viewModelScope.launch {
+            try {
+                backupUseCase.importBackupFromUri(
+                    uri = uri,
+                    password = password.value.ifBlank { null },
+                    replace = false
+                )
+                _uiMessage.value = context.getString(R.string.import_merge_success)
+
+            } catch (e: Exception) {
+                _uiMessage.value = context.getString(R.string.import_error, e.message ?: "Inconnue")
+            }
+
+            onDone()
+        }
+    }
+
+    fun exportBackup(uri: Uri, context: Context) {
+        viewModelScope.launch {
+            try {
+                backupUseCase.exportBackupToFolder(
+                    treeUri = uri,
+                    password = password.value.ifBlank { null }
+                )
+                _uiMessage.value = context.getString(R.string.export_success)
+
+            } catch (e: Exception) {
+                _uiMessage.value = context.getString(R.string.export_error, e.message ?: "Inconnue")
+            }
+        }
+    }
+
+
 
 }

@@ -15,6 +15,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import kotlinx.coroutines.launch
 import androidx.compose.ui.res.stringResource
 import com.mouton.openwinemer.R
+import androidx.compose.ui.platform.LocalContext
 
 /**
  * Écran des paramètres :
@@ -29,18 +30,26 @@ fun SettingsScreen(
     viewModel: SettingsViewModel = hiltViewModel()
 ) {
     // Mot de passe optionnel pour chiffrer/déchiffrer les backups.
-    var password by remember { mutableStateOf("") }
+    /* var password by remember { mutableStateOf("") }
+    // old password used now in setingsviewmodel
+     */
+
+    // Pour gérer le dialogue d'import JSON
+    var showImportDialog by remember { mutableStateOf(false) }
+    var pendingImportUri by remember { mutableStateOf<Uri?>(null) }
 
     // Snackbar pour afficher des messages en bas de l'écran.
     val snackbarHostState = remember { SnackbarHostState() }
     val message by viewModel.uiMessage
+
+    val context = LocalContext.current
 
     // Sélecteur de dossier pour export JSON.
     val exportJsonLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.OpenDocumentTree()
     ) { uri: Uri? ->
         if (uri != null) {
-            viewModel.exportBackup(uri, password.ifBlank { null })
+            viewModel.exportBackup(uri, context)
             /*scope.launch {
                 snackbarHostState.showSnackbar("Backup JSON exporté avec succès.")
             }*/
@@ -52,7 +61,12 @@ fun SettingsScreen(
         contract = ActivityResultContracts.GetContent()
     ) { uri: Uri? ->
         if (uri != null) {
+            // On stocke l’URI et on ouvre le dialogue
+            pendingImportUri = uri
+            showImportDialog = true
+            /* old import function
             viewModel.importBackup(uri, password.ifBlank { null })
+            */
             /*scope.launch {
                 snackbarHostState.showSnackbar("Backup importé avec succès.")
             }*/
@@ -105,8 +119,8 @@ fun SettingsScreen(
 
             // Champ pour saisir un mot de passe optionnel.
             OutlinedTextField(
-                value = password,
-                onValueChange = { password = it },
+                value = viewModel.password.value,
+                onValueChange = { viewModel.setPassword(it) },
                 label = { Text(stringResource(R.string.password_prompt)) },
                 modifier = Modifier.fillMaxWidth()
             )
@@ -152,6 +166,45 @@ fun SettingsScreen(
             }
         }
     }
+    // Dialogue de choix pour l'import JSON
+    if (showImportDialog && pendingImportUri != null) {
+        AlertDialog(
+            onDismissRequest = { showImportDialog = false },
+            title = { Text(stringResource(R.string.json_import_button)) },
+            text = { Text(stringResource(R.string.import_choice)) },
+
+            // Bouton : Remplacer
+            confirmButton = {
+                TextButton(onClick = {
+                    showImportDialog = false
+                    viewModel.importJsonReplace(
+                        uri = pendingImportUri!!,
+                        context = context
+                    ) {
+                        // Optionnel : snackbar
+                    }
+                }) {
+                    Text(stringResource(R.string.replace_all))
+                }
+            },
+
+            // Bouton : Fusionner
+            dismissButton = {
+                TextButton(onClick = {
+                    showImportDialog = false
+                    viewModel.importJsonMerge(
+                        uri = pendingImportUri!!,
+                        context = context
+                    ) {
+                        // Optionnel : snackbar
+                    }
+                }) {
+                    Text(stringResource(R.string.merge_all))
+                }
+            }
+        )
+    }
+
     LaunchedEffect(message) {
         val msg = message
         if (msg != null) {

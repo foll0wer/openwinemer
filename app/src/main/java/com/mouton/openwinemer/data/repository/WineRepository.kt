@@ -12,13 +12,20 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-
+import kotlinx.serialization.decodeFromString
 
 
 /**
  * Le Repository sert d’intermédiaire entre la base Room (WineDao)
  * et les ViewModels.
  */
+
+private val jsonParser = Json {
+    prettyPrint = true
+    encodeDefaults = true
+}
+
+
 @Singleton
 @Serializable
 class WineRepository @Inject constructor(
@@ -76,7 +83,5 @@ class WineRepository @Inject constructor(
             wines
         )
     }
-
-
 
 }
