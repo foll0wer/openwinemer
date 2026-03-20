@@ -7,26 +7,48 @@ import java.io.File
 
 object CsvExporter {
 
-    // Cette fonction crée un fichier CSV dans le stockage interne de l’app.
+    // Récupère les propriétés dans l'ordre EXACT de déclaration dans la data class
+    private fun orderedFields(clazz: Class<*>): List<java.lang.reflect.Field> {
+        return clazz.declaredFields
+            .filter { !it.name.contains("$") } // ignore les champs internes Kotlin
+    }
+
+    // Génère l'en-tête CSV automatiquement
+    private fun csvHeader(clazz: Class<*>): String {
+        return orderedFields(clazz)
+            .joinToString(";") { it.name }
+    }
+
+    // Génère une ligne CSV pour un objet
+    private fun csvLine(obj: Any): String {
+        val clazz = obj::class.java
+        return orderedFields(clazz)
+            .joinToString(";") { field ->
+                field.isAccessible = true
+                val value = field.get(obj)
+                value?.toString() ?: ""
+            }
+    }
+
     fun exportToCsv(
         context: Context,
         wines: List<WineEntity>,
         fileName: String = "openwinemer_export.csv"
     ): File {
+
         val file = File(context.filesDir, fileName)
+
         file.bufferedWriter().use { out ->
-            // Ligne d’en-tête (noms des colonnes).
-            out.write(
-                "id;name;producer;cuvee;vintage;wineType;color;country;region;stockQuantity\n"
-            )
-            wines.forEach { w ->
-                out.write(
-                    "${w.id};${w.name ?: ""};${w.producer ?: ""};${w.cuvee ?: ""};" +
-                            "${w.vintage ?: ""};${w.wineType ?: ""};${w.color ?: ""};" +
-                            "${w.country ?: ""};${w.region ?: ""};${w.stockQuantity ?: ""}\n"
-                )
+
+            // 1) Écrire l'en-tête automatiquement
+            out.write(csvHeader(WineEntity::class.java) + "\n")
+
+            // 2) Écrire chaque ligne automatiquement
+            wines.forEach { wine ->
+                out.write(csvLine(wine) + "\n")
             }
         }
+
         return file
     }
 }
