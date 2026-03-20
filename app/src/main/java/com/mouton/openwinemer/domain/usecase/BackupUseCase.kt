@@ -18,6 +18,7 @@ import java.util.Date
 import java.util.Locale
 import androidx.compose.ui.res.stringResource
 import com.mouton.openwinemer.R
+import com.mouton.openwinemer.util.CsvExporter
 
 /**
  * Cette classe gère :
@@ -111,6 +112,32 @@ class BackupUseCase(
     // 3) EXPORT CSV (lisible par Excel)
     // ------------------------------------------------------------
     suspend fun exportCsvToFolder(treeUri: Uri) {
+        val wines = wineDao.getAllWines().first()
+
+        // 1) Générer un fichier CSV dans le stockage interne
+        val tempFile = CsvExporter.exportToCsv(
+            context = context,
+            wines = wines,
+            fileName = "openwinemer_export_${currentTimestamp()}.csv"
+        )
+
+        // 2) Accéder au dossier choisi par l'utilisateur
+        val root = DocumentFile.fromTreeUri(context, treeUri)
+            ?: throw IllegalStateException(context.getString(R.string.cant_access_folder))
+
+        // 3) Créer le fichier dans ce dossier
+        val file = root.createFile("text/csv", tempFile.name)
+            ?: throw IllegalStateException(context.getString(R.string.cant_make_csv))
+
+        // 4) Copier le contenu du fichier temporaire vers l'URI SAF
+        context.contentResolver.openOutputStream(file.uri)?.use { out ->
+            tempFile.inputStream().use { input ->
+                input.copyTo(out)
+            }
+        }
+    }
+
+    suspend fun old_exportCsvToFolder(treeUri: Uri) {
         val wines = wineDao.getAllWines().first()
 
         val root = DocumentFile.fromTreeUri(context, treeUri)

@@ -7,45 +7,85 @@ import java.io.File
 
 object CsvExporter {
 
-    // Récupère les propriétés dans l'ordre EXACT de déclaration dans la data class
-    private fun orderedFields(clazz: Class<*>): List<java.lang.reflect.Field> {
-        return clazz.declaredFields
-            .filter { !it.name.contains("$") } // ignore les champs internes Kotlin
-    }
-
-    // Génère l'en-tête CSV automatiquement
-    private fun csvHeader(clazz: Class<*>): String {
-        return orderedFields(clazz)
-            .joinToString(";") { it.name }
-    }
-
-    // Génère une ligne CSV pour un objet
-    private fun csvLine(obj: Any): String {
-        val clazz = obj::class.java
-        return orderedFields(clazz)
-            .joinToString(";") { field ->
-                field.isAccessible = true
-                val value = field.get(obj)
-                value?.toString() ?: ""
-            }
-    }
-
+    // Cette fonction crée un fichier CSV dans le stockage interne de l’app.
     fun exportToCsv(
         context: Context,
         wines: List<WineEntity>,
         fileName: String = "openwinemer_export.csv"
     ): File {
-
         val file = File(context.filesDir, fileName)
 
+        fun Any?.safe() = this?.toString() ?: ""
         file.bufferedWriter().use { out ->
-
-            // 1) Écrire l'en-tête automatiquement
-            out.write(csvHeader(WineEntity::class.java) + "\n")
-
-            // 2) Écrire chaque ligne automatiquement
-            wines.forEach { wine ->
-                out.write(csvLine(wine) + "\n")
+            // Ligne d’en-tête (noms des colonnes).
+            out.write(
+                "id;name;producer;cuvee;vintage;wineType;color;" +
+                        "country;region;subRegion;appellation;classification;" +
+                        "mainGrape;blend;grapePercentages;" +
+                        "alcohol;residualSugar;acidity;ph;volumeMl;closureType;servingTemp;" +
+                        "vinificationMethod;fermentationType;ageingDuration;barrelType;barrelTime;" +
+                        "visualAspect;aromas;flavors;structure;finish;globalRating;" +
+                        "recommendedDishes;cuisineType;occasions;" +
+                        "ageingPotential;optimalDrinkDate;labelCondition;" +
+                        "awards;reviews;price;availability;distributor;sku;barcode;" +
+                        "stockQuantity;location;purchaseDate;purchasePrice;generalDescription\n"
+            )
+            wines.forEach { w ->
+                out.write(
+                    listOf(
+                        w.id.safe(),
+                        w.name.safe(),
+                        w.producer.safe(),
+                        w.cuvee.safe(),
+                        w.vintage.safe(),
+                        w.wineType.safe(),
+                        w.color.safe(),
+                        w.country.safe(),
+                        w.region.safe(),
+                        w.subRegion.safe(),
+                        w.appellation.safe(),
+                        w.classification.safe(),
+                        w.mainGrape.safe(),
+                        w.blend.safe(),
+                        w.grapePercentages.safe(),
+                        w.alcohol.safe(),
+                        w.residualSugar.safe(),
+                        w.acidity.safe(),
+                        w.ph.safe(),
+                        w.volumeMl.safe(),
+                        w.closureType.safe(),
+                        w.servingTemp.safe(),
+                        w.vinificationMethod.safe(),
+                        w.fermentationType.safe(),
+                        w.ageingDuration.safe(),
+                        w.barrelType.safe(),
+                        w.barrelTime.safe(),
+                        w.visualAspect.safe(),
+                        w.aromas.safe(),
+                        w.flavors.safe(),
+                        w.structure.safe(),
+                        w.finish.safe(),
+                        w.globalRating.safe(),
+                        w.recommendedDishes.safe(),
+                        w.cuisineType.safe(),
+                        w.occasions.safe(),
+                        w.ageingPotential.safe(),
+                        w.optimalDrinkDate.safe(),
+                        w.labelCondition.safe(),
+                        w.awards.safe(),
+                        w.reviews.safe(),
+                        w.price.safe(),
+                        w.availability.safe(),
+                        w.distributor.safe(),
+                        w.sku.safe(),
+                        w.barcode.safe(),
+                        w.stockQuantity.safe(),
+                        w.location.safe(),
+                        w.purchaseDate.safe(),
+                        w.purchasePrice.safe(),
+                        w.generalDescription.safe()
+                    ).joinToString(";") + "\n"
+                )
             }
         }
 
