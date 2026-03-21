@@ -2,7 +2,7 @@ name: Generate SVG Cards
 
 on:
   schedule:
-    - cron: "0 * * * *"   # Toutes les heures
+    - cron: "30 */6 * * *"   # à Xh30 toutes les 6h
   workflow_dispatch:       # Permet un lancement manuel
 
 jobs:
