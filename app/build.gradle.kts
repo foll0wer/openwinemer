@@ -18,7 +18,7 @@ android {
         applicationId = "com.mouton.openwinemer"
         minSdk = 26
         targetSdk = 36
-        versionCode = 1
+        versionCode = 100005 //XXYYZZ with version name XX.YY.ZZ
         versionName = "1.0.5"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
