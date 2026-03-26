@@ -62,7 +62,8 @@ data class WineEntity(
     val labelCondition: String? = null,          // État étiquette
     val awards: String? = null,                  // Récompenses
     val reviews: String? = null,                 // Critiques
-    val price: List<Double> = emptyList(),      // Prix - try 'val price: emptyArray<Double>()? = null,'
+    val price: List<PriceEntryEntity> = emptyList(),
+        // List of serialized price entries. Stored as TEXT in Room using TypeConverters.
     val availability: String? = null,            // Disponibilité
     val distributor: String? = null,             // Distributeur
     val sku: String? = null,                     // SKU
@@ -72,6 +73,14 @@ data class WineEntity(
     val purchaseDate: String? = null,            // Date d’achat
     val purchasePrice: Double? = null,           // Prix d’achat
     val generalDescription: String? = null       // Description générale
+)
+
+// Room-compatible version of PriceEntry.
+// Must be serializable using TypeConverters.
+@Serializable
+data class PriceEntryEntity(
+    val price: Double,
+    val date: String
 )
 
 /**
@@ -132,8 +141,10 @@ fun WineEntity.toDomain(): Wine {
         awards = awards,
         reviews = reviews,
 
-        // Convert immutable Room list → mutable domain list
-        price = price.toMutableList(),
+        // Convert entity list → domain list
+        prices = prices.map {
+            PriceEntry(price = it.price, date = it.date)
+        }.toMutableList(),
 
         availability = availability,
         distributor = distributor,
@@ -150,7 +161,8 @@ fun WineEntity.toDomain(): Wine {
 /**
  * Converts a Wine (domain model)
  * into a WineEntity (Room database model).
- *
+ * For this, converts PriceEntry → PriceEntryEntity.
+ * 
  * Room prefers immutable lists, so we convert MutableList<Double>
  * into List<Double> before saving.
  */
@@ -206,8 +218,10 @@ fun Wine.toEntity(): WineEntity {
         awards = awards,
         reviews = reviews,
 
-        // Convert mutable domain list → immutable Room list
-        price = price.toList(),
+        // Convert domain list → entity list
+        prices = prices.map {
+            PriceEntryEntity(price = it.price, date = it.date)
+        },
 
         availability = availability,
         distributor = distributor,
