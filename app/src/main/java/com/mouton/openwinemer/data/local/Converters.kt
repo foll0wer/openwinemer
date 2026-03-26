@@ -1,17 +1,24 @@
 package com.mouton.openwinemer.data.local
 
 import androidx.room.TypeConverter
+import com.mouton.openwinemer.data.model.PriceEntryEntity
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 
+/**
+ * Converts lists of PriceEntryEntity to/from JSON for Room storage.
+ */
 class Converters {
 
     @TypeConverter
-    fun fromList(list: List<Double>): String {
-        return list.joinToString(separator = ",")
+    fun fromPriceEntryList(list: List<PriceEntryEntity>): String {
+        return Json.encodeToString(list)
     }
 
     @TypeConverter
-    fun toList(data: String): List<Double> {
+    fun toPriceEntryList(data: String): List<PriceEntryEntity> {
         if (data.isEmpty()) return emptyList()
-        return data.split(",").map { it.toDouble() }
+        return Json.decodeFromString(data)
     }
 }
