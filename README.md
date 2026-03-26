@@ -1,195 +1,180 @@
-# 🍷 Application Android de Cave à Vin (Offline, Material You)
+# 🍷 Android Wine Cellar App (Offline, Material You)
+
+[🇺🇸 / 🇬🇧](README.md) [🇫🇷](README.fr.md)
 
 <details>
     <summary> Table of contents</summary>
 
-- [🍷 Application Android de Cave à Vin (Offline, Material You)](#-application-android-de-cave-à-vin-offline-material-you)
-  - [📱 Présentation du projet](#-présentation-du-projet)
-  - [🎨 Fonctionnalités principales](#-fonctionnalités-principales)
-    - [🧭 Navigation et ergonomie](#-navigation-et-ergonomie)
-    - [🍾 Gestion des vins](#-gestion-des-vins)
-  - [🗂️ Champs disponibles pour chaque vin](#️-champs-disponibles-pour-chaque-vin)
-    - [🏷️ Informations générales](#️-informations-générales)
-    - [🌍 Origine](#-origine)
-    - [🍇 Cépages](#-cépages)
-    - [⚗️ Caractéristiques techniques](#️-caractéristiques-techniques)
-    - [🛢️ Vinification \& élevage](#️-vinification--élevage)
-    - [👁️ Dégustation](#️-dégustation)
-    - [🍽️ Accords \& contexte](#️-accords--contexte)
-    - [💶 Informations commerciales](#-informations-commerciales)
-    - [📝 Divers](#-divers)
-  - [🧱 Architecture technique](#-architecture-technique)
+- [🍷 Android Wine Cellar App (Offline, Material You)](#-android-wine-cellar-app-offline-material-you)
+  - [📱 Project Overview](#-project-overview)
+  - [🎨 Main Features](#-main-features)
+    - [🧭 Navigation \& UX](#-navigation--ux)
+    - [🍾 Wine Management](#-wine-management)
+  - [🗂️ Available Fields for Each Wine](#️-available-fields-for-each-wine)
+    - [🏷️ General Information](#️-general-information)
+    - [🌍 Origin](#-origin)
+    - [🍇 Grapes](#-grapes)
+    - [⚗️ Technical Characteristics](#️-technical-characteristics)
+    - [🛢️ Vinification \& Aging](#️-vinification--aging)
+    - [👁️ Tasting](#️-tasting)
+    - [🍽️ Pairings \& Context](#️-pairings--context)
+    - [💶 Commercial Information](#-commercial-information)
+    - [📝 Miscellaneous](#-miscellaneous)
+  - [🧱 Technical Architecture](#-technical-architecture)
+  - [🚀 Future Features](#-future-features)
   - [🧪 Tests](#-tests)
-  - [📦 Export \& sauvegarde](#-export--sauvegarde)
+  - [📦 Export \& Backup](#-export--backup)
   - [🧰 Installation](#-installation)
-  - [📄 Licence](#-licence)
-  - [🚧 A faire plus tard](#-a-faire-plus-tard)
-  - [Usage de l'IA](#usage-de-lia)
-    - [Icon](#icon)
+  - [📄 License](#-license)
+  - [⏰ To‑Do Later](#-todo-later)
+    - [Features](#features)
+    - [Visual](#visual)
+  - [Use of AI](#use-of-ai)
 </details>
 
-## 📱 Présentation du projet
-Cette application Android permet de gérer une cave à vin complète **entièrement hors ligne**, avec une interface moderne respectant les principes du **Material You**.  
-Elle offre une gestion avancée des vins, un système de tri puissant, une modification rapide des stocks et la possibilité d’exporter la base de données.
+## 📱 Project Overview
+This Android application allows you to manage a complete wine cellar **entirely offline**, with a modern interface following **Material You** principles.  
+It offers advanced wine management, powerful sorting options, quick stock editing, and the ability to export the database.
 
-L’objectif est de fournir une application élégante, rapide, intuitive et totalement personnalisable.
-
----
-
-## 🎨 Fonctionnalités principales
-
-### 🧭 Navigation et ergonomie
-- Interface Material You (thèmes dynamiques, couleurs adaptatives)
-- Ajout d’un vin via un formulaire multi‑pages (un groupement de champs = une page)
-- Menu de tri permettant de classer les vins selon **n’importe quel champ**
-
-### 🍾 Gestion des vins
-- Ajout, modification et suppression de chaque vin
-- Modification rapide du stock via boutons **+ / -**
-- Export de la base de données en **CSV** ou **Excel**
-- Tous les champs sont **facultatifs** lors de l’ajout d’un vin
+The goal is to provide an elegant, fast, intuitive, and fully customizable application.
 
 ---
 
-## 🗂️ Champs disponibles pour chaque vin
+## 🎨 Main Features
 
-### 🏷️ Informations générales
-<details>
-    
-- Nom du vin  
-- Producteur / Domaine  
+### 🧭 Navigation & UX
+- Material You interface (dynamic themes, adaptive colors)
+- Add a wine through a multi‑page form (one group of fields = one page)
+- Sorting menu allowing wines to be sorted by **any field**
+
+### 🍾 Wine Management
+- Add, edit, and delete wines
+- Quick stock adjustment using **+ / -** buttons
+- Export the database to **CSV** or **Excel**
+- All fields are **optional** when adding a wine
+
+---
+
+## 🗂️ Available Fields for Each Wine
+
+### 🏷️ General Information
+- Wine name  
+- Producer / Estate  
 - Cuvée  
-- Millésime  
-- Type de vin (effervescent, liquoreux, sec, demi-sec, doux, liqueur, autre)  
-- Couleur (rouge, blanc, rosé, autre)
-</details>
+- Vintage  
+- Wine type (sparkling, sweet, dry, semi‑dry, dessert, liqueur, other)  
+- Color (red, white, rosé, other)
 
-### 🌍 Origine
-<details>
-    
-- Pays  
-- Région viticole  
-- Sous-région  
+### 🌍 Origin
+- Country  
+- Wine region  
+- Sub‑region  
 - Appellation  
-- Classement (Grand Cru, Premier Cru…)
-</details>
+- Classification (Grand Cru, Premier Cru…)
 
-### 🍇 Cépages
-<details>
-    
-- Cépage principal  
-- Assemblage  
-- Pourcentage de chaque cépage
-</details>
+### 🍇 Grapes
+- Main grape variety  
+- Blend  
+- Percentage of each grape
 
-### ⚗️ Caractéristiques techniques
-<details>
-    
-- Teneur en alcool (%)  
-- Sucre résiduel  
-- Acidité  
+### ⚗️ Technical Characteristics
+- Alcohol content (%)  
+- Residual sugar  
+- Acidity  
 - pH  
-- Volume de la bouteille  
-- Type de bouchon  
-- Température de service
-</details>
+- Bottle volume  
+- Cork type  
+- Serving temperature
 
-### 🛢️ Vinification & élevage
-<details>
-    
-- Méthode de vinification  
-- Type de fermentation  
-- Durée d’élevage  
-- Type de fût  
-- Temps en barrique
-</details>
+### 🛢️ Vinification & Aging
+- Vinification method  
+- Fermentation type  
+- Aging duration  
+- Barrel type  
+- Time in oak
 
-### 👁️ Dégustation
-<details>
-    
-- Aspect visuel  
-- Arômes  
-- Saveurs  
-- Structure (tanins, acidité, corps)  
-- Finale  
-- Note globale
-</details>
+### 👁️ Tasting
+- Visual appearance  
+- Aromas  
+- Flavors  
+- Structure (tannins, acidity, body)  
+- Finish  
+- Overall rating
 
-### 🍽️ Accords & contexte
-<details>
-    
-- Plats recommandés  
-- Type de cuisine  
+### 🍽️ Pairings & Context
+- Recommended dishes  
+- Cuisine type  
 - Occasions  
-- Potentiel de garde  
-- Date optimale de consommation  
-- État de l’étiquette  
-- Récompenses / médailles  
-- Critiques reconnues
-</details>
+- Aging potential  
+- Optimal drinking date  
+- Label condition  
+- Awards / medals  
+- Recognized critics
 
-### 💶 Informations commerciales
-<details>
-    
-- Prix  
-- Disponibilité  
-- Distributeur / caviste  
-- Code produit / SKU  
-- Code-barres  
-- Quantité en stock  
-- Emplacement dans la cave  
-- Date d’achat  
-- Prix d’achat
-</details>
+### 💶 Commercial Information
+- Price  
+- Availability  
+- Distributor / wine shop  
+- Product code / SKU  
+- Barcode  
+- Stock quantity  
+- Cellar location  
+- Purchase date  
+- Purchase price
 
-### 📝 Divers
-<details>
-    
-- Description générale
-</details>
+### 📝 Miscellaneous
+- General description
 
 ---
 
-## 🧱 Architecture technique
+## 🧱 Technical Architecture
 - **Kotlin** + **Jetpack Compose** (Material You)
-- Base de données locale **Room** (offline)
-- Navigation Compose multi-écrans
-- Export CSV/Excel via librairies dédiées
-- Architecture **MVVM**
+- Local database using **Room** (offline)
+- Multi‑screen Compose Navigation
+- CSV/Excel export via dedicated libraries
+- **MVVM** architecture
 - Kotlin JVM Target 11 | Compile SDK Version 36 | Minimin SDK 26
 
 ---
 
-## 🧪 Tests
-- Tests unitaires (ViewModels, Repository)  
-- Tests UI (Compose Testing)
+## 🚀 Future Features
+- Advanced search  
+- Statistics (distribution by country, color, vintage…)  
+- Optimized tablet mode  
+- Encrypted local backup  
 
 ---
 
-## 📦 Export & sauvegarde
-L’utilisateur peut exporter sa base de données complète en :  
-- **CSV** (compatible Excel, LibreOffice…)  
-- **XLSX** (Excel natif)
-- **Backup local** pour réimporter sur l'app
+## 🧪 Tests
+- Unit tests (ViewModels, Repository)  
+- UI tests (Compose Testing)
+
+---
+
+## 📦 Export & Backup
+The user can export the complete database as:  
+- **CSV** (Excel, LibreOffice compatible)  
+- **XLSX** (native Excel)  
+- **Local backup** to re‑import into the app
 
 ---
 
 ## 🧰 Installation
-1. Cloner le dépôt  
-2. Ouvrir dans Android Studio  
-3. Lancer l’application sur un appareil ou un émulateur Android 8+
+1. Clone the repository  
+2. Open in Android Studio  
+3. Run the application on an Android 8+ device or emulator  
 
 ---
 
-## 📄 Licence
+## 📄 License
 GNU GENERAL PUBLIC LICENSE 3
 
 ---
 
-## 🚧 A faire plus tard
-- ✨ Avec un coup de baguette wati magique les infos suivantes sont mises à jour via les [Issues](https://github.com/foll0wer/openwinemer/issues?q=is%3Aissue%20sort%3Aupdated-desc) du projet.
-- 💡 Cliquer sur une des celules pour voir l'avancement.
-- 🤝 Bon pour l'instant je sais pas quand je travaillerai dessus, et je sais que je n'ai que la quantité folle de 0 follower, mais si il y a des demandes je pourrais m'y pencher.
+## 🚧 To do later
+- ✨ With a wave of pitbull's magic wand, the following information is updated via the project's [Issues](https://github.com/foll0wer/openwinemer/issues?q=is%3Aissue%20sort%3Aupdated-desc).
+- 💡 Click on one of the cells to see the progress.
+- 🤝 Well, for now I don’t know when I’ll work on it, and I know I only have a whopping 0 followers, but if there’s demand, I might look into it.
 
 <div align="center">
   <a href="https://github.com/foll0wer/openwinemer/issues?q=state%3Aopen"><img src="https://img.shields.io/badge/issues-open-blue"/></a>
@@ -243,9 +228,10 @@ GNU GENERAL PUBLIC LICENSE 3
 
 ---
 
-## Usage de l'IA
-L'IA a été utilisé pour ce projet, notamment pour la résolution des erreurs (premier projet en kotlin pour moi, j'y connais rien) et les docstrings.
-Estimation d'empreinte carbone : 200g.
+## Use of AI
+AI was used in this project, mainly for error resolution (first Kotlin project for me, I know nothing about it) and for docstrings.  
+Estimated carbon footprint: 200g.
 
 ### Icon
 [Wine icon created by Smashicons - Flaticon.](https://www.flaticon.com/free-icons/wine).
+
