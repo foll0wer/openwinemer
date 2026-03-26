@@ -73,3 +73,76 @@ data class WineEntity(
     val purchasePrice: Double? = null,           // Prix d’achat
     val generalDescription: String? = null       // Description générale
 )
+
+/**
+ * Converts a WineEntity (Room database model)
+ * into a Wine (domain model used by the app).
+ *
+ * Domain models use MutableList for prices so the user
+ * can add new price entries over time.
+ */
+fun WineEntity.toDomain(): Wine {
+    return Wine(
+        id = id,
+        name = name,
+        producer = producer,
+        cuvee = cuvee,
+        vintage = vintage,
+        wineType = wineType,
+        color = color,
+
+        country = country,
+        region = region,
+        subRegion = subRegion,
+        appellation = appellation,
+        classification = classification,
+
+        mainGrape = mainGrape,
+        blend = blend,
+        grapePercentages = grapePercentages,
+
+        alcohol = alcohol,
+        residualSugar = residualSugar,
+        acidity = acidity,
+        ph = ph,
+        volumeMl = volumeMl,
+        closureType = closureType,
+        servingTemp = servingTemp,
+
+        vinificationMethod = vinificationMethod,
+        fermentationType = fermentationType,
+        ageingDuration = ageingDuration,
+        barrelType = barrelType,
+        barrelTime = barrelTime,
+
+        visualAspect = visualAspect,
+        aromas = aromas,
+        flavors = flavors,
+        structure = structure,
+        finish = finish,
+        globalRating = globalRating,
+
+        recommendedDishes = recommendedDishes,
+        cuisineType = cuisineType,
+        occasions = occasions,
+
+        ageingPotential = ageingPotential,
+        optimalDrinkDate = optimalDrinkDate,
+        labelCondition = labelCondition,
+        awards = awards,
+        reviews = reviews,
+
+        // Convert immutable Room list → mutable domain list
+        price = price.toMutableList(),
+
+        availability = availability,
+        distributor = distributor,
+        sku = sku,
+        barcode = barcode,
+        stockQuantity = stockQuantity,
+        location = location,
+        purchaseDate = purchaseDate,
+        purchasePrice = purchasePrice,
+        generalDescription = generalDescription
+    )
+}
