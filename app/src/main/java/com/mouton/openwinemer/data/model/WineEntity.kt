@@ -146,3 +146,78 @@ fun WineEntity.toDomain(): Wine {
         generalDescription = generalDescription
     )
 }
+
+/**
+ * Converts a Wine (domain model)
+ * into a WineEntity (Room database model).
+ *
+ * Room prefers immutable lists, so we convert MutableList<Double>
+ * into List<Double> before saving.
+ */
+fun Wine.toEntity(): WineEntity {
+    return WineEntity(
+        id = id ?: 0L, // Room will auto-generate ID if null
+
+        name = name,
+        producer = producer,
+        cuvee = cuvee,
+        vintage = vintage,
+        wineType = wineType,
+        color = color,
+
+        country = country,
+        region = region,
+        subRegion = subRegion,
+        appellation = appellation,
+        classification = classification,
+
+        mainGrape = mainGrape,
+        blend = blend,
+        grapePercentages = grapePercentages,
+
+        alcohol = alcohol,
+        residualSugar = residualSugar,
+        acidity = acidity,
+        ph = ph,
+        volumeMl = volumeMl,
+        closureType = closureType,
+        servingTemp = servingTemp,
+
+        vinificationMethod = vinificationMethod,
+        fermentationType = fermentationType,
+        ageingDuration = ageingDuration,
+        barrelType = barrelType,
+        barrelTime = barrelTime,
+
+        visualAspect = visualAspect,
+        aromas = aromas,
+        flavors = flavors,
+        structure = structure,
+        finish = finish,
+        globalRating = globalRating,
+
+        recommendedDishes = recommendedDishes,
+        cuisineType = cuisineType,
+        occasions = occasions,
+
+        ageingPotential = ageingPotential,
+        optimalDrinkDate = optimalDrinkDate,
+        labelCondition = labelCondition,
+        awards = awards,
+        reviews = reviews,
+
+        // Convert mutable domain list → immutable Room list
+        price = price.toList(),
+
+        availability = availability,
+        distributor = distributor,
+        sku = sku,
+        barcode = barcode,
+        stockQuantity = stockQuantity,
+        location = location,
+        purchaseDate = purchaseDate,
+        purchasePrice = purchasePrice,
+        generalDescription = generalDescription
+    )
+}
+
