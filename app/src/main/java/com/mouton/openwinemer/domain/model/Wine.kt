@@ -54,7 +54,8 @@ data class Wine(
     val labelCondition: String? = null,          // État étiquette
     val awards: String? = null,                  // Récompenses
     val reviews: String? = null,                 // Critiques
-    val price: MutableList<Double> = mutableListOf(),                   // Prix
+    val price: MutableList<PriceEntry> = mutableListOf(),
+        // List of price entries (price + date). Mutable so the user can add new price entries over time.
     val availability: String? = null,            // Disponibilité
     val distributor: String? = null,             // Distributeur
     val sku: String? = null,                     // SKU
