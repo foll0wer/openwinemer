@@ -7,23 +7,21 @@ import com.mouton.openwinemer.data.model.WineEntity
 
 
 /**
- * Room migration from version 1 to version 2.
+ * Migration from version 1 to version 2.
  *
- * Purpose:
- * - Replace the old "price" column (REAL)
- *   with a new "price" column (TEXT) that stores
- *   a serialized list of Double values.
+ * Version 1 stored a single price (REAL).
+ * Version 2 stores a JSON-serialized list of PriceEntryEntity objects.
  *
- * Steps:
- * 1. Create a new table with the updated schema.
- * 2. Copy all existing data, converting the old price value to TEXT.
- * 3. Drop the old table.
- * 4. Rename the new table to the original name.
+ * This migration:
+ * 1. Creates a new table with the new "prices" TEXT column.
+ * 2. Converts the old price value into a JSON list with today's date.
+ * 3. Copies all other fields unchanged.
+ * 4. Replaces the old table.
  */
 val MIGRATION_1_2 = object : Migration(1, 2) {
     override fun migrate(database: SupportSQLiteDatabase) {
 
-        // 1. Create new table with price as TEXT
+        // 1. Create new table with updated schema
         database.execSQL("""
             CREATE TABLE wines_new (
                 id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -75,7 +73,8 @@ val MIGRATION_1_2 = object : Migration(1, 2) {
                 awards TEXT,
                 reviews TEXT,
 
-                price TEXT, -- new serialized list column
+                -- NEW FIELD: JSON list of PriceEntryEntity
+                prices TEXT,
 
                 availability TEXT,
                 distributor TEXT,
@@ -90,7 +89,7 @@ val MIGRATION_1_2 = object : Migration(1, 2) {
         """)
 
         // 2. Copy data from old table → new table
-        // Convert old REAL price → TEXT
+        // Convert old price into a JSON list with today's date
         database.execSQL("""
             INSERT INTO wines_new (
                 id, name, producer, cuvee, vintage, wineType, color,
@@ -101,7 +100,9 @@ val MIGRATION_1_2 = object : Migration(1, 2) {
                 visualAspect, aromas, flavors, structure, finish, globalRating,
                 recommendedDishes, cuisineType, occasions,
                 ageingPotential, optimalDrinkDate, labelCondition, awards, reviews,
-                price,
+
+                prices,
+
                 availability, distributor, sku, barcode, stockQuantity, location,
                 purchaseDate, purchasePrice, generalDescription
             )
@@ -115,10 +116,9 @@ val MIGRATION_1_2 = object : Migration(1, 2) {
                 recommendedDishes, cuisineType, occasions,
                 ageingPotential, optimalDrinkDate, labelCondition, awards, reviews,
 
-                -- Convert REAL → TEXT (list with a single value)
                 CASE
-                    WHEN price IS NULL THEN ''
-                    ELSE CAST(price AS TEXT)
+                    WHEN price IS NULL THEN '[]'
+                    ELSE '[{"price": ' || price || ', "date": "' || date('now') || '"}]'
                 END,
 
                 availability, distributor, sku, barcode, stockQuantity, location,
@@ -126,13 +126,14 @@ val MIGRATION_1_2 = object : Migration(1, 2) {
             FROM wines
         """)
 
-        // 3. Drop old table
+        // 3. Remove old table
         database.execSQL("DROP TABLE wines")
 
-        // 4. Rename new table to original name
+        // 4. Rename new table
         database.execSQL("ALTER TABLE wines_new RENAME TO wines")
     }
 }
+
 
 
 
