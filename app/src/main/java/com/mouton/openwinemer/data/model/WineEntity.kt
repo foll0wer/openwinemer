@@ -62,7 +62,7 @@ data class WineEntity(
     val labelCondition: String? = null,          // État étiquette
     val awards: String? = null,                  // Récompenses
     val reviews: String? = null,                 // Critiques
-    val price: Double? = null,                   // Prix - try 'val price: emptyArray<Double>()? = null,'
+    val price: List<Double> = emptyList(),      // Prix - try 'val price: emptyArray<Double>()? = null,'
     val availability: String? = null,            // Disponibilité
     val distributor: String? = null,             // Distributeur
     val sku: String? = null,                     // SKU
