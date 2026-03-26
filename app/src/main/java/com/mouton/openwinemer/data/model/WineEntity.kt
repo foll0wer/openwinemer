@@ -62,7 +62,7 @@ data class WineEntity(
     val labelCondition: String? = null,          // État étiquette
     val awards: String? = null,                  // Récompenses
     val reviews: String? = null,                 // Critiques
-    val price: List<PriceEntryEntity> = emptyList(),
+    val prices: List<PriceEntryEntity> = emptyList(),
         // List of serialized price entries. Stored as TEXT in Room using TypeConverters.
     val availability: String? = null,            // Disponibilité
     val distributor: String? = null,             // Distributeur
