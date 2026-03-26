@@ -58,72 +58,90 @@ The goal is to provide an elegant, fast, intuitive, and fully customizable appli
 ## 🗂️ Available Fields for Each Wine
 
 ### 🏷️ General Information
-- Wine name  
-- Producer / Estate  
-- Cuvée  
-- Vintage  
-- Wine type (sparkling, sweet, dry, semi‑dry, dessert, liqueur, other)  
-- Color (red, white, rosé, other)
+<details>
+    - Wine name  
+    - Producer / Estate  
+    - Cuvée  
+    - Vintage  
+    - Wine type (sparkling, sweet, dry, semi‑dry, dessert, liqueur, other)  
+    - Color (red, white, rosé, other)
+</details>
 
 ### 🌍 Origin
-- Country  
-- Wine region  
-- Sub‑region  
-- Appellation  
-- Classification (Grand Cru, Premier Cru…)
+<details>
+    - Country  
+    - Wine region  
+    - Sub‑region  
+    - Appellation  
+    - Classification (Grand Cru, Premier Cru…)
+</details>
 
 ### 🍇 Grapes
-- Main grape variety  
-- Blend  
-- Percentage of each grape
+<details>
+    - Main grape variety  
+    - Blend  
+    - Percentage of each grape
+</details>
 
 ### ⚗️ Technical Characteristics
-- Alcohol content (%)  
-- Residual sugar  
-- Acidity  
-- pH  
-- Bottle volume  
-- Cork type  
-- Serving temperature
+<details>
+    - Alcohol content (%)  
+    - Residual sugar  
+    - Acidity  
+    - pH  
+    - Bottle volume  
+    - Cork type  
+    - Serving temperature
+</details>
 
 ### 🛢️ Vinification & Aging
-- Vinification method  
-- Fermentation type  
-- Aging duration  
-- Barrel type  
-- Time in oak
+<details>
+    - Vinification method  
+    - Fermentation type  
+    - Aging duration  
+    - Barrel type  
+    - Time in oak
+</details>
 
 ### 👁️ Tasting
-- Visual appearance  
-- Aromas  
-- Flavors  
-- Structure (tannins, acidity, body)  
-- Finish  
-- Overall rating
+<details>
+    - Visual appearance  
+    - Aromas  
+    - Flavors  
+    - Structure (tannins, acidity, body)  
+    - Finish  
+    - Overall rating
+</details>
 
 ### 🍽️ Pairings & Context
-- Recommended dishes  
-- Cuisine type  
-- Occasions  
-- Aging potential  
-- Optimal drinking date  
-- Label condition  
-- Awards / medals  
-- Recognized critics
+<details>
+    - Recommended dishes  
+    - Cuisine type  
+    - Occasions  
+    - Aging potential  
+    - Optimal drinking date  
+    - Label condition  
+    - Awards / medals  
+    - Recognized critics
+</details>
 
 ### 💶 Commercial Information
-- Price  
-- Availability  
-- Distributor / wine shop  
-- Product code / SKU  
-- Barcode  
-- Stock quantity  
-- Cellar location  
-- Purchase date  
-- Purchase price
+<details>
+    - Price  
+    - Availability  
+    - Distributor / wine shop  
+    - Product code / SKU  
+    - Barcode  
+    - Stock quantity  
+    - Cellar location  
+    - Purchase date  
+    - Purchase price
+</details>
 
 ### 📝 Miscellaneous
-- General description
+<details>
+    - General description
+</details>
 
 ---
 
