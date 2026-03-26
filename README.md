@@ -59,6 +59,7 @@ The goal is to provide an elegant, fast, intuitive, and fully customizable appli
 
 ### 🏷️ General Information
 <details>
+    
     - Wine name  
     - Producer / Estate  
     - Cuvée  
@@ -69,6 +70,7 @@ The goal is to provide an elegant, fast, intuitive, and fully customizable appli
 
 ### 🌍 Origin
 <details>
+    
     - Country  
     - Wine region  
     - Sub‑region  
@@ -78,6 +80,7 @@ The goal is to provide an elegant, fast, intuitive, and fully customizable appli
 
 ### 🍇 Grapes
 <details>
+    
     - Main grape variety  
     - Blend  
     - Percentage of each grape
@@ -85,6 +88,7 @@ The goal is to provide an elegant, fast, intuitive, and fully customizable appli
 
 ### ⚗️ Technical Characteristics
 <details>
+    
     - Alcohol content (%)  
     - Residual sugar  
     - Acidity  
@@ -96,6 +100,7 @@ The goal is to provide an elegant, fast, intuitive, and fully customizable appli
 
 ### 🛢️ Vinification & Aging
 <details>
+    
     - Vinification method  
     - Fermentation type  
     - Aging duration  
@@ -105,6 +110,7 @@ The goal is to provide an elegant, fast, intuitive, and fully customizable appli
 
 ### 👁️ Tasting
 <details>
+    
     - Visual appearance  
     - Aromas  
     - Flavors  
@@ -115,6 +121,7 @@ The goal is to provide an elegant, fast, intuitive, and fully customizable appli
 
 ### 🍽️ Pairings & Context
 <details>
+    
     - Recommended dishes  
     - Cuisine type  
     - Occasions  
@@ -127,6 +134,7 @@ The goal is to provide an elegant, fast, intuitive, and fully customizable appli
 
 ### 💶 Commercial Information
 <details>
+    
     - Price  
     - Availability  
     - Distributor / wine shop  
@@ -140,6 +148,7 @@ The goal is to provide an elegant, fast, intuitive, and fully customizable appli
 
 ### 📝 Miscellaneous
 <details>
+    
     - General description
 </details>
 
