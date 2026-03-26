@@ -54,7 +54,7 @@ data class Wine(
     val labelCondition: String? = null,          // État étiquette
     val awards: String? = null,                  // Récompenses
     val reviews: String? = null,                 // Critiques
-    val price: MutableList<PriceEntry> = mutableListOf(),
+    val prices: MutableList<PriceEntry> = mutableListOf(),
         // List of price entries (price + date). Mutable so the user can add new price entries over time.
     val availability: String? = null,            // Disponibilité
     val distributor: String? = null,             // Distributeur
@@ -117,7 +117,7 @@ fun WineEntity.toDomain(): Wine = Wine(
     labelCondition = labelCondition,          // État étiquette
     awards = awards,                  // Récompenses
     reviews = reviews,                 // Critiques
-    price = price,                   // Prix
+    prices = prices,                   // Prix
     availability = availability,            // Disponibilité
     distributor = distributor,             // Distributeur
     sku = sku,                     // SKU
