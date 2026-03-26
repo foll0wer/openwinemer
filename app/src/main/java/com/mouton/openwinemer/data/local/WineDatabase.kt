@@ -11,6 +11,7 @@ import com.mouton.openwinemer.data.model.WineEntity
     version = 1,
     exportSchema = true
 )
+@TypeConverters(Converters::class)
 abstract class WineDatabase : RoomDatabase() {
     abstract fun wineDao(): WineDao
 }
