@@ -237,9 +237,7 @@ fun WineDetailScreen(
                 }
 
                 // --- LATEST PRICE CARD ---
-                val latestPrice = current.prices
-                    .sortedByDescending { LocalDate.parse(it.date) }
-                    .firstOrNull()
+                val latestPrice = current.prices.maxByOrNull { LocalDate.parse(it.date) }
 
                 if (latestPrice != null) {
                     Card(
@@ -276,7 +274,6 @@ fun WineDetailScreen(
                     PriceTrendGraph(current.prices)
                     Spacer(Modifier.height(24.dp))
                 }
-
             }
         } ?: Box(
             modifier = Modifier

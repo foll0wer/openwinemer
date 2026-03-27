@@ -83,6 +83,7 @@ class BackupUseCase(
             try {
                 BackupCrypto.decrypt(content, password)
             } catch (e: Exception) {
+                e.printStackTrace()
                 throw IllegalStateException(context.getString(R.string.wrong_pwd_or_file))
             }
         }
@@ -92,6 +93,7 @@ class BackupUseCase(
         val wines: List<WineEntity> = try {
             gson.fromJson(jsonString, type)
         } catch (e: Exception) {
+            e.printStackTrace()
             throw IllegalStateException(context.getString(R.string.invalid_save_file))
         }
 
