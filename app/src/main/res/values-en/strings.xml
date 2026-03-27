@@ -156,5 +156,6 @@
     <string name="delete_price_title">Delete price</string>
     <string name="delete_price_message">Are you sure you want to delete this price entry?</string>
     <string name="delete_button_confirm">Delete</string>
+    <string name="latest_price">Latest price</string>
 
 </resources>

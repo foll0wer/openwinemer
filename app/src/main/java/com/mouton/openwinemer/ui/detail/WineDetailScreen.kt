@@ -31,6 +31,9 @@ import androidx.compose.material.icons.filled.Share
 import androidx.core.content.FileProvider
 import java.io.File
 import androidx.compose.material.icons.filled.AttachMoney
+// import for price list screen history and click
+import java.time.LocalDate
+import androidx.compose.foundation.clickable
 
 
 /**
@@ -232,6 +235,37 @@ fun WineDetailScreen(
                         DetailRow(label, value)
                     }
                 }
+
+                // --- LATEST PRICE CARD ---
+                val latestPrice = current.prices
+                    .sortedByDescending { LocalDate.parse(it.date) }
+                    .firstOrNull()
+
+                if (latestPrice != null) {
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = 8.dp)
+                            .clickable { onShowPriceHistory(wineId) },
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.surfaceVariant
+                        )
+                    ) {
+                        Column(modifier = Modifier.padding(16.dp)) {
+                            Text(
+                                text = stringResource(R.string.latest_price),
+                                style = MaterialTheme.typography.titleMedium
+                            )
+                            Spacer(Modifier.height(4.dp))
+                            Text("${latestPrice.price} €", style = MaterialTheme.typography.bodyLarge)
+                            Text(latestPrice.date, style = MaterialTheme.typography.bodyMedium)
+                            Text(latestPrice.source, style = MaterialTheme.typography.bodySmall)
+                        }
+                    }
+
+                    Spacer(Modifier.height(24.dp))
+                }
+
             }
         } ?: Box(
             modifier = Modifier
