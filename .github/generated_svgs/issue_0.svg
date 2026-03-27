@@ -155,7 +155,7 @@
 
 <!-- Sous-ligne : auteur + commentaires -->
 <text class="muted" x="14" y="72">
-    Ouverte par foll0wer · 1 commentaires
+    Ouverte par foll0wer · 2 commentaires
 </text>
 
 <!-- Labels -->
@@ -171,15 +171,15 @@
                   fill="white">enhancement</text>
         </g>
         
-        <g transform="translate(393, 14)">
+        <g transform="translate(383, 14)">
             <rect class="labelBg"
                   x="0" y="0"
-                  width="96" height="26" rx="13"
-                  fill="#eddb76" stroke="#eddb76" />
+                  width="106" height="26" rx="13"
+                  fill="#a4f5b3" stroke="#a4f5b3" />
             <text class="label"
-                  x="48.0" y="17"
+                  x="53.0" y="17"
                   text-anchor="middle"
-                  fill="white">status:doing</text>
+                  fill="white">status:review</text>
         </g>
         
 
