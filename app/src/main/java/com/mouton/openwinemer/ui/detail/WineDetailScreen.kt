@@ -30,6 +30,19 @@ import android.content.Intent
 import androidx.compose.material.icons.filled.Share
 import androidx.core.content.FileProvider
 import java.io.File
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Edit
+import androidx.compose.foundation.clickable
+import androidx.compose.material.icons.filled.AttachMoney
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import java.time.LocalDate
+
 
 /**
  * Écran affichant les détails d'un vin.
@@ -50,7 +63,8 @@ private fun autoTranslatedFields(wine: WineEntity): List<Pair<String, String>> {
     // Champs déjà affichés manuellement
     val excluded = setOf(
         "name", "producer", "region", "color", "vintage",
-        "stockQuantity", "generalDescription"
+        "stockQuantity", "generalDescription",
+        "prices"
     )
 
     return WineEntity::class.memberProperties
@@ -147,7 +161,8 @@ private fun autoFields(wine: WineEntity): List<Pair<String, String>> {
     // Champs que tu affiches déjà dans l'écran
     val excluded = setOf(
         "name", "producer", "region", "color", "vintage",
-        "stockQuantity", "generalDescription"
+        "stockQuantity", "generalDescription",
+        "prices"
     )
 
     return WineEntity::class.memberProperties
@@ -172,6 +187,7 @@ fun WineDetailScreen(
     onBack: () -> Unit,
     onEdit: (Long) -> Unit,
     onDeleted: () -> Unit,
+    onShowPriceHistory: (Long) -> Unit,
     viewModel: WineDetailViewModel = hiltViewModel()
 ) {
     val wine by viewModel.wine.collectAsState()
@@ -193,9 +209,47 @@ fun WineDetailScreen(
                     IconButton(onClick = onBack) { Text("<") }
                 },
                 actions = {
+                    // State controlling the dropdown menu
+                    var showEditMenu by remember { mutableStateOf(false) }
+
+                    Box {
+                        IconButton(onClick = { showEditMenu = true }) {
+                            Icon(Icons.Filled.Edit, contentDescription = stringResource(R.string.edit_button))
+                        }
+
+                        DropdownMenu(
+                            expanded = showEditMenu,
+                            onDismissRequest = { showEditMenu = false }
+                        ) {
+                            // --- EDIT WINE ---
+                            DropdownMenuItem(
+                                text = { Text(stringResource(R.string.edit_wine)) },
+                                onClick = {
+                                    showEditMenu = false
+                                    onEdit(wineId)
+                                }
+                            )
+
+                            // --- INSERT NEW PRICE ---
+                            DropdownMenuItem(
+                                text = { Text(stringResource(R.string.insert_new_price)) },
+                                leadingIcon = {
+                                    Icon(Icons.Filled.AttachMoney, contentDescription = null)
+                                },
+                                onClick = {
+                                    showEditMenu = false
+                                    // Navigate to price history screen
+                                    onShowPriceHistory(wineId)
+                                }
+                            )
+                        }
+                    }
+
+                    /* old wine edit button
                     IconButton(onClick = { onEdit(wineId) }) {
                         Icon(Icons.Filled.Edit, contentDescription = stringResource(R.string.edit_button))
                     }
+                    */
                     IconButton(onClick = { showDeleteDialog = true }) {
                         Icon(Icons.Filled.Delete, contentDescription = stringResource(R.string.delete_button))
                     }
@@ -283,7 +337,7 @@ fun WineDetailScreen(
                     }
                 }
 
-                /*
+                /* MARCH 26 : unused as of today
                 // --- CHAMPS DYNAMIQUES (tous les autres renseignés) ---
                 val dynamicFields = buildDynamicFields(current)
 

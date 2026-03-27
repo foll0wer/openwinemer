@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import com.mouton.openwinemer.data.model.PriceEntryEntity
 
 /**
  * ViewModel pour l'écran de détail d'un vin.
@@ -65,4 +66,35 @@ class WineDetailViewModel @Inject constructor(
         val wine = _wine.value ?: return null
         return repository.exportWineAsJson(wine)
     }
+
+    fun addPriceEntry(wineId: Long, entry: PriceEntryEntity) {
+        viewModelScope.launch {
+            val current = repository.getWineById(wineId) ?: return@launch
+            val updated = current.copy(prices = current.prices + entry)
+            repository.updateWine(updated)
+            loadWine(wineId)
+        }
+    }
+
+    fun updatePriceEntry(wineId: Long, old: PriceEntryEntity, new: PriceEntryEntity) {
+        viewModelScope.launch {
+            val current = repository.getWineById(wineId) ?: return@launch
+            val updatedList = current.prices.map { if (it == old) new else it }
+            val updated = current.copy(prices = updatedList)
+            repository.updateWine(updated)
+            loadWine(wineId)
+        }
+    }
+
+    fun deletePriceEntry(wineId: Long, entry: PriceEntryEntity) {
+        viewModelScope.launch {
+            val current = repository.getWineById(wineId) ?: return@launch
+            val updated = current.copy(prices = current.prices.filterNot { it == entry })
+            repository.updateWine(updated)
+            loadWine(wineId)
+        }
+    }
+
+
+
 }

@@ -9,6 +9,7 @@ import androidx.room.Query
 import androidx.room.Update
 import com.mouton.openwinemer.data.model.WineEntity
 import kotlinx.coroutines.flow.Flow
+import com.mouton.openwinemer.data.model.PriceEntryEntity
 
 /**
  * DAO = Data Access Object
@@ -60,4 +61,14 @@ interface WineDao {
     @Query("SELECT MAX(id) FROM wines")
     suspend fun getLastId(): Long?
 
+    /*
+    @Insert
+    suspend fun insertPriceEntry(entry: PriceEntryEntity)
+
+    @Update
+    suspend fun updatePriceEntry(entry: PriceEntryEntity)
+
+    @Delete
+    suspend fun deletePriceEntry(entry: PriceEntryEntity)
+    */
 }

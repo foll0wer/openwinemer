@@ -5,7 +5,6 @@ plugins {
     kotlin("kapt")
     alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin.serialization)
-
 }
 
 android {
@@ -91,4 +90,7 @@ dependencies {
 
     // pour le partage
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+
+    // for icons
+    implementation(libs.compose.material.icons.extended)
 }

@@ -48,15 +48,15 @@ fun PageRegion(
         OutlinedTextField(
             value = wine.appellation ?: "",
             onValueChange = { onWineChange(wine.copy(appellation = it.ifBlank { null })) },
-            label = { Text(stringResource(R.string.wine_designation)) },
+            label = { Text(stringResource(R.string.wine_appellation)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
 
         OutlinedTextField(
-            value = wine.classification ?: "",
-            onValueChange = { onWineChange(wine.copy(classification = it.ifBlank { null })) },
-            label = { Text(stringResource(R.string.wine_rankings)) },
+            value = wine.classifications ?: "",
+            onValueChange = { onWineChange(wine.copy(classifications = it.ifBlank { null })) },
+            label = { Text(stringResource(R.string.wine_classifications)) },
             modifier = Modifier.fillMaxWidth()
         )
     }

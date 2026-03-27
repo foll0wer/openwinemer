@@ -14,6 +14,7 @@ import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.mouton.openwinemer.ui.detail.PriceHistoryScreen
 
 
 
@@ -100,15 +101,23 @@ fun OpenWinemerNavGraph(
                     navController.navigate("add_edit?wineId=$wineId")
                 },
                 onDeleted = {
-                    // On revient à la liste après suppression
                     navController.popBackStack()
+                },
+                onShowPriceHistory = { wineId ->
+                    navController.navigate("wine/$wineId/prices")
                 }
             )
         }
-
-
-
-
+        composable(
+            route = "wine/{wineId}/prices",
+            arguments = listOf(navArgument("wineId") { type = NavType.LongType })
+        ) { backStackEntry ->
+            val wineId = backStackEntry.arguments!!.getLong("wineId")
+            PriceHistoryScreen(
+                wineId = wineId,
+                navController = navController
+            )
+        }
 
 
     }

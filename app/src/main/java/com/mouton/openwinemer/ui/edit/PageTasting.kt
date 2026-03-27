@@ -32,7 +32,7 @@ fun PageTasting(
         OutlinedTextField(
             value = wine.aromas ?: "",
             onValueChange = { onWineChange(wine.copy(aromas = it.ifBlank { null })) },
-            label = { Text(stringResource(R.string.wine_aroma)) },
+            label = { Text(stringResource(R.string.wine_aromas)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -40,7 +40,7 @@ fun PageTasting(
         OutlinedTextField(
             value = wine.flavors ?: "",
             onValueChange = { onWineChange(wine.copy(flavors = it.ifBlank { null })) },
-            label = { Text(stringResource(R.string.wine_flavor)) },
+            label = { Text(stringResource(R.string.wine_flavors)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))
@@ -56,7 +56,7 @@ fun PageTasting(
         OutlinedTextField(
             value = wine.finish ?: "",
             onValueChange = { onWineChange(wine.copy(finish = it.ifBlank { null })) },
-            label = { Text(stringResource(R.string.wine_final)) },
+            label = { Text(stringResource(R.string.wine_finish)) },
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(8.dp))

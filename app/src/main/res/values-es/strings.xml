@@ -59,7 +59,7 @@
     <string name="wine_buy_date">Fecha de compra</string>
     <string name="wine_buy_price">Precio de compra (moneda)</string>
     <string name="wine_general_desc">Descripción general</string>
-    <string name="wine_major_grape">Variedad principal</string>
+    <string name="wine_main_grape">Variedad principal</string>
     <string name="wine_grape_assembly">Ensamblaje</string>
     <string name="wine_grape_percentage">Porcentaje de cada variedad</string>
     <string name="wine_country">País</string>
@@ -140,4 +140,21 @@
     <string name="price_source_user_input">Entrada del usuario</string>
     <!-- Label for source field -->
     <string name="wine_price_source">Fuente</string>
+    <string name="insert_new_price">Añadir precio</string>
+
+    <!-- Strings for PriceHistoryScreen -->
+    <string name="price_history_title">Historial de precios</string>
+    <string name="back_button_symbol">&lt;</string>
+    <string name="add_price">Añadir precio</string>
+    <string name="edit_price">Editar</string>
+    <string name="delete_price">Eliminar</string>
+    <string name="price_entry_title">Entrada de precio</string>
+    <string name="price_label">Precio</string>
+    <string name="date_label">Fecha</string>
+    <string name="source_label">Fuente</string>
+    <string name="save_button">Guardar</string>
+    <string name="delete_price_title">Eliminar precio</string>
+    <string name="delete_price_message">¿Seguro que deseas eliminar esta entrada de precio?</string>
+    <string name="delete_button_confirm">Eliminar</string>
+
 </resources>

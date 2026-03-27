@@ -140,4 +140,21 @@
     <string name="price_source_user_input">Saisie utilisateur</string>
     <!-- Label for source field -->
     <string name="wine_price_source">Source</string>
+    <string name="insert_new_price">Ajouter un prix</string>
+
+    <!-- Strings for PriceHistoryScreen -->
+    <string name="price_history_title">Historique des prix</string>
+    <string name="back_button_symbol">&lt;</string>
+    <string name="add_price">Ajouter un prix</string>
+    <string name="edit_price">Modifier</string>
+    <string name="delete_price">Supprimer</string>
+    <string name="price_entry_title">Entrée de prix</string>
+    <string name="price_label">Prix</string>
+    <string name="date_label">Date</string>
+    <string name="source_label">Source</string>
+    <string name="save_button">Enregistrer</string>
+    <string name="delete_price_title">Supprimer le prix</string>
+    <string name="delete_price_message">Voulez-vous vraiment supprimer cette entrée de prix ?</string>
+    <string name="delete_button_confirm">Supprimer</string>
+
 </resources>
