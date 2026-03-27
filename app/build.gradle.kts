@@ -18,9 +18,10 @@ android {
         applicationId = "com.mouton.openwinemer"
         minSdk = 26
         targetSdk = 36
-        versionCode = 100005 //XXYYZZ with version name XX.YY.ZZ
-        versionName = "1.0.5"
-
+        versionCode = 4  // 4 for 0.2.1, official pre-release on 27 march 2026
+        versionName = "0.2.1"   // will go from 0.X.X to 1.X.X when original issues are covered
+                // X.2.X because now the app is better and there's a share button
+                // + complete csv export and json dialogue
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 

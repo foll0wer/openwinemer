@@ -18,7 +18,7 @@ data class Wine(
     val region: String? = null,                  // Région viticole
     val subRegion: String? = null,               // Sous-région
     val appellation: String? = null,             // Appellation
-    val classification: String? = null,          // Classement
+    val classifications: String? = null,          // Classement
 
     val mainGrape: String? = null,               // Cépage principal
     val blend: String? = null,                   // Assemblage (texte libre)
@@ -29,7 +29,7 @@ data class Wine(
     val acidity: Double? = null,                 // Acidité
     val ph: Double? = null,                      // pH
     val volumeMl: Int? = null,                   // Volume en millilitres
-    val closureType: String? = null,             // Type de bouchon
+    val corkType: String? = null,                // Type de bouchon
     val servingTemp: String? = null,             // Température de service
 
     val vinificationMethod: String? = null,      // Méthode de vinification
@@ -55,7 +55,8 @@ data class Wine(
     val awards: String? = null,                  // Récompenses
     val reviews: String? = null,                 // Critiques
     val prices: MutableList<PriceEntry> = mutableListOf(),
-        // List of price entries (price + date). Mutable so the user can add new price entries over time.
+        // List of price entries (price + date).
+        // Mutable so the user can add new price entries over time.
     val availability: String? = null,            // Disponibilité
     val distributor: String? = null,             // Distributeur
     val sku: String? = null,                     // SKU

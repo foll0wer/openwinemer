@@ -49,6 +49,7 @@
     <string name="wine_awards">Premios</string>
     <string name="wine_critics">Críticas</string>
     <string name="wine_price">Precio (moneda)</string>
+    <string name="wine_price_date">Fecha del precio</string>
     <string name="wine_availability">Disponibilidad</string>
     <string name="wine_distributor">Distribuidor</string>
     <string name="wine_sku">SKU</string>
@@ -116,4 +117,27 @@
     <string name="import_error">Error: %1$s</string>
     <string name="export_success">Copia JSON exportada correctamente.</string>
     <string name="export_error">Error de exportación: %1$s</string>
+
+    <!-- these are placeholder strings -->
+    <string name="placeholder_aging_potential">ej.: 10 años</string>
+    <string name="placeholder_optimal_date">ej.: 2028</string>
+    <string name="placeholder_label_state">ej.: Ligeramente dañada</string>
+    <string name="placeholder_awards">ej.: Medalla de oro</string>
+    <string name="placeholder_critics">ej.: 92/100</string>
+    <string name="placeholder_price">ej.: 24,90</string>
+    <string name="placeholder_price_date">ej.: 2026-03-27</string>
+    <string name="placeholder_price_source">ej.: Tienda local</string>
+    <string name="placeholder_availability">ej.: Raro</string>
+    <string name="placeholder_distributor">ej.: Wine and Co</string>
+    <string name="placeholder_sku">ej.: SKU12345</string>
+    <string name="placeholder_barcode">ej.: 1234567890123</string>
+    <string name="placeholder_stock">ej.: 6</string>
+    <string name="placeholder_location">ej.: Bodega A3</string>
+    <string name="placeholder_buy_date">ej.: 2025-11-02</string>
+    <string name="placeholder_buy_price">ej.: 19,50</string>
+    <string name="placeholder_general_desc">Notas generales sobre este vino</string>
+    <!-- Default source when user enters only a price -->
+    <string name="price_source_user_input">Entrada del usuario</string>
+    <!-- Label for source field -->
+    <string name="wine_price_source">Fuente</string>
 </resources>

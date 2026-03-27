@@ -21,8 +21,8 @@
     <string name="search_bar">Search...</string>
     <string name="sort_dialog">Sort</string>
     <string name="filter_dialog">Filter</string>
-    <string name="unknown_wine_name">Unkown wine name</string>
-    <string name="unknown_wine_producer">Unkown producer</string>
+    <string name="unknown_wine_name">Unknown wine name</string>
+    <string name="unknown_wine_producer">Unknown producer</string>
     <string name="unknown_wine_region">Unknown region</string>
     <string name="unknown_wine_color">Unknown color</string>
     <string name="filter_list">Filters</string>
@@ -49,6 +49,7 @@
     <string name="wine_awards">Awards</string>
     <string name="wine_critics">Critics</string>
     <string name="wine_price">Price (currency)</string>
+    <string name="wine_price_date">Price date</string>
     <string name="wine_availability">Availability</string>
     <string name="wine_distributor">Distributor</string>
     <string name="wine_sku">SKU</string>
@@ -58,20 +59,20 @@
     <string name="wine_buy_date">Buy date</string>
     <string name="wine_buy_price">Buy price (currency)</string>
     <string name="wine_general_desc">General description</string>
-    <string name="wine_major_grape">Major grape variety</string>
-    <string name="wine_grape_assembly">Assembly</string>
-    <string name="wine_grape_percentage">Percent of each variety</string>
+    <string name="wine_main_grape">Major grape variety</string>
+    <string name="wine_blend">Assembly</string>
+    <string name="wine_grape_percentages">Percent of each variety</string>
     <string name="wine_country">Country</string>
     <string name="wine_region">Wine region</string>
     <string name="wine_sub_region">Sub region</string>
-    <string name="wine_designation">Designation</string>
+    <string name="wine_appellation">Designation</string>
     <string name="wine_rankings">Ranking (Grand Cru, Premier Cru…)</string>
     <string name="wine_classifications">Ranking (Grand Cru, Premier Cru…)</string>
     <string name="wine_visual_aspect">Visual aspect</string>
-    <string name="wine_aroma">Aroma(s)</string>
-    <string name="wine_flavor">Flavor(s)</string>
+    <string name="wine_aromas">Aroma(s)</string>
+    <string name="wine_flavors">Flavor(s)</string>
     <string name="wine_structure">Body</string>
-    <string name="wine_final">Final note</string>
+    <string name="wine_finish">Final note</string>
     <string name="wine_grade">Global grade</string>
     <string name="wine_global_rating">Global grade</string>
     <string name="wine_alcohol">Alcohol percent (%%)</string>
@@ -80,8 +81,8 @@
     <string name="wine_acidity">Acidity</string>
     <string name="wine_ph">pH level</string>
     <string name="wine_vol">Volume (mL)</string>
-    <string name="wine_cork">Cork type</string>
-    <string name="wine_service_temp">Service temperature</string>
+    <string name="wine_cork_type">Cork type</string>
+    <string name="wine_serving_temp">Service temperature</string>
     <string name="wine_details">Wine details</string>
     <string name="edit_button">Edit</string>
     <string name="delete_button">Delete</string>
@@ -116,4 +117,27 @@
     <string name="import_error">Error: %1$s</string>
     <string name="export_success">JSON backup exported successfully.</string>
     <string name="export_error">Export error: %1$s</string>
+
+    <!-- these are placeholder strings -->
+    <string name="placeholder_aging_potential">e.g. 10 years</string>
+    <string name="placeholder_optimal_date">e.g. 2028</string>
+    <string name="placeholder_label_state">e.g. Slightly damaged</string>
+    <string name="placeholder_awards">e.g. Gold medal</string>
+    <string name="placeholder_critics">e.g. 92/100</string>
+    <string name="placeholder_price">e.g. 24.90</string>
+    <string name="placeholder_price_date">e.g. 2026-03-27</string>
+    <string name="placeholder_price_source">e.g. Local shop</string>
+    <string name="placeholder_availability">e.g. Rare</string>
+    <string name="placeholder_distributor">e.g. Wine and Co</string>
+    <string name="placeholder_sku">e.g. SKU12345</string>
+    <string name="placeholder_barcode">e.g. 1234567890123</string>
+    <string name="placeholder_stock">e.g. 6</string>
+    <string name="placeholder_location">e.g. Cellar A3</string>
+    <string name="placeholder_buy_date">e.g. 2025-11-02</string>
+    <string name="placeholder_buy_price">e.g. 19.50</string>
+    <string name="placeholder_general_desc">General notes about this wine</string>
+    <!-- Default source when user enters only a price -->
+    <string name="price_source_user_input">User input</string>
+    <!-- Label for source field -->
+    <string name="wine_price_source">Source</string>
 </resources>

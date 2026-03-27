@@ -8,5 +8,6 @@ package com.mouton.openwinemer.domain.model
  */
 data class PriceEntry(
     val price: Double,
-    val date: String
+    val date: String,
+    val source: String //where price is found
 )

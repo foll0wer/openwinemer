@@ -49,6 +49,7 @@
     <string name="wine_awards">Récompenses</string>
     <string name="wine_critics">Critiques</string>
     <string name="wine_price">Prix (devise)</string>
+    <string name="wine_price_date">Date du prix</string>
     <string name="wine_availability">Disponibilité</string>
     <string name="wine_distributor">Distributeur</string>
     <string name="wine_sku">SKU</string>
@@ -58,20 +59,20 @@
     <string name="wine_buy_date">Date d\'achat</string>
     <string name="wine_buy_price">Prix d\'achat (devise)</string>
     <string name="wine_general_desc">Description générale</string>
-    <string name="wine_major_grape">Cépage principal</string>
-    <string name="wine_grape_assembly">Assemblage</string>
-    <string name="wine_grape_percentage">Pourcentage des cépages</string>
+    <string name="wine_main_grape">Cépage principal</string>
+    <string name="wine_blend">Assemblage</string>
+    <string name="wine_grape_percentages">Pourcentage des cépages</string>
     <string name="wine_country">Pays</string>
     <string name="wine_region">Région viticole</string>
     <string name="wine_sub_region">Sous-région</string>
-    <string name="wine_designation">Appelation</string>
+    <string name="wine_appellation">Appellation</string>
     <string name="wine_rankings">Classement (Grand Cru, Premier Cru…)</string>
     <string name="wine_classifications">Classement (Grand Cru, Premier Cru…)</string>
     <string name="wine_visual_aspect">Aspect visual</string>
-    <string name="wine_aroma">Arôme(s)</string>
-    <string name="wine_flavor">Saveur(s)</string>
+    <string name="wine_aromas">Arôme(s)</string>
+    <string name="wine_flavors">Saveur(s)</string>
     <string name="wine_structure">Structure</string>
-    <string name="wine_final">Finale</string>
+    <string name="wine_finish">Finale</string>
     <string name="wine_grade">Note globale</string>
     <string name="wine_global_rating">Note globale</string>
     <string name="wine_alcohol">Teneur en alcool (%%)</string>
@@ -80,8 +81,8 @@
     <string name="wine_acidity">Acidité</string>
     <string name="wine_ph">pH</string>
     <string name="wine_vol">Volume (mL)</string>
-    <string name="wine_cork">Type de bouchon</string>
-    <string name="wine_service_temp">Température de service</string>
+    <string name="wine_cork_type">Type de bouchon</string>
+    <string name="wine_serving_temp">Température de service</string>
     <string name="wine_details">Détails du vin</string>
     <string name="edit_button">Modifier</string>
     <string name="delete_button">Supprimer</string>
@@ -116,4 +117,27 @@
     <string name="import_error">Erreur : %1$s</string>
     <string name="export_success">Backup JSON exporté avec succès.</string>
     <string name="export_error">Erreur export : %1$s</string>
+
+    <!-- these are placeholder strings -->
+    <string name="placeholder_aging_potential">ex : 10 ans</string>
+    <string name="placeholder_optimal_date">ex : 2028</string>
+    <string name="placeholder_label_state">ex : Légèrement abîmée</string>
+    <string name="placeholder_awards">ex : Médaille d’or</string>
+    <string name="placeholder_critics">ex : 92/100</string>
+    <string name="placeholder_price">ex : 24,90</string>
+    <string name="placeholder_price_date">ex : 2026-03-27</string>
+    <string name="placeholder_price_source">ex : Caviste local</string>
+    <string name="placeholder_availability">ex : Rare</string>
+    <string name="placeholder_distributor">ex : Wine and Co</string>
+    <string name="placeholder_sku">ex : SKU12345</string>
+    <string name="placeholder_barcode">ex : 1234567890123</string>
+    <string name="placeholder_stock">ex : 6</string>
+    <string name="placeholder_location">ex : Cave A3</string>
+    <string name="placeholder_buy_date">ex : 2025-11-02</string>
+    <string name="placeholder_buy_price">ex : 19,50</string>
+    <string name="placeholder_general_desc">Notes générales sur ce vin</string>
+    <!-- Default source when user enters only a price -->
+    <string name="price_source_user_input">Saisie utilisateur</string>
+    <!-- Label for source field -->
+    <string name="wine_price_source">Source</string>
 </resources>

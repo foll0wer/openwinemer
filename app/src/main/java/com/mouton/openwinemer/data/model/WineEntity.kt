@@ -5,6 +5,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 // pour le partage
 import kotlinx.serialization.Serializable
+import com.mouton.openwinemer.domain.model.PriceEntry
+import com.mouton.openwinemer.domain.model.Wine
 
 // @Entity indique à Room que cette classe représente une table dans la base de données.
 @Serializable
@@ -26,7 +28,7 @@ data class WineEntity(
     val region: String? = null,                  // Région viticole
     val subRegion: String? = null,               // Sous-région
     val appellation: String? = null,             // Appellation
-    val classification: String? = null,          // Classement
+    val classifications: String? = null,          // Classement
 
     val mainGrape: String? = null,               // Cépage principal
     val blend: String? = null,                   // Assemblage (texte libre)
@@ -37,7 +39,7 @@ data class WineEntity(
     val acidity: Double? = null,                 // Acidité
     val ph: Double? = null,                      // pH
     val volumeMl: Int? = null,                   // Volume en millilitres
-    val closureType: String? = null,             // Type de bouchon
+    val corkType: String? = null,             // Type de bouchon
     val servingTemp: String? = null,             // Température de service
 
     val vinificationMethod: String? = null,      // Méthode de vinification
@@ -63,7 +65,8 @@ data class WineEntity(
     val awards: String? = null,                  // Récompenses
     val reviews: String? = null,                 // Critiques
     val prices: List<PriceEntryEntity> = emptyList(),
-        // List of serialized price entries. Stored as TEXT in Room using TypeConverters.
+        // List of serialized price entries.
+        // Stored as TEXT in Room using TypeConverters.
     val availability: String? = null,            // Disponibilité
     val distributor: String? = null,             // Distributeur
     val sku: String? = null,                     // SKU
@@ -80,7 +83,8 @@ data class WineEntity(
 @Serializable
 data class PriceEntryEntity(
     val price: Double,
-    val date: String
+    val date: String,
+    val source: String
 )
 
 /**
@@ -104,7 +108,7 @@ fun WineEntity.toDomain(): Wine {
         region = region,
         subRegion = subRegion,
         appellation = appellation,
-        classification = classification,
+        classifications = classifications,
 
         mainGrape = mainGrape,
         blend = blend,
@@ -115,7 +119,7 @@ fun WineEntity.toDomain(): Wine {
         acidity = acidity,
         ph = ph,
         volumeMl = volumeMl,
-        closureType = closureType,
+        corkType = corkType,
         servingTemp = servingTemp,
 
         vinificationMethod = vinificationMethod,
@@ -143,7 +147,7 @@ fun WineEntity.toDomain(): Wine {
 
         // Convert entity list → domain list
         prices = prices.map {
-            PriceEntry(price = it.price, date = it.date)
+            PriceEntry(price = it.price, date = it.date, source = it.source)
         }.toMutableList(),
 
         availability = availability,
@@ -181,7 +185,7 @@ fun Wine.toEntity(): WineEntity {
         region = region,
         subRegion = subRegion,
         appellation = appellation,
-        classification = classification,
+        classifications = classifications,
 
         mainGrape = mainGrape,
         blend = blend,
@@ -192,7 +196,7 @@ fun Wine.toEntity(): WineEntity {
         acidity = acidity,
         ph = ph,
         volumeMl = volumeMl,
-        closureType = closureType,
+        corkType = corkType,
         servingTemp = servingTemp,
 
         vinificationMethod = vinificationMethod,
@@ -220,7 +224,7 @@ fun Wine.toEntity(): WineEntity {
 
         // Convert domain list → entity list
         prices = prices.map {
-            PriceEntryEntity(price = it.price, date = it.date)
+            PriceEntryEntity(price = it.price, date = it.date, source = it.source)
         },
 
         availability = availability,
