@@ -194,16 +194,15 @@ fun WineDetailScreen(
                     .fillMaxSize()
             ) {
                 // --- CHAMPS PRINCIPAUX (ceux à toujours afficher) ---
-                //"${wine?.name ?: stringResource(R.string.wine_details)}"
-                Text(stringResource(R.string.name) + " : " + (current.name ?: "-"))
-                Text(stringResource(R.string.wine_producer, " : ", current.producer ?: "-"))
-                Text(stringResource(R.string.region_label, " : ", current.region ?: "-"))
-                Text(stringResource(R.string.color_label, " : ", current.color ?: "-"))
-                Text(stringResource(R.string.year_label, " : ", current.vintage ?: "-"))
+                Text("${stringResource(R.string.name)} : ${current.name ?: "-"}")
+                Text("${stringResource(R.string.wine_producer)} : ${current.producer ?: "-"}")
+                Text("${stringResource(R.string.region_label)} : ${current.region ?: "-"}")
+                Text("${stringResource(R.string.color_label)} : ${current.color ?: "-"}")
+                Text("${stringResource(R.string.year_label)} : ${current.vintage ?: "-"}")
 
                 Spacer(Modifier.height(16.dp))
 
-                Text(stringResource(R.string.wine_stock, " : ", current.stockQuantity ?: 0))
+                Text("${stringResource(R.string.wine_stock)} : ${current.stockQuantity ?: 0}")
 
                 Row {
                     Button(onClick = { viewModel.updateStock(-1) }) { Text("-") }
@@ -214,7 +213,7 @@ fun WineDetailScreen(
                 Spacer(Modifier.height(24.dp))
 
                 // --- DESCRIPTION GÉNÉRALE ---
-                Text(stringResource(R.string.wine_general_desc, " : ", current.generalDescription ?: "-"))
+                Text("${stringResource(R.string.wine_general_desc)} : ${current.generalDescription ?: "-"}")
 
                 Spacer(Modifier.height(24.dp))
 
