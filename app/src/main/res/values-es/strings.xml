@@ -157,5 +157,6 @@
     <string name="delete_price_message">¿Seguro que deseas eliminar esta entrada de precio?</string>
     <string name="delete_button_confirm">Eliminar</string>
     <string name="latest_price">Último precio</string>
+    <string name="price_trend">Tendencia del precio</string>
 
 </resources>

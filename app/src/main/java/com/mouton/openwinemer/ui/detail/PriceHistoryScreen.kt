@@ -17,6 +17,14 @@ import com.mouton.openwinemer.data.model.PriceEntryEntity
 import java.time.LocalDate
 import androidx.compose.ui.res.stringResource
 import com.mouton.openwinemer.R
+import androidx.compose.material3.DatePicker
+import androidx.compose.material3.DatePickerDialog
+import androidx.compose.material3.rememberDatePickerState
+import java.time.Instant
+import java.time.ZoneId
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.text.input.KeyboardType
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -120,8 +128,9 @@ fun PriceHistoryScreen(
                     viewModel.updatePriceEntry(wineId, editingEntry!!, newEntry)
                 }
                 showDialog = false
-            }
+            },
         )
+        var showDatePicker by remember { mutableStateOf(false) }
     }
 
     if (showDeleteDialog && entryToDelete != null) {
@@ -151,6 +160,8 @@ fun PriceHistoryScreen(
 
 }
 
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PriceEntryDialog(
     initial: PriceEntryEntity?,
@@ -161,21 +172,39 @@ fun PriceEntryDialog(
     var date by remember { mutableStateOf(initial?.date ?: LocalDate.now().toString()) }
     var source by remember { mutableStateOf(initial?.source ?: "") }
 
+    var showDatePicker by remember { mutableStateOf(false) }
+    val datePickerState = rememberDatePickerState()
+
+    val defaultSource = stringResource(R.string.price_source_user_input)
+
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.price_entry_title)) },
         text = {
             Column {
+
+                // PRICE (numeric only)
                 OutlinedTextField(
                     value = price,
-                    onValueChange = { price = it },
-                    label = { Text(stringResource(R.string.price_label)) }
+                    onValueChange = { newValue ->
+                        if (newValue.matches(Regex("^\\d*\\.?\\d*\$"))) {
+                            price = newValue
+                        }
+                    },
+                    label = { Text(stringResource(R.string.price_label)) },
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                 )
-                OutlinedTextField(
-                    value = date,
-                    onValueChange = { date = it },
-                    label = { Text(stringResource(R.string.date_label)) }
-                )
+
+                Spacer(Modifier.height(8.dp))
+
+                // DATE PICKER BUTTON
+                Button(onClick = { showDatePicker = true }) {
+                    Text("${stringResource(R.string.date_label)}: $date")
+                }
+
+                Spacer(Modifier.height(8.dp))
+
+                // SOURCE
                 OutlinedTextField(
                     value = source,
                     onValueChange = { source = it },
@@ -186,7 +215,8 @@ fun PriceEntryDialog(
         confirmButton = {
             TextButton(onClick = {
                 val parsed = price.toDoubleOrNull() ?: return@TextButton
-                onSave(PriceEntryEntity(parsed, date, source))
+                val finalSource = if (source.isBlank()) defaultSource else source
+                onSave(PriceEntryEntity(parsed, date, finalSource))
             }) {
                 Text(stringResource(R.string.save_button))
             }
@@ -197,4 +227,33 @@ fun PriceEntryDialog(
             }
         }
     )
+
+    // DATE PICKER DIALOG
+    if (showDatePicker) {
+        DatePickerDialog(
+            onDismissRequest = { showDatePicker = false },
+            confirmButton = {
+                TextButton(onClick = {
+                    val selected = datePickerState.selectedDateMillis
+                    if (selected != null) {
+                        date = Instant.ofEpochMilli(selected)
+                            .atZone(ZoneId.systemDefault())
+                            .toLocalDate()
+                            .toString()
+                    }
+                    showDatePicker = false
+                }) {
+                    Text(stringResource(R.string.save_button))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDatePicker = false }) {
+                    Text(stringResource(R.string.cancel_button))
+                }
+            }
+        ) {
+            DatePicker(state = datePickerState)
+        }
+    }
 }
+

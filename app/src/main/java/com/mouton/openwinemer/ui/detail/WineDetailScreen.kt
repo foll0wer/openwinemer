@@ -266,6 +266,17 @@ fun WineDetailScreen(
                     Spacer(Modifier.height(24.dp))
                 }
 
+                // --- PRICE TREND GRAPH ---
+                if (current.prices.isNotEmpty()) {
+                    Text(
+                        text = stringResource(R.string.price_trend),
+                        style = MaterialTheme.typography.titleMedium
+                    )
+                    Spacer(Modifier.height(8.dp))
+                    PriceTrendGraph(current.prices)
+                    Spacer(Modifier.height(24.dp))
+                }
+
             }
         } ?: Box(
             modifier = Modifier
