@@ -8,8 +8,6 @@ import com.mouton.openwinemer.data.repository.WineRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import androidx.compose.ui.res.stringResource
-import com.mouton.openwinemer.R
 
 
 /**

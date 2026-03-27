@@ -3,7 +3,6 @@ package com.mouton.openwinemer.data.local
 import androidx.room.TypeConverter
 import com.mouton.openwinemer.data.model.PriceEntryEntity
 import kotlinx.serialization.encodeToString
-import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
 /**

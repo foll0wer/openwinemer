@@ -4,7 +4,6 @@ package com.mouton.openwinemer.data.local
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.mouton.openwinemer.data.model.WineEntity
-import com.mouton.openwinemer.data.local.Converters
 import androidx.room.TypeConverters
 
 

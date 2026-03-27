@@ -10,13 +10,9 @@ import com.mouton.openwinemer.data.local.WineDao
 import com.mouton.openwinemer.data.model.WineEntity
 import com.mouton.openwinemer.util.BackupCrypto
 import kotlinx.coroutines.flow.first
-import java.io.BufferedReader
-import java.io.InputStreamReader
-import java.io.OutputStreamWriter
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-import androidx.compose.ui.res.stringResource
 import com.mouton.openwinemer.R
 import com.mouton.openwinemer.util.CsvExporter
 
@@ -145,40 +141,6 @@ class BackupUseCase(
             tempFile.inputStream().use { input ->
                 input.copyTo(out)
             }
-        }
-    }
-
-    suspend fun old_exportCsvToFolder(treeUri: Uri) {
-        val wines = wineDao.getAllWines().first()
-
-        val root = DocumentFile.fromTreeUri(context, treeUri)
-            ?: throw IllegalStateException(context.getString(R.string.cant_access_folder))
-
-        // Nom de fichier avec date et heure.
-        val fileName = "openwinemer_export_${currentTimestamp()}.csv"
-        val file = root.createFile("text/csv", fileName)
-            ?: throw IllegalStateException(context.getString(R.string.cant_make_csv))
-
-        context.contentResolver.openOutputStream(file.uri)?.use { out ->
-            val writer = OutputStreamWriter(out)
-
-            // En-têtes CSV (colonnes).
-            writer.write("id,name,producer,region,color,vintage,stock\n")
-
-            // Chaque vin devient une ligne CSV.
-            wines.forEach { wine ->
-                writer.write(
-                    "${wine.id}," +
-                            "\"${wine.name ?: ""}\"," +
-                            "\"${wine.producer ?: ""}\"," +
-                            "\"${wine.region ?: ""}\"," +
-                            "\"${wine.color ?: ""}\"," +
-                            "${wine.vintage ?: ""}," +
-                            "${wine.stockQuantity ?: 0}\n"
-                )
-            }
-
-            writer.flush()
         }
     }
 

@@ -9,12 +9,7 @@ import javax.inject.Singleton
 // pour le partage d'un vin
 import kotlinx.serialization.Serializable
 // pour le partage de plusieurs vins
-import kotlinx.serialization.builtins.ListSerializer
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.decodeFromString
-import com.mouton.openwinemer.data.model.PriceEntryEntity
-
 
 /**
  * Le Repository sert d’intermédiaire entre la base Room (WineDao)
@@ -65,24 +60,20 @@ class WineRepository @Inject constructor(
 
     /** partage json depuis la vue d'un vin */
     fun exportWineAsJson(wine: WineEntity): String {
-        return kotlinx.serialization.json.Json {
-            prettyPrint = true
-            encodeDefaults = true
-        }.encodeToString(WineEntity.serializer(), wine)
+        return jsonParser.encodeToString(WineEntity.serializer(), wine)
     }
 
     suspend fun getWinesByIds(ids: Set<Long>): List<WineEntity> {
         return wineDao.getWinesByIds(ids.toList())
     }
 
+    // share MULTIPLE wines from list view
     fun exportWinesAsJson(wines: List<WineEntity>): String {
-        return kotlinx.serialization.json.Json {
-            prettyPrint = true
-            encodeDefaults = true
-        }.encodeToString(
+        return jsonParser.encodeToString(
             kotlinx.serialization.builtins.ListSerializer(WineEntity.serializer()),
             wines
         )
     }
+
 
 }

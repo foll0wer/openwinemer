@@ -105,8 +105,8 @@ fun PageCommercial(
                 // Build new entry with auto-filled defaults
                 val newEntry = PriceEntryEntity(
                     price = parsed,
-                    date = if (priceDate.isBlank()) today else priceDate,
-                    source = if (priceSource.isBlank()) userInputSourceLabel else priceSource
+                    date = priceDate.ifBlank { today },
+                    source = priceSource.ifBlank { userInputSourceLabel }
                 )
 
                 onWineChange(wine.copy(prices = wine.prices.dropLast(1) + newEntry))
@@ -126,7 +126,7 @@ fun PageCommercial(
                 val newEntry = PriceEntryEntity(
                     price = lastPrice?.price ?: 0.0,
                     date = newDate,
-                    source = if (priceSource.isBlank()) userInputSourceLabel else priceSource
+                    source = priceSource.ifBlank { userInputSourceLabel }
                 )
 
                 onWineChange(wine.copy(prices = wine.prices.dropLast(1) + newEntry))
@@ -145,7 +145,7 @@ fun PageCommercial(
 
                 val newEntry = PriceEntryEntity(
                     price = lastPrice?.price ?: 0.0,
-                    date = if (priceDate.isBlank()) today else priceDate,
+                    date = priceDate.ifBlank { today },
                     source = newSource
                 )
 

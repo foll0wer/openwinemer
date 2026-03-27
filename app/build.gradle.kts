@@ -22,6 +22,14 @@ android {
                 // X.2.X because now the app is better and there's a share button
                 // + complete csv export and json dialogue
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += mapOf(
+                    "room.schemaLocation" to "$projectDir/schemas".toString(),
+                    "room.incremental" to "true"
+                )
+            }
+        }
     }
 
     buildTypes {

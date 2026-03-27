@@ -12,7 +12,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import kotlinx.coroutines.launch
 import androidx.compose.ui.res.stringResource
 import com.mouton.openwinemer.R
 import androidx.compose.ui.platform.LocalContext
@@ -142,7 +141,7 @@ fun SettingsScreen(
                 onClick = { importJsonLauncher.launch("*/*") },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text(stringResource(com.mouton.openwinemer.R.string.json_import_button))
+                Text(stringResource(R.string.json_import_button))
             }
 
             Spacer(Modifier.height(24.dp))
@@ -152,7 +151,7 @@ fun SettingsScreen(
                 onClick = { exportCsvLauncher.launch(null) },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text(stringResource(com.mouton.openwinemer.R.string.csv_export_button))
+                Text(stringResource(R.string.csv_export_button))
             }
 
             Spacer(Modifier.height(8.dp))
@@ -162,7 +161,7 @@ fun SettingsScreen(
                 onClick = { exportExcelLauncher.launch(null) },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text(stringResource(com.mouton.openwinemer.R.string.excel_export_button))
+                Text(stringResource(R.string.excel_export_button))
             }
         }
     }
