@@ -1,0 +1,16 @@
+Amélioration du flux de travail pour la gestion du vin, amélioration de l'interface utilisateur (sélecteur de date et de couleurs), meilleure organisation des champs et mise à jour du formulaire multipages. Correction de l'exportation CSV et Excel avec tous les champs, et amélioration de la base de données hors ligne gérée par l'application.
+Stabilité générale améliorée et nettoyage du code pour un fonctionnement plus rapide.
+
+Détails :
+- Les prix sont désormais des listes de prix et de sources, pour indiquer où le prix a été noté, ainsi que le lieu et la date ;
+- Ajout de l'espagnol ;
+- Ajout d'un graphique pour le suivi des taux ;
+- Boutons de partage pour la sélection multiple et le vin unique en vue détaillée ;
+- Sauvegarde JSON cryptée ;
+- Exportation CSV ;
+- Tri par année/nom/région/couleur.
+Vos commentaires sont toujours les bienvenus !
+
+Prochaine étape :
+- Ajouter un tutoriel dans l'application pour commencer
+- Champs de tri corrects sur la deuxième page (au deuxième écran d'accueil)

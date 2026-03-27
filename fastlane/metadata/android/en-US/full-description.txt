@@ -1,0 +1,9 @@
+OpenWineMer is an offline Android application for managing your entire wine cellar with a clean, modern Material You interface.
+You can add, edit, sort, and organize wines using a powerful multi‑page form covering all aspects: general information, origin, grape varieties, technical characteristics, vinification, tasting notes, food pairings, commercial details, and more.
+
+The app includes fast stock editing, dynamic sorting on any field, and full database export to JSON (encrypted or not), CSV or Excel.
+All data stays on your device thanks to a local Room database.
+   -> for now, the app never accesses internet. Later, maybe it will take information with the SKU from vivino.
+OpenWineMer is fully customizable, intuitive, and designed for efficient cellar management.
+
+Any resemblance to an American theoretical physicist who served as the director of the Manhattan Project's Los Alamos Laboratory during World War II is completely coincidental.

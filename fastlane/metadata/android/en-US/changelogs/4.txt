@@ -1,0 +1,16 @@
+Improved wine management workflow, enhanced Material You UI (date selector and colors), better field organization, and updated multipage form. Corrected the CSV and Excel export with all fields, and refined offline database handling.
+General stability fixes and code cleanup with a speedier build.
+
+Details :
+- Prices are now lists of price date and source, to indicate where the price was noted and where and when ;
+- Added spanish ;
+- Added graph for price tracking ;
+- Sharing buttons for multiple selection & unique wine in detail view ;
+- Encrypt json backup ;
+- CSV export ;
+- Sort by color/region/name/year.
+Feedback is always appreciated !
+
+Next step :
+- Add tutorial at app launch for first time
+- Correct sort fields in second page (on home screen)

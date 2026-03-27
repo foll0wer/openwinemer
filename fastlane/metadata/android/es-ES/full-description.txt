@@ -1,0 +1,9 @@
+OpenWineMer Es una aplicación de Androide off-line para gestor vuestra bodega de vino entera con un limpio, moderno Material Te interfaz.
+ Puedes añadir, edita, clase, y organizar los vinos que utilizan un poderosos multi‑forma de página que cubre todos los  aspectos: información general, origen, variedades de uva, características técnicas, vinification, probando notas, emparejamientos alimentarios, detalles comerciales, y más.
+
+La aplicación incluye rápida accionario editando, dinámico ordenando en cualquier campo, y exportación de base de datos llena a JSON (encriptado o no), CSV o Excel.
+Todas estancias de datos en vuestro aparato gracias a una base de datos de Sala local.
+   -> Por ahora, la aplicación nunca accede internet. Más tarde, quizás  tomará información con el SKU de vivino.
+OpenWineMer Es plenamente customizable, intuitivo, y diseñado para gestión de bodega eficaz.
+
+Cualquier parecido a un físico teórico americano quién sirvió como el director del Proyecto de Manhattan  Los Alamos el laboratorio durante Segunda Guerra mundial es completamente coincidente.

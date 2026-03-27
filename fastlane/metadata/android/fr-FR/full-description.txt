@@ -1,0 +1,9 @@
+OpenWineMer est une application Android hors ligne qui vous permet de gérer l'intégralité de votre collection de vins grâce à une interface Material You épurée et moderne.
+Vous pouvez ajouter, modifier, trier et organiser vos vins à l'aide d'un formulaire multipages complet couvrant tous les aspects : informations générales, origine, cépages, caractéristiques techniques, vinification, notes de dégustation, accords mets-vins, détails commerciaux, et bien plus encore.
+
+L'application permet de modifier rapidement l'inventaire, d'effectuer un tri dynamique selon n'importe quel champ et d'exporter l'intégralité de la base de données au format JSON (crypté ou non), CSV ou Excel.
+Toutes les données restent sur votre appareil grâce à une base de données Room locale.
+   -> Pour l'instant, l'application n'accède jamais à Internet. À l'avenir, elle pourra récupérer des informations à l'aide du SKU de Vivino.
+OpenWineMer est entièrement personnalisable, intuitive et conçue pour une gestion efficace de votre cave.
+
+Toute ressemblance avec un physicien théoricien américain qui a occupé le poste de directeur du laboratoire de Los Alamos du projet Manhattan pendant la Seconde Guerre mondiale est purement fortuite.

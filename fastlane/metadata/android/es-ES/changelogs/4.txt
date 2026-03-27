@@ -1,0 +1,16 @@
+Gestión de vino mejorado workflow, Material realzado Tú UI (selector de cita y colores), organización de campo mejor, y actualizado multipage forma. Corregido el CSV y Excel exportación con todos los  campos, y refined la base de datos off-line que maneja.
+La estabilidad general fija y código cleanup con un speedier complexión.
+
+Detalles :
+- los precios son ahora listas de cita de precio y fuente, para indicar donde el precio estuvo notado y donde y cuando ;
+- Añadido spanish ;
+- Añadido graph para tasa seguir ;
+- Compartiendo botones para selección múltiple & vino único en detalle vista ;
+- Encriptar json copia de seguridad ;
+- CSV exportación ;
+- Clase por año/de/nombre/de región de color.
+La retroalimentación es siempre apreció !
+
+Paso próximo :
+- Añadir preceptoral en lancha de aplicación para primer tiempo
+- campos de clase Correcta en segunda página (encima pantalla de casa)
