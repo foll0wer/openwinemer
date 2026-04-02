@@ -4,7 +4,6 @@
 
 <details>
     <summary> Table of contents</summary>
-<img width="32" height="32" alt="image" src="https://github.com/user-attachments/assets/565943b1-0323-4f59-8b7c-c4437e32da38" />
 
 - [🍷 Android Wine Cellar App (Offline, Material You)](#-android-wine-cellar-app-offline-material-you)
   - [📱 Project Overview](#-project-overview)
