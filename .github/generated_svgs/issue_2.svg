@@ -150,12 +150,12 @@
 
 <!-- Titre -->
 <text class="title" x="14" y="42">
-    Add "share" option to wines <tspan class="muted">#2</tspan>
+    Add wine price following <tspan class="muted">#1</tspan>
 </text>
 
 <!-- Sous-ligne : auteur + commentaires -->
 <text class="muted" x="14" y="72">
-    Ouverte par foll0wer · 0 commentaires
+    Ouverte par foll0wer · 2 commentaires
 </text>
 
 <!-- Labels -->

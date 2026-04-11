@@ -150,12 +150,12 @@
 
 <!-- Titre -->
 <text class="title" x="14" y="42">
-    Add wine price following <tspan class="muted">#1</tspan>
+    Add tutorial for first time <tspan class="muted">#4</tspan>
 </text>
 
 <!-- Sous-ligne : auteur + commentaires -->
 <text class="muted" x="14" y="72">
-    Ouverte par foll0wer · 2 commentaires
+    Ouverte par foll0wer · 0 commentaires
 </text>
 
 <!-- Labels -->
