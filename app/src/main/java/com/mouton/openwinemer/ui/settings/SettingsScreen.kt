@@ -15,6 +15,11 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.ui.res.stringResource
 import com.mouton.openwinemer.R
 import androidx.compose.ui.platform.LocalContext
+// import for tutorial bubble
+import com.mouton.openwinemer.ui.components.TutorialOverlay
+import com.mouton.openwinemer.util.TutorialPrefs
+import androidx.compose.ui.platform.LocalContext
+
 
 /**
  * Écran des paramètres :
@@ -42,6 +47,15 @@ fun SettingsScreen(
     val message by viewModel.uiMessage
 
     val context = LocalContext.current
+
+    // --- Tutorial state for Export section ---
+    var showExportTutorial by remember { mutableStateOf(false) }
+
+    LaunchedEffect(Unit) {
+        if (!TutorialPrefs.hasSeen(context, "tutorial_export")) {
+            showExportTutorial = true
+        }
+    }
 
     // Sélecteur de dossier pour export JSON.
     val exportJsonLauncher = rememberLauncherForActivityResult(
@@ -107,64 +121,83 @@ fun SettingsScreen(
         },
         snackbarHost = { SnackbarHost(snackbarHostState) }
     ) { padding ->
-        Column(
+        Box(
             modifier = Modifier
                 .padding(padding)
-                .padding(16.dp)
                 .fillMaxSize()
         ) {
-            Text(stringResource(R.string.cave_backup_page), style = MaterialTheme.typography.titleMedium)
-            Spacer(Modifier.height(8.dp))
-
-            // Champ pour saisir un mot de passe optionnel.
-            OutlinedTextField(
-                value = viewModel.password.value,
-                onValueChange = { viewModel.setPassword(it) },
-                label = { Text(stringResource(R.string.password_prompt)) },
-                modifier = Modifier.fillMaxWidth()
-            )
-
-            Spacer(Modifier.height(16.dp))
-
-            // Bouton pour exporter un backup JSON.
-            Button(
-                onClick = { exportJsonLauncher.launch(null) },
-                modifier = Modifier.fillMaxWidth()
+            Column(
+                modifier = Modifier
+                    .padding(16.dp)
+                    .fillMaxSize()
             ) {
-                Text(stringResource(R.string.json_export_button))
-            }
+                Text(
+                    stringResource(R.string.cave_backup_page),
+                    style = MaterialTheme.typography.titleMedium
+                )
+                Spacer(Modifier.height(8.dp))
 
-            Spacer(Modifier.height(8.dp))
+                // Champ pour saisir un mot de passe optionnel.
+                OutlinedTextField(
+                    value = viewModel.password.value,
+                    onValueChange = { viewModel.setPassword(it) },
+                    label = { Text(stringResource(R.string.password_prompt)) },
+                    modifier = Modifier.fillMaxWidth()
+                )
 
-            // Bouton pour importer un backup JSON.
-            Button(
-                onClick = { importJsonLauncher.launch("*/*") },
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(stringResource(R.string.json_import_button))
-            }
+                Spacer(Modifier.height(16.dp))
 
-            Spacer(Modifier.height(24.dp))
+                // Bouton pour exporter un backup JSON.
+                Button(
+                    onClick = { exportJsonLauncher.launch(null) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(stringResource(R.string.json_export_button))
+                }
 
-            // Bouton pour exporter un CSV.
-            Button(
-                onClick = { exportCsvLauncher.launch(null) },
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(stringResource(R.string.csv_export_button))
-            }
+                Spacer(Modifier.height(8.dp))
 
-            Spacer(Modifier.height(8.dp))
+                // Bouton pour importer un backup JSON.
+                Button(
+                    onClick = { importJsonLauncher.launch("*/*") },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(stringResource(R.string.json_import_button))
+                }
 
-            // Bouton pour exporter un "Excel" (CSV compatible).
-            Button(
-                onClick = { exportExcelLauncher.launch(null) },
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(stringResource(R.string.excel_export_button))
+                Spacer(Modifier.height(24.dp))
+
+                // Bouton pour exporter un CSV.
+                Button(
+                    onClick = { exportCsvLauncher.launch(null) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(stringResource(R.string.csv_export_button))
+                }
+
+                Spacer(Modifier.height(8.dp))
+
+                // Bouton pour exporter un "Excel" (CSV compatible).
+                Button(
+                    onClick = { exportExcelLauncher.launch(null) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(stringResource(R.string.excel_export_button))
+                }
             }
         }
-    }
+        // --- Tutorial overlay ---
+        if (showExportTutorial) {
+            TutorialOverlay(
+                title = "Export your cellar",
+                description = "Use these buttons to export your cellar as JSON, CSV, or Excel.",
+                onDismiss = {
+                    showExportTutorial = false
+                    TutorialPrefs.setSeen(context, "tutorial_export")
+                }
+            )
+        }
+}
     // Dialogue de choix pour l'import JSON
     if (showImportDialog && pendingImportUri != null) {
         AlertDialog(

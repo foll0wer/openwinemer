@@ -13,6 +13,10 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.ui.res.stringResource
 import com.mouton.openwinemer.R
+//for tutorial bubble
+import androidx.compose.ui.platform.LocalContext
+import com.mouton.openwinemer.ui.components.TutorialOverlay
+import com.mouton.openwinemer.util.TutorialPrefs
 
 
 @Composable
@@ -26,6 +30,17 @@ fun AddEditWineFlow(
     }
 
     val state by viewModel.uiState
+
+    // --- Tutorial state for Add/Edit screen ---
+    val context = LocalContext.current
+    var showAddTutorial by remember { mutableStateOf(false) }
+
+    LaunchedEffect(Unit) {
+        if (!TutorialPrefs.hasSeen(context, "tutorial_add_wine")) {
+            showAddTutorial = true
+        }
+    }
+
 
     Scaffold(
         topBar = {
@@ -69,47 +84,63 @@ fun AddEditWineFlow(
             }
         }
     ) { padding ->
-        Column(modifier = Modifier
-                    .padding(padding)
-                    .fillMaxSize()
+        Box(
+            modifier = Modifier
+                .padding(padding)
+                .fillMaxSize()
         ) {
-            when (state.currentPage) {
+            Column(
+                modifier = Modifier.fillMaxSize()
+            ) {
+                when (state.currentPage) {
 
-                0 -> PageIdentification(
-                wine = state.wine,
-                onWineChange = { viewModel.updateWine(it) },
-                modifier = Modifier
-            )
+                    0 -> PageIdentification(
+                        wine = state.wine,
+                        onWineChange = { viewModel.updateWine(it) },
+                        modifier = Modifier
+                    )
 
-            1 -> PageRegion(
-                wine = state.wine,
-                onWineChange = { viewModel.updateWine(it) },
-                modifier = Modifier
-            )
+                    1 -> PageRegion(
+                        wine = state.wine,
+                        onWineChange = { viewModel.updateWine(it) },
+                        modifier = Modifier
+                    )
 
-            2 -> PageGrapes(
-                wine = state.wine,
-                onWineChange = { viewModel.updateWine(it) },
-                modifier = Modifier
-            )
+                    2 -> PageGrapes(
+                        wine = state.wine,
+                        onWineChange = { viewModel.updateWine(it) },
+                        modifier = Modifier
+                    )
 
-            3 -> PageTechnical(
-                wine = state.wine,
-                onWineChange = { viewModel.updateWine(it) },
-                modifier = Modifier
-            )
+                    3 -> PageTechnical(
+                        wine = state.wine,
+                        onWineChange = { viewModel.updateWine(it) },
+                        modifier = Modifier
+                    )
 
-            4 -> PageTasting(
-                wine = state.wine,
-                onWineChange = { viewModel.updateWine(it) },
-                modifier = Modifier
-            )
+                    4 -> PageTasting(
+                        wine = state.wine,
+                        onWineChange = { viewModel.updateWine(it) },
+                        modifier = Modifier
+                    )
 
-            5 -> PageCommercial(
-                wine = state.wine,
-                onWineChange = { viewModel.updateWine(it) },
-                modifier = Modifier
-            )
+                    5 -> PageCommercial(
+                        wine = state.wine,
+                        onWineChange = { viewModel.updateWine(it) },
+                        modifier = Modifier
+                    )
+                }
+            }
+            // --- Tutorial overlay ---
+            if (showAddTutorial) {
+                TutorialOverlay(
+                    title = "Add a wine",
+                    description = "Fill in the wine information. You can navigate pages using Next/Previous.",
+                    onDismiss = {
+                        showAddTutorial = false
+                        TutorialPrefs.setSeen(context, "tutorial_add_wine")
+                    }
+                )
             }
         }
     }
