@@ -204,5 +204,6 @@
     <string name="add_wine_tutorial_description">Rellena los datos del vino. Puedes desplazarte por las páginas con los botones Siguiente y Anterior.</string>
 
     <string name="favorite_button">Marcar como favorito</string>
+    <string name="navbar_favorites">Favoritos</string>
 
 </resources>

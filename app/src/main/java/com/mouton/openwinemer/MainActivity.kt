@@ -15,6 +15,7 @@ import com.mouton.openwinemer.ui.theme.OpenWinemerTheme
 import androidx.compose.foundation.layout.padding
 import androidx.compose.ui.res.stringResource
 import androidx.compose.material.icons.automirrored.filled.List
+import androidx.compose.material.icons.filled.Favorite
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -36,9 +37,9 @@ class MainActivity : ComponentActivity() {
                             )
                             NavigationBarItem(
                                 selected = false,
-                                onClick = { navController.navigate("categories") },
-                                icon = { Icon(Icons.AutoMirrored.Default.List, contentDescription = null) },
-                                label = { Text(stringResource(R.string.navbar_categories)) }
+                                onClick = { navController.navigate("favorites") },
+                                icon = { Icon(Icons.Default.Favorite, contentDescription = null) },
+                                label = { Text(stringResource(R.string.navbar_favorites)) }
                             )
                             NavigationBarItem(
                                 selected = false,

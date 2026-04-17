@@ -204,5 +204,6 @@
     <string name="add_wine_tutorial_description">Fill in the wine information. You can navigate pages using Next/Previous.</string>
 
     <string name="favorite_button">Toggle favorite</string>
+    <string name="navbar_favorites">Favorites</string>
 
 </resources>

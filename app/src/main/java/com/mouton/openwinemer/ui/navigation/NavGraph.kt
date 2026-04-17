@@ -8,7 +8,7 @@ import androidx.navigation.compose.composable
 import com.mouton.openwinemer.ui.list.WineListScreen
 import com.mouton.openwinemer.ui.detail.WineDetailScreen
 import com.mouton.openwinemer.ui.settings.SettingsScreen
-import com.mouton.openwinemer.ui.home.CategoriesScreen
+import com.mouton.openwinemer.ui.favorites.FavoritesScreen
 import com.mouton.openwinemer.ui.edit.AddEditWineFlow
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
@@ -18,7 +18,7 @@ import com.mouton.openwinemer.ui.detail.PriceHistoryScreen
 
 object Routes {
     const val HOME = "home"
-    const val CATEGORIES = "categories"
+    const val FAVORITES = "favorites"
     const val SETTINGS = "settings"
 }
 
@@ -40,10 +40,9 @@ fun OpenWinemerNavGraph(
             )
         }
 
-        composable(Routes.CATEGORIES) {
-            CategoriesScreen(
-                onShowByRegion = { navController.navigate("list_region") },
-                onShowByColor = { navController.navigate("list_color") }
+        composable(Routes.FAVORITES) {
+            FavoritesScreen(
+                onWineClick = { id -> navController.navigate("detail/$id") }
             )
         }
 
@@ -84,6 +83,12 @@ fun OpenWinemerNavGraph(
                 mode = "COLOR",
                 onWineClick = { /* TODO */ },
                 onAddWine = { navController.navigate("add_edit?wineId=-1") }
+            )
+        }
+
+        composable(Routes.FAVORITES) {
+            FavoritesScreen(
+                onWineClick = { id -> navController.navigate("detail/$id") }
             )
         }
 
