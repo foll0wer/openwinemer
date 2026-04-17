@@ -134,8 +134,8 @@ fun AddEditWineFlow(
             // --- Tutorial overlay ---
             if (showAddTutorial) {
                 TutorialOverlay(
-                    title = "Add a wine",
-                    description = "Fill in the wine information. You can navigate pages using Next/Previous.",
+                    title = stringResource(R.string.add_wine_tutorial_title),
+                    description = stringResource(R.string.add_wine_tutorial_description),
                     onDismiss = {
                         showAddTutorial = false
                         TutorialPrefs.setSeen(context, "tutorial_add_wine")

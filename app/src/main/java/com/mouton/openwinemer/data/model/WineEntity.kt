@@ -1,6 +1,17 @@
 // WineEntity.kt
 package com.mouton.openwinemer.data.model
 
+/*
+What it is:
+The exact structure of a wine as stored in the database.
+
+Why it exists:
+Room needs a strict, serializable, immutable data class to store rows in SQLite.
+
+Do you need it?
+Yes. Without it, Room cannot work.
+ */
+
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 // pour le partage
@@ -15,6 +26,8 @@ data class WineEntity(
     // @PrimaryKey définit l'identifiant unique de chaque vin.
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0L,
+    // Whether the wine is marked as a favorite by the user
+    val isFavorite: Boolean = false,
 
     // Tous les champs sont optionnels (nullable) pour respecter la contrainte.
     val name: String? = null,                    // Nom du vin
@@ -97,6 +110,7 @@ data class PriceEntryEntity(
 fun WineEntity.toDomain(): Wine {
     return Wine(
         id = id,
+        isFavorite = isFavorite,
         name = name,
         producer = producer,
         cuvee = cuvee,
@@ -173,6 +187,7 @@ fun WineEntity.toDomain(): Wine {
 fun Wine.toEntity(): WineEntity {
     return WineEntity(
         id = id ?: 0L, // Room will auto-generate ID if null
+        isFavorite = isFavorite,
 
         name = name,
         producer = producer,

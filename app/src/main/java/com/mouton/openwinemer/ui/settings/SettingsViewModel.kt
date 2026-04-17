@@ -126,6 +126,16 @@ class SettingsViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Deletes all wines from the database.
+     * Called from the SettingsScreen when the user confirms deletion.
+     */
+    fun deleteAllData() {
+        viewModelScope.launch {
+            backupUseCase.clearDatabase()
+            _uiMessage.value = "All data deleted"
+        }
+    }
 
 
 }

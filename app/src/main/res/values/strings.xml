@@ -22,6 +22,7 @@
     <string name="sort_dialog">Trier</string>
     <string name="filter_dialog">Filtrer</string>
     <string name="unknown_wine_name">Nom inconnu</string>
+    <string name="unknown_wine_year">Année inconnue</string>
     <string name="unknown_wine_producer">Producteur inconnu</string>
     <string name="unknown_wine_region">Région inconnue</string>
     <string name="unknown_wine_color">Couleur inconnue</string>
@@ -158,5 +159,50 @@
     <string name="delete_button_confirm">Supprimer</string>
     <string name="latest_price">Dernier prix</string>
     <string name="price_trend">Évolution du prix</string>
+
+    <!-- Delete dialogs -->
+    <string name="delete_all_title">Supprimer toutes les données</string>
+    <string name="delete_all_message">Êtes-vous sûr de vouloir supprimer TOUS les vins de votre cave ? Cette action est irréversible.</string>
+    <!-- Final confirmation dialog -->
+    <string name="final_delete_title">Confirmer la suppression</string>
+    <string name="final_delete_instruction">Pour supprimer définitivement toutes les données, veuillez taper le mot suivant :</string>
+    <string name="final_delete_keyword">OPENWINEMER</string>
+    <string name="final_delete_type_here">Tapez ici pour confirmer</string>
+    <!-- Logs -->
+    <string name="logs_title">Journaux de l\'application</string>
+
+    <!-- Settings list items -->
+    <string name="settings_json_export_title">Exporter une sauvegarde JSON</string>
+    <string name="settings_json_export_desc">Exporter votre cave en JSON chiffré</string>
+    <string name="settings_json_import_title">Importer une sauvegarde JSON</string>
+    <string name="settings_json_import_desc">Restaurer une sauvegarde JSON</string>
+    <string name="settings_csv_export_title">Exporter en CSV</string>
+    <string name="settings_csv_export_desc">Exporter au format CSV</string>
+    <string name="settings_excel_export_title">Exporter en CSV compatible Excel</string>
+    <string name="settings_excel_export_desc">Exporter au format CSV compatible Excel</string>
+    <string name="settings_delete_title">Supprimer toutes les données</string>
+    <string name="settings_delete_desc">Cette action est irréversible</string>
+    <string name="settings_privacy_title">Politique de confidentialité</string>
+    <string name="settings_privacy_desc">Lire comment vos données sont traitées</string>
+    <string name="settings_credits_title">Crédits</string>
+    <string name="settings_credits_desc">Contributeurs d’OpenWinemer</string>
+    <string name="settings_feedback_title">Envoyer un retour</string>
+    <string name="settings_feedback_desc">Ouvre votre application e‑mail</string>
+    <string name="settings_logs_title">Voir les journaux</string>
+    <string name="settings_logs_desc">Utile pour le débogage</string>
+
+    <!-- Privacy policy popup -->
+    <string name="privacy_title">Politique de confidentialité</string>
+    <string name="privacy_message">OpenWinemer fonctionne entièrement hors ligne et ne collecte ni ne transmet aucune donnée personnelle.</string>
+    <string name="privacy_ok">OK</string>
+
+    <string name="settings_screen_export_tutorial_title">Exporter votre cave</string>
+    <string name="settings_screen_export_tutorial_desc">Utilisez ces boutons pour exporter votre cave au format JSON, CSV ou Excel.</string>
+    <string name="home_tutorial_title">Bienvenue</string>
+    <string name="home_tutorial_description">Utilisez ces boutons pour parcourir votre cave par liste, région ou couleur.</string>
+    <string name="add_wine_tutorial_title">Ajouter un vin</string>
+    <string name="add_wine_tutorial_description">Remplissez les informations relatives au vin. Vous pouvez passer d\'une page à l\'autre à l\'aide des boutons Suivant/Précédent.</string>
+
+    <string name="favorite_button">Basculer en favori</string>
 
 </resources>

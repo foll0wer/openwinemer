@@ -154,4 +154,9 @@ class BackupUseCase(
         // On réutilise donc la même logique que pour le CSV.
         exportCsvToFolder(treeUri)
     }
+
+    suspend fun clearDatabase() {
+        wineDao.clearAll()
+    }
+
 }

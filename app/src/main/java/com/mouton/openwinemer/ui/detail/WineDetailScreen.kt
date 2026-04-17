@@ -3,6 +3,20 @@
 
 package com.mouton.openwinemer.ui.detail
 
+/*
+What it is:
+The composable that displays a single wine.
+
+Why it exists:
+-Shows wine info
+-Buttons for edit/delete/share
+-Favorite button
+
+Do you need it?
+Yes.
+Each screen should be its own file.
+ */
+
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
@@ -34,6 +48,9 @@ import androidx.compose.material.icons.filled.AttachMoney
 // import for price list screen history and click
 import java.time.LocalDate
 import androidx.compose.foundation.clickable
+// favorite
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
 
 
 /**
@@ -153,6 +170,16 @@ fun WineDetailScreen(
                     IconButton(onClick = { showDeleteDialog = true }) {
                         Icon(Icons.Filled.Delete, contentDescription = stringResource(R.string.delete_button))
                     }
+
+                    // Favorite toggle button: filled heart if favorite, outline if not
+                    IconButton(onClick = { viewModel.toggleFavorite() }) {
+                        val isFav = wine?.isFavorite == true
+                        Icon(
+                            imageVector = if (isFav) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
+                            contentDescription = stringResource(R.string.favorite_button)
+                        )
+                    }
+
                     IconButton(onClick = {
                         val json = viewModel.exportCurrentWineAsJson() ?: return@IconButton
 

@@ -1,6 +1,23 @@
 // WineListViewModel.kt
 package com.mouton.openwinemer.ui.list
 
+/*
+What it is:
+The logic behind the list screen.
+
+Why it exists:
+-Applies filters
+-Applies search
+-Applies sorting
+-Exposes Flow<List<WineEntity>>
+-Handles multi-delete
+-toggleFavorite
+
+Do you need it?
+Yes.
+Without it, your list screen would be 2000 lines long.
+ */
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mouton.openwinemer.data.model.WineEntity
@@ -126,6 +143,16 @@ class WineListViewModel @Inject constructor(
             onResult(json)
         }
     }
+
+    /**
+     * Toggle favorite state for a wine from the list.
+     */
+    fun toggleFavorite(id: Long) {
+        viewModelScope.launch {
+            repository.toggleFavorite(id)
+        }
+    }
+
 
 }
 

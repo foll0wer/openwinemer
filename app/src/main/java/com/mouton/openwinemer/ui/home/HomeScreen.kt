@@ -96,8 +96,8 @@ fun HomeScreen(
             // --- Tutorial overlay ---
             if (showHomeTutorial) {
                 TutorialOverlay(
-                    title = "Welcome",
-                    description = "Use these buttons to browse your cellar by list, region, or color.",
+                    title = stringResource(R.string.home_tutorial_title),
+                    description = stringResource(R.string.home_tutorial_description),
                     onDismiss = {
                         showHomeTutorial = false
                         TutorialPrefs.setSeen(context, "tutorial_home")

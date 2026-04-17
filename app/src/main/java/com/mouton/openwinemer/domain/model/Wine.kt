@@ -1,10 +1,25 @@
 package com.mouton.openwinemer.domain.model
 
+/*
+What it is:
+The version of a wine used by the UI and business logic.
+
+Why it exists:
+-UI needs mutable lists (e.g., prices)
+-UI needs clean, nullable-friendly fields
+-Domain model can evolve independently of the database
+
+Do you need it?
+Yes.
+Mixing UI models and database models is a classic beginner mistake that leads to bugs.
+ */
+
 import com.mouton.openwinemer.data.model.WineEntity
 
 // Modèle métier utilisé par l’UI
 data class Wine(
     val id: Long,
+    val isFavorite: Boolean = false,
 
     // Tous les champs sont optionnels (nullable) pour respecter l'utilisateur.
     val name: String? = null,                    // Nom du vin

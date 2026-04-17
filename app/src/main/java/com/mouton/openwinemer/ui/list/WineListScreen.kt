@@ -2,6 +2,24 @@
 
 package com.mouton.openwinemer.ui.list
 
+/*
+What it is:
+The screen that shows the list of wines.
+
+Why it exists:
+-Search
+-Filters
+-Sorting
+-Multi-select
+-Share multiple
+-Delete multiple
+-Favorite button per row
+
+Do you need it?
+Yes.
+This is one of your main screens.
+ */
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.*
@@ -29,6 +47,11 @@ import androidx.compose.material.icons.Icons
 import androidx.core.content.FileProvider
 import androidx.compose.material.icons.filled.Delete
 import java.io.File
+// favorite
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 
 /**
  * Écran listant les vins avec :
@@ -168,6 +191,9 @@ fun WineListScreen(
                     },
                     onLongClick = {
                         selectedIds = selectedIds + wine.id
+                    },
+                    onToggleFavorite = {
+                        viewModel.toggleFavorite(wine.id)
                     }
                 )
             }
@@ -229,23 +255,34 @@ fun WineListItemRow(
     wine: WineEntity,
     isSelected: Boolean,
     onClick: () -> Unit,
-    onLongClick: () -> Unit
+    onLongClick: () -> Unit,
+    onToggleFavorite: () -> Unit
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .background(if (isSelected) Color(0xFFE0E0E0) else Color.Transparent)
             .combinedClickable(onClick = onClick, onLongClick = onLongClick)
-            .padding(16.dp)
+            .padding(16.dp),
+        horizontalArrangement = Arrangement.SpaceBetween
     ) {
+        // Left side: wine info
         Column {
-            Text(wine.name ?: stringResource(R.string.unknown_wine_name), style = MaterialTheme.typography.titleMedium)
+            val w_name = wine.name ?: stringResource(R.string.unknown_wine_name)
+            val w_year = wine.vintage ?: stringResource(R.string.unknown_wine_year)
+            Text("$w_name • $w_year")
             Text(wine.producer ?: stringResource(R.string.unknown_wine_producer))
             val unk_region = wine.region ?: stringResource(R.string.unknown_wine_region)
             val unk_color = wine.color ?: stringResource(R.string.unknown_wine_color)
-
             Text("$unk_region • $unk_color")
-            //Text(stringResource(wine.region ?: R.string.unknown_wine_region, " • ", wine.color ?: R.string.unknown_wine_color))}
+        }
+        // Right side: favorite heart
+        IconButton(onClick = onToggleFavorite) {
+            val isFav = wine.isFavorite
+            Icon(
+                imageVector = if (isFav) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
+                contentDescription = stringResource(R.string.favorite_button)
+            )
         }
     }
 }

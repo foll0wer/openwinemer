@@ -1,6 +1,22 @@
 // WineDetailViewModel.kt
 package com.mouton.openwinemer.ui.detail
 
+/*
+What it is:
+The logic behind the detail screen.
+
+Why it exists:
+-Loads wine
+-Updates stock
+-Deletes wine
+-Toggles favorite
+-Exports JSON
+
+Do you need it?
+Yes.
+UI should never talk directly to the database.
+ */
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mouton.openwinemer.data.model.WineEntity
@@ -94,6 +110,19 @@ class WineDetailViewModel @Inject constructor(
             loadWine(wineId)
         }
     }
+
+    /**
+     * Toggle favorite state for the currently loaded wine.
+     */
+    fun toggleFavorite() {
+        val current = _wine.value ?: return
+        viewModelScope.launch {
+            repository.toggleFavorite(current.id)
+            // Reload from DB to get updated isFavorite
+            _wine.value = repository.getWineById(current.id)
+        }
+    }
+
 
 
 

@@ -22,6 +22,7 @@
     <string name="sort_dialog">Sort</string>
     <string name="filter_dialog">Filter</string>
     <string name="unknown_wine_name">Unknown wine name</string>
+    <string name="unknown_wine_year">Year unprovided</string>
     <string name="unknown_wine_producer">Unknown producer</string>
     <string name="unknown_wine_region">Unknown region</string>
     <string name="unknown_wine_color">Unknown color</string>
@@ -158,5 +159,50 @@
     <string name="delete_button_confirm">Delete</string>
     <string name="latest_price">Latest price</string>
     <string name="price_trend">Price trend</string>
+
+    <!-- Delete dialogs -->
+    <string name="delete_all_title">Delete all data</string>
+    <string name="delete_all_message">Are you sure you want to delete ALL wines from your cellar? This action cannot be undone.</string>
+    <!-- Final confirmation dialog -->
+    <string name="final_delete_title">Confirm deletion</string>
+    <string name="final_delete_instruction">To permanently delete all data, please type the following word:</string>
+    <string name="final_delete_keyword">OPENWINEMER</string>
+    <string name="final_delete_type_here">Type here to confirm</string>
+    <!-- Logs -->
+    <string name="logs_title">Application Logs</string>
+
+    <!-- Settings list items -->
+    <string name="settings_json_export_title">Export JSON backup</string>
+    <string name="settings_json_export_desc">Export your cellar as encrypted JSON</string>
+    <string name="settings_json_import_title">Import JSON backup</string>
+    <string name="settings_json_import_desc">Restore a JSON backup</string>
+    <string name="settings_csv_export_title">Export CSV</string>
+    <string name="settings_csv_export_desc">Export as CSV</string>
+    <string name="settings_excel_export_title">Export Excel-compatible CSV</string>
+    <string name="settings_excel_export_desc">Export as Excel-compatible CSV</string>
+    <string name="settings_delete_title">Delete all data</string>
+    <string name="settings_delete_desc">This action cannot be undone</string>
+    <string name="settings_privacy_title">Privacy policy</string>
+    <string name="settings_privacy_desc">Read how your data is handled</string>
+    <string name="settings_credits_title">Credits</string>
+    <string name="settings_credits_desc">OpenWinemer contributors</string>
+    <string name="settings_feedback_title">Send feedback</string>
+    <string name="settings_feedback_desc">Opens your email app</string>
+    <string name="settings_logs_title">View logs</string>
+    <string name="settings_logs_desc">Useful for debugging</string>
+
+    <!-- Privacy policy popup -->
+    <string name="privacy_title">Privacy policy</string>
+    <string name="privacy_message">OpenWinemer works fully offline and does not collect or transmit any personal data.</string>
+    <string name="privacy_ok">OK</string>
+
+    <string name="settings_screen_export_tutorial_title">Export your cellar</string>
+    <string name="settings_screen_export_tutorial_desc">Use these buttons to export your cellar as JSON, CSV, or Excel.</string>
+    <string name="home_tutorial_title">Welcome</string>
+    <string name="home_tutorial_description">Use these buttons to browse your cellar by list, region, or color.</string>
+    <string name="add_wine_tutorial_title">Add a wine</string>
+    <string name="add_wine_tutorial_description">Fill in the wine information. You can navigate pages using Next/Previous.</string>
+
+    <string name="favorite_button">Toggle favorite</string>
 
 </resources>

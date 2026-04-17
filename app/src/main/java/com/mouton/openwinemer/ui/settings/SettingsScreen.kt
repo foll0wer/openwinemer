@@ -18,7 +18,28 @@ import androidx.compose.ui.platform.LocalContext
 // import for tutorial bubble
 import com.mouton.openwinemer.ui.components.TutorialOverlay
 import com.mouton.openwinemer.util.TutorialPrefs
-import androidx.compose.ui.platform.LocalContext
+// Material You list items + icons
+import androidx.compose.material3.ListItem
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Backup
+import androidx.compose.material.icons.filled.Restore
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.List
+// For clickable
+import androidx.compose.foundation.clickable
+// For opening URLs
+import androidx.compose.ui.platform.LocalUriHandler
+// For logs
+import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.rememberModalBottomSheetState
+import com.mouton.openwinemer.util.LogReader
+// For sending email
+import android.content.Intent
+// scroll
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 
 
 /**
@@ -47,6 +68,19 @@ fun SettingsScreen(
     val message by viewModel.uiMessage
 
     val context = LocalContext.current
+
+    // --- New UI state for modern settings screen ---
+    var showDeleteDialog by remember { mutableStateOf(false) }
+    // Second confirmation dialog (typing OPENWINEMER)
+    var showFinalDeleteDialog by remember { mutableStateOf(false) }
+    // Text typed by the user in the final confirmation dialog
+    var deleteConfirmText by remember { mutableStateOf("") }
+    var showLogsSheet by remember { mutableStateOf(false) }
+    val logsSheetState = rememberModalBottomSheetState()
+    val uriHandler = LocalUriHandler.current
+
+    // --- Privacy policy dialog state ---
+    var showPrivacyDialog by remember { mutableStateOf(false) }
 
     // --- Tutorial state for Export section ---
     var showExportTutorial by remember { mutableStateOf(false) }
@@ -125,72 +159,123 @@ fun SettingsScreen(
             modifier = Modifier
                 .padding(padding)
                 .fillMaxSize()
+                .verticalScroll(rememberScrollState())
         ) {
             Column(
                 modifier = Modifier
-                    .padding(16.dp)
+                    .padding(padding)
                     .fillMaxSize()
             ) {
-                Text(
-                    stringResource(R.string.cave_backup_page),
-                    style = MaterialTheme.typography.titleMedium
-                )
-                Spacer(Modifier.height(8.dp))
-
-                // Champ pour saisir un mot de passe optionnel.
+                // --- PASSWORD FIELD (used for JSON import/export encryption) ---
                 OutlinedTextField(
                     value = viewModel.password.value,
                     onValueChange = { viewModel.setPassword(it) },
                     label = { Text(stringResource(R.string.password_prompt)) },
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 8.dp)
                 )
-
-                Spacer(Modifier.height(16.dp))
-
-                // Bouton pour exporter un backup JSON.
-                Button(
-                    onClick = { exportJsonLauncher.launch(null) },
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Text(stringResource(R.string.json_export_button))
-                }
-
                 Spacer(Modifier.height(8.dp))
 
-                // Bouton pour importer un backup JSON.
-                Button(
-                    onClick = { importJsonLauncher.launch("*/*") },
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Text(stringResource(R.string.json_import_button))
-                }
+                // --- BACKUP JSON ---
+                ListItem(
+                    headlineContent = { Text(stringResource(R.string.json_export_button)) },
+                    supportingContent = { Text(stringResource(R.string.settings_json_export_desc)) },
+                    leadingContent = { Icon(Icons.Default.Backup, contentDescription = null) },
+                    modifier = Modifier.clickable { exportJsonLauncher.launch(null) }
+                )
+                HorizontalDivider()
 
-                Spacer(Modifier.height(24.dp))
+                // --- RESTORE JSON ---
+                ListItem(
+                    headlineContent = { Text(stringResource(R.string.json_import_button)) },
+                    supportingContent = { Text(stringResource(R.string.settings_json_import_desc)) },
+                    leadingContent = { Icon(Icons.Default.Restore, contentDescription = null) },
+                    modifier = Modifier.clickable { importJsonLauncher.launch("*/*") }
+                )
+                HorizontalDivider()
 
-                // Bouton pour exporter un CSV.
-                Button(
-                    onClick = { exportCsvLauncher.launch(null) },
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Text(stringResource(R.string.csv_export_button))
-                }
+                // --- CSV EXPORT ---
+                ListItem(
+                    headlineContent = { Text(stringResource(R.string.csv_export_button)) },
+                    supportingContent = { Text(stringResource(R.string.settings_csv_export_title)) },
+                    leadingContent = { Icon(Icons.Default.Backup, contentDescription = null) },
+                    modifier = Modifier.clickable { exportCsvLauncher.launch(null) }
+                )
+                HorizontalDivider()
 
-                Spacer(Modifier.height(8.dp))
+                // --- EXCEL EXPORT ---
+                ListItem(
+                    headlineContent = { Text(stringResource(R.string.excel_export_button)) },
+                    supportingContent = { Text(stringResource(R.string.settings_excel_export_desc)) },
+                    leadingContent = { Icon(Icons.Default.Backup, contentDescription = null) },
+                    modifier = Modifier.clickable { exportExcelLauncher.launch(null) }
+                )
+                HorizontalDivider()
 
-                // Bouton pour exporter un "Excel" (CSV compatible).
-                Button(
-                    onClick = { exportExcelLauncher.launch(null) },
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Text(stringResource(R.string.excel_export_button))
-                }
+                // --- DELETE ALL DATA ---
+                ListItem(
+                    headlineContent = { Text(stringResource(R.string.settings_delete_title)) },
+                    supportingContent = { Text(stringResource(R.string.settings_delete_desc)) },
+                    leadingContent = { Icon(Icons.Default.Delete, contentDescription = null) },
+                    modifier = Modifier.clickable { showDeleteDialog = true }
+                )
+                HorizontalDivider()
+
+                // --- PRIVACY POLICY ---
+                ListItem(
+                    headlineContent = { Text(stringResource(R.string.settings_privacy_title)) },
+                    supportingContent = { Text(stringResource(R.string.settings_privacy_desc)) },
+                    leadingContent = { Icon(Icons.Default.Info, contentDescription = null) },
+                    modifier = Modifier.clickable {
+                        // Open the privacy popup instead of a website
+                        showPrivacyDialog = true
+                    }
+                )
+                HorizontalDivider()
+
+                // --- CREDITS ---
+                ListItem(
+                    headlineContent = { Text(stringResource(R.string.settings_credits_title)) },
+                    supportingContent = { Text(stringResource(R.string.settings_credits_desc)) },
+                    leadingContent = { Icon(Icons.Default.Info, contentDescription = null) },
+                    modifier = Modifier.clickable {
+                        uriHandler.openUri("https://github.com/foll0wer/openwinemer")
+                    }
+                )
+                HorizontalDivider()
+
+                // --- FEEDBACK ---
+                ListItem(
+                    headlineContent = { Text(stringResource(R.string.settings_feedback_title)) },
+                    supportingContent = { Text(stringResource(R.string.settings_feedback_desc)) },
+                    leadingContent = { Icon(Icons.Default.Email, contentDescription = null) },
+                    modifier = Modifier.clickable {
+                        val intent = Intent(Intent.ACTION_SEND).apply {
+                            type = "message/rfc822"
+                            putExtra(Intent.EXTRA_EMAIL, arrayOf("151058944+foll0wer@users.noreply.github.com"))
+                            putExtra(Intent.EXTRA_SUBJECT, "OpenWinemer Feedback")
+                        }
+                        context.startActivity(intent)
+                    }
+                )
+                HorizontalDivider()
+
+                // --- LOGS ---
+                ListItem(
+                    headlineContent = { Text(stringResource(R.string.settings_logs_title)) },
+                    supportingContent = { Text(stringResource(R.string.settings_logs_desc)) },
+                    leadingContent = { Icon(Icons.Filled.List, contentDescription = null) },
+                    modifier = Modifier.clickable { showLogsSheet = true }
+                )
+                HorizontalDivider()
             }
         }
         // --- Tutorial overlay ---
         if (showExportTutorial) {
             TutorialOverlay(
-                title = "Export your cellar",
-                description = "Use these buttons to export your cellar as JSON, CSV, or Excel.",
+                title = stringResource(R.string.settings_screen_export_tutorial_title),
+                description = stringResource(R.string.settings_screen_export_tutorial_desc),
                 onDismiss = {
                     showExportTutorial = false
                     TutorialPrefs.setSeen(context, "tutorial_export")
@@ -237,6 +322,103 @@ fun SettingsScreen(
         )
     }
 
+    // --- FIRST DELETE DIALOG (simple yes/no) ---
+    if (showDeleteDialog) {
+        AlertDialog(
+            onDismissRequest = { showDeleteDialog = false },
+            title = { Text(stringResource(R.string.delete_all_title)) },
+            text = { Text(stringResource(R.string.delete_all_message)) },
+            // User clicks DELETE → opens second dialog
+            confirmButton = {
+                TextButton(onClick = {
+                    showDeleteDialog = false
+                    showFinalDeleteDialog = true   // <-- open second dialog
+                }) {
+                    Text("Delete")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDeleteDialog = false }) {
+                    Text("Cancel")
+                }
+            }
+        )
+    }
+
+    // --- SECOND DELETE DIALOG (requires typing OPENWINEMER) ---
+    if (showFinalDeleteDialog) {
+        AlertDialog(
+            onDismissRequest = {
+                showFinalDeleteDialog = false
+                deleteConfirmText = ""
+            },
+            title = { Text(stringResource(R.string.final_delete_title)) },
+            text = {
+                Column {
+                    Text(stringResource(R.string.final_delete_instruction))
+                    Spacer(Modifier.height(8.dp))
+                    Text(
+                        text = stringResource(R.string.final_delete_keyword),
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.error
+                    )
+                    Spacer(Modifier.height(12.dp))
+                    // User must type the confirmation word
+                    OutlinedTextField(
+                        value = deleteConfirmText,
+                        onValueChange = { deleteConfirmText = it },
+                        label = { Text(stringResource(R.string.final_delete_type_here)) },
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+            },
+            // DELETE button only enabled if typed correctly
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showFinalDeleteDialog = false
+                        deleteConfirmText = ""
+                        viewModel.deleteAllData()   // <-- calls ViewModel function
+                    },
+                    enabled = deleteConfirmText == "OPENWINEMER"
+                ) {
+                    Text(stringResource(R.string.delete_button))
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        showFinalDeleteDialog = false
+                        deleteConfirmText = ""
+                    }
+                ) {
+                    Text(stringResource(R.string.cancel_button))
+                }
+            }
+        )
+    }
+
+    // --- Privacy policy popup dialog ---
+    if (showPrivacyDialog) {
+        AlertDialog(
+            onDismissRequest = { showPrivacyDialog = false },
+
+            // Title of the dialog
+            title = { Text(stringResource(R.string.privacy_title)) },
+
+            // Main message explaining offline behavior
+            text = { Text(stringResource(R.string.privacy_message)) },
+
+            // Single OK button
+            confirmButton = {
+                TextButton(onClick = { showPrivacyDialog = false }) {
+                    Text(stringResource(R.string.privacy_ok))
+                }
+            }
+        )
+    }
+
+
     LaunchedEffect(message) {
         val msg = message
         if (msg != null) {
@@ -244,4 +426,22 @@ fun SettingsScreen(
             viewModel.clearMessage()
         }
     }
+
+    // --- Logs bottom sheet ---
+    if (showLogsSheet) {
+        ModalBottomSheet(
+            onDismissRequest = { showLogsSheet = false },
+            sheetState = logsSheetState
+        ) {
+            val logs = remember { LogReader.readLogs() }
+
+            Column(modifier = Modifier.padding(16.dp)) {
+                Text(stringResource(R.string.logs_title), style = MaterialTheme.typography.titleMedium)
+                Spacer(Modifier.height(12.dp))
+                Text(logs, style = MaterialTheme.typography.bodySmall)
+                Spacer(Modifier.height(24.dp))
+            }
+        }
+    }
+
 }

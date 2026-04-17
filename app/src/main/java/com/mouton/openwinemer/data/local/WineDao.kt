@@ -1,6 +1,17 @@
 // WineDao.kt
 package com.mouton.openwinemer.data.local
 
+/*
+What it is:
+The interface that defines SQL queries (get, insert, update, delete).
+
+Why it exists:
+Room generates the SQL code for you based on this interface.
+
+Do you need it?
+Absolutely. It’s the only way to talk to the database.
+ */
+
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -61,6 +72,15 @@ interface WineDao {
     @Query("SELECT MAX(id) FROM wines")
     suspend fun getLastId(): Long?
 
+    // Toggle the favorite flag for a given wine
+    @Query("UPDATE wines SET isFavorite = NOT isFavorite WHERE id = :id")
+    suspend fun toggleFavorite(id: Long)
+
+    // Get all wines marked as favorite
+    @Query("SELECT * FROM wines WHERE isFavorite = 1")
+    fun getFavoriteWines(): Flow<List<WineEntity>>
+
+
     /*
     @Insert
     suspend fun insertPriceEntry(entry: PriceEntryEntity)
@@ -71,4 +91,6 @@ interface WineDao {
     @Delete
     suspend fun deletePriceEntry(entry: PriceEntryEntity)
     */
+
+
 }

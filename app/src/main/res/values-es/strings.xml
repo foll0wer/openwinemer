@@ -22,6 +22,7 @@
     <string name="sort_dialog">Ordenar</string>
     <string name="filter_dialog">Filtrar</string>
     <string name="unknown_wine_name">Nombre de vino desconocido</string>
+    <string name="unknown_wine_year">Año desconocido</string>
     <string name="unknown_wine_producer">Productor desconocido</string>
     <string name="unknown_wine_region">Región desconocida</string>
     <string name="unknown_wine_color">Color desconocido</string>
@@ -158,5 +159,50 @@
     <string name="delete_button_confirm">Eliminar</string>
     <string name="latest_price">Último precio</string>
     <string name="price_trend">Tendencia del precio</string>
+
+    <!-- Delete dialogs -->
+    <string name="delete_all_title">Eliminar todos los datos</string>
+    <string name="delete_all_message">¿Está seguro de que desea eliminar TODOS los vinos de su bodega? Esta acción no se puede deshacer.</string>
+    <!-- Final confirmation dialog -->
+    <string name="final_delete_title">Confirmar eliminación</string>
+    <string name="final_delete_instruction">Para eliminar permanentemente todos los datos, escriba la siguiente palabra:</string>
+    <string name="final_delete_keyword">OPENWINEMER</string>
+    <string name="final_delete_type_here">Escriba aquí para confirmar</string>
+    <!-- Logs -->
+    <string name="logs_title">Registros de la aplicación</string>
+
+    <!-- Settings list items -->
+    <string name="settings_json_export_title">Exportar copia JSON</string>
+    <string name="settings_json_export_desc">Exportar su bodega como JSON cifrado</string>
+    <string name="settings_json_import_title">Importar copia JSON</string>
+    <string name="settings_json_import_desc">Restaurar una copia JSON</string>
+    <string name="settings_csv_export_title">Exportar CSV</string>
+    <string name="settings_csv_export_desc">Exportar como CSV</string>
+    <string name="settings_excel_export_title">Exportar CSV compatible con Excel</string>
+    <string name="settings_excel_export_desc">Exportar como CSV compatible con Excel</string>
+    <string name="settings_delete_title">Eliminar todos los datos</string>
+    <string name="settings_delete_desc">Esta acción no se puede deshacer</string>
+    <string name="settings_privacy_title">Política de privacidad</string>
+    <string name="settings_privacy_desc">Leer cómo se manejan sus datos</string>
+    <string name="settings_credits_title">Créditos</string>
+    <string name="settings_credits_desc">Colaboradores de OpenWinemer</string>
+    <string name="settings_feedback_title">Enviar comentarios</string>
+    <string name="settings_feedback_desc">Abre su aplicación de correo</string>
+    <string name="settings_logs_title">Ver registros</string>
+    <string name="settings_logs_desc">Útil para depuración</string>
+
+    <!-- Privacy policy popup -->
+    <string name="privacy_title">Política de privacidad</string>
+    <string name="privacy_message">OpenWinemer funciona completamente sin conexión y no recopila ni transmite ningún dato personal.</string>
+    <string name="privacy_ok">Aceptar</string>
+
+    <string name="settings_screen_export_tutorial_title">Exportar tu bodega</string>
+    <string name="settings_screen_export_tutorial_desc">Utiliza estos botones para exportar tu bodega en formato JSON, CSV o Excel.</string>
+    <string name="home_tutorial_title">Bienvenido</string>
+    <string name="home_tutorial_description">Utiliza estos botones para explorar tu bodega por lista, región o color.</string>
+    <string name="add_wine_tutorial_title">Añadir un vino</string>
+    <string name="add_wine_tutorial_description">Rellena los datos del vino. Puedes desplazarte por las páginas con los botones Siguiente y Anterior.</string>
+
+    <string name="favorite_button">Marcar como favorito</string>
 
 </resources>

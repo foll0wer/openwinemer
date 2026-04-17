@@ -1,6 +1,20 @@
 // WineRepository.kt
 package com.mouton.openwinemer.data.repository
 
+/*
+What it is:
+A middle layer between ViewModels and Room.
+
+Why it exists:
+-Keeps ViewModels clean
+-Centralizes data logic
+-Allows you to change the database later without touching UI
+-Makes testing easier
+
+Do you need it?
+Yes. Without it, your ViewModels would become a mess.
+ */
+
 import com.mouton.openwinemer.data.local.WineDao
 import com.mouton.openwinemer.data.model.WineEntity
 import kotlinx.coroutines.flow.Flow
@@ -74,6 +88,15 @@ class WineRepository @Inject constructor(
             wines
         )
     }
+
+    // Toggle favorite state for a wine by ID
+    suspend fun toggleFavorite(id: Long) {
+        wineDao.toggleFavorite(id)
+    }
+
+    // Flow of all favorite wines
+    fun getFavoriteWinesFlow(): Flow<List<WineEntity>> = wineDao.getFavoriteWines()
+
 
 
 }
