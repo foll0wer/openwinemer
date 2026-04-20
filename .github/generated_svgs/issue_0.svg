@@ -150,36 +150,36 @@
 
 <!-- Titre -->
 <text class="title" x="14" y="42">
-    Add tutorial for first time <tspan class="muted">#4</tspan>
+    Finish CSV export <tspan class="muted">#5</tspan>
 </text>
 
 <!-- Sous-ligne : auteur + commentaires -->
 <text class="muted" x="14" y="72">
-    Ouverte par foll0wer · 0 commentaires
+    Ouverte par foll0wer · 1 commentaires
 </text>
 
 <!-- Labels -->
 
-        <g transform="translate(499, 14)">
+        <g transform="translate(555, 14)">
             <rect class="labelBg"
                   x="0" y="0"
-                  width="101" height="26" rx="13"
-                  fill="#a2eeef" stroke="#a2eeef" />
+                  width="45" height="26" rx="13"
+                  fill="#d73a4a" stroke="#d73a4a" />
             <text class="label"
-                  x="50.5" y="17"
+                  x="22.5" y="17"
                   text-anchor="middle"
-                  fill="white">enhancement</text>
+                  fill="white">bug</text>
         </g>
         
-        <g transform="translate(383, 14)">
+        <g transform="translate(449, 14)">
             <rect class="labelBg"
                   x="0" y="0"
-                  width="106" height="26" rx="13"
-                  fill="#a4f5b3" stroke="#a4f5b3" />
+                  width="96" height="26" rx="13"
+                  fill="#eddb76" stroke="#eddb76" />
             <text class="label"
-                  x="53.0" y="17"
+                  x="48.0" y="17"
                   text-anchor="middle"
-                  fill="white">status:review</text>
+                  fill="white">status:doing</text>
         </g>
         
 

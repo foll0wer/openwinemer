@@ -155,7 +155,7 @@
 
 <!-- Sous-ligne : auteur + commentaires -->
 <text class="muted" x="14" y="72">
-    Ouverte par foll0wer · 0 commentaires
+    Ouverte par foll0wer · 1 commentaires
 </text>
 
 <!-- Labels -->
@@ -171,15 +171,15 @@
                   fill="white">bug</text>
         </g>
         
-        <g transform="translate(455, 14)">
+        <g transform="translate(453, 14)">
             <rect class="labelBg"
                   x="0" y="0"
-                  width="90" height="26" rx="13"
-                  fill="#4e0c64" stroke="#4e0c64" />
+                  width="92" height="26" rx="13"
+                  fill="#ab870b" stroke="#ab870b" />
             <text class="label"
-                  x="45.0" y="17"
+                  x="46.0" y="17"
                   text-anchor="middle"
-                  fill="white">status:todo</text>
+                  fill="white">status:done</text>
         </g>
         
 
